@@ -1,0 +1,5 @@
+D:\Working\coding\TNVCMS\TNVCMS.Utility\bin\Debug\TNVCMS.Utility.dll
+D:\Working\coding\TNVCMS\TNVCMS.Utility\bin\Debug\TNVCMS.Utility.pdb
+D:\Working\coding\TNVCMS\TNVCMS.Utility\obj\Debug\TNVCMS.Utility.csprojResolveAssemblyReference.cache
+D:\Working\coding\TNVCMS\TNVCMS.Utility\obj\Debug\TNVCMS.Utility.dll
+D:\Working\coding\TNVCMS\TNVCMS.Utility\obj\Debug\TNVCMS.Utility.pdb
