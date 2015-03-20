@@ -1,0 +1,9 @@
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Domain.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Domain.pdb
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Data.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\bin\Debug\EntityFramework.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Data.pdb
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\bin\Debug\EntityFramework.xml
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.csprojResolveAssemblyReference.cache
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.pdb

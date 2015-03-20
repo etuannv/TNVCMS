@@ -1,0 +1,9 @@
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\bin\Debug\TNVCMS.Data.dll.config
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\bin\Debug\TNVCMS.Data.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\bin\Debug\TNVCMS.Data.pdb
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.xml
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.pdb

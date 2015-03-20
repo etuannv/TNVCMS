@@ -1,0 +1,9 @@
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Domain\bin\Debug\Blog.Samples.MVCEF6.Domain.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Domain\bin\Debug\Blog.Samples.MVCEF6.Domain.pdb
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Domain\bin\Debug\Blog.Samples.MVCEF6.Data.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Domain\bin\Debug\EntityFramework.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Domain\bin\Debug\Blog.Samples.MVCEF6.Data.pdb
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Domain\bin\Debug\EntityFramework.xml
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Domain\obj\Debug\Blog.Samples.MVCEF6.Domain.csprojResolveAssemblyReference.cache
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Domain\obj\Debug\Blog.Samples.MVCEF6.Domain.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Domain\obj\Debug\Blog.Samples.MVCEF6.Domain.pdb

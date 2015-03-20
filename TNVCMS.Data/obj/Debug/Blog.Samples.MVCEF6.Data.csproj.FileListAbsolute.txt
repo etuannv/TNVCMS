@@ -1,0 +1,10 @@
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Data\bin\Debug\Blog.Samples.MVCEF6.Data.dll.config
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Data\bin\Debug\Blog.Samples.MVCEF6.Data.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Data\bin\Debug\Blog.Samples.MVCEF6.Data.pdb
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Data\bin\Debug\EntityFramework.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Data\bin\Debug\EntityFramework.xml
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Data\obj\Debug\Blog.Samples.MVCEF6.Data.csprojResolveAssemblyReference.cache
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Data\obj\Debug\Blog.Samples.MVCEF6.Data.dll
+C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Web\Blog.Samples.MVCEF6.Data\obj\Debug\Blog.Samples.MVCEF6.Data.pdb

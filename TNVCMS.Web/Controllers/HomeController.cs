@@ -1,32 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using TNVCMS.Domain.Services;
+using TNVCMS.Web.Models;
 
 namespace TNVCMS.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IT_NewsServices _newsServices;
+
+        public HomeController(IT_NewsServices newsServices)
+        {
+            _newsServices = newsServices;
+        }
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
-            return View();
+            return View(new HomeViewModel()
+                {
+                    T_Newses = _newsServices.GetAllNews()
+                });
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
