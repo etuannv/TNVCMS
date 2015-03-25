@@ -7,3 +7,12 @@ C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\bin\Debug\
 C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.csprojResolveAssemblyReference.cache
 C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.dll
 C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.pdb
+D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Domain.dll
+D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Domain.pdb
+D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Data.dll
+D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\bin\Debug\EntityFramework.dll
+D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Data.pdb
+D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\bin\Debug\EntityFramework.xml
+D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.csprojResolveAssemblyReference.cache
+D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.dll
+D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.pdb

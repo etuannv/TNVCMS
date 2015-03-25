@@ -25,6 +25,12 @@ namespace TNVCMS.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Css/AdminStyle").Include(
+                        "~/Css/AdminStyle.css"
+                        , "~/Css/AdminSkinBlue.css"
+                        , "~/Css/AdminCustomize.css"
+                        , "~/Css/AdminLTE.css"));
+
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",
@@ -38,6 +44,7 @@ namespace TNVCMS.Web
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+            
         }
     }
 }

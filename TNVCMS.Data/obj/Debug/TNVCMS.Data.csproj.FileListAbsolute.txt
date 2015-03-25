@@ -7,3 +7,12 @@ C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\bin\Debug\En
 C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.dll
 C:\Users\TTHT8\Downloads\Blog.Samples.MVCEF6.Web\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.pdb
+D:\Working\coding\Github\TNVCMS\TNVCMS.Data\bin\Debug\TNVCMS.Data.dll.config
+D:\Working\coding\Github\TNVCMS\TNVCMS.Data\bin\Debug\TNVCMS.Data.dll
+D:\Working\coding\Github\TNVCMS\TNVCMS.Data\bin\Debug\TNVCMS.Data.pdb
+D:\Working\coding\Github\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.dll
+D:\Working\coding\Github\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Working\coding\Github\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.xml
+D:\Working\coding\Github\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Working\coding\Github\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.dll
+D:\Working\coding\Github\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.pdb

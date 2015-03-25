@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TNVCMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="T_News">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsDescriptionDisplay" Type="Boolean" />
+    <Property Name="AvataImageUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsAvataDisplay" Type="Boolean" />
+    <Property Name="IsHotNews" Type="Boolean" />
+    <Property Name="ContentNews" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PublishDate" Type="DateTime" Precision="0" />
+    <Property Name="UnPublishDate" Type="DateTime" Precision="0" />
+    <Property Name="IsPublish" Type="Boolean" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="NewsCategoryID" Type="Int32" />
+    <Property Name="NewsEventID" Type="Int32" />
+    <NavigationProperty Name="T_NewsCategory" Relationship="Self.FK_T_News_T_NewsCategory" FromRole="T_News" ToRole="T_NewsCategory" />
+    <NavigationProperty Name="T_NewsEvents" Relationship="Self.FK_T_News_T_NewsEvents" FromRole="T_News" ToRole="T_NewsEvents" />
+  </EntityType>
+  <EntityType Name="T_NewsCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_News" Relationship="Self.FK_T_News_T_NewsCategory" FromRole="T_NewsCategory" ToRole="T_News" />
+  </EntityType>
+  <EntityType Name="T_NewsEvents">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_News" Relationship="Self.FK_T_News_T_NewsEvents" FromRole="T_NewsEvents" ToRole="T_News" />
+  </EntityType>
+  <Association Name="FK_T_News_T_NewsCategory">
+    <End Role="T_NewsCategory" Type="Self.T_NewsCategory" Multiplicity="0..1" />
+    <End Role="T_News" Type="Self.T_News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_NewsCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_News">
+        <PropertyRef Name="NewsCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_News_T_NewsEvents">
+    <End Role="T_NewsEvents" Type="Self.T_NewsEvents" Multiplicity="0..1" />
+    <End Role="T_News" Type="Self.T_News" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_NewsEvents">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_News">
+        <PropertyRef Name="NewsEventID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TNVCMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="T_News" EntityType="Self.T_News" />
+    <EntitySet Name="T_NewsCategory" EntityType="Self.T_NewsCategory" />
+    <EntitySet Name="T_NewsEvents" EntityType="Self.T_NewsEvents" />
+    <AssociationSet Name="FK_T_News_T_NewsCategory" Association="Self.FK_T_News_T_NewsCategory">
+      <End Role="T_NewsCategory" EntitySet="T_NewsCategory" />
+      <End Role="T_News" EntitySet="T_News" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_News_T_NewsEvents" Association="Self.FK_T_News_T_NewsEvents">
+      <End Role="T_NewsEvents" EntitySet="T_NewsEvents" />
+      <End Role="T_News" EntitySet="T_News" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
