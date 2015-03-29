@@ -16,3 +16,13 @@ D:\Working\coding\Github\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.xml
 D:\Working\coding\Github\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.SqlServer.xml
 D:\Working\coding\Github\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.dll
 D:\Working\coding\Github\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.pdb
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Data\bin\Debug\TNVCMS.Data.dll.config
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Data\bin\Debug\TNVCMS.Data.dll
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Data\bin\Debug\TNVCMS.Data.pdb
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.dll
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.xml
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.csprojResolveAssemblyReference.cache
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.dll
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Data\obj\Debug\TNVCMS.Data.pdb
