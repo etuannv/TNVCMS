@@ -77,10 +77,10 @@
     <Compile Include="DatabaseModel\T_News.cs">
       <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\T_NewsCategory.cs">
+    <Compile Include="DatabaseModel\T_News_Tag.cs">
       <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseModel\T_NewsEvents.cs">
+    <Compile Include="DatabaseModel\T_Tag.cs">
       <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

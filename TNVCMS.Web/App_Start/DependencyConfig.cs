@@ -12,6 +12,7 @@ namespace TNVCMS.Web.App_Start
         public static void Configure(ContainerBuilder builder)
         {
             builder.RegisterAssemblyTypes(typeof(T_NewsServices).Assembly).AsImplementedInterfaces().InstancePerHttpRequest();
+            builder.RegisterAssemblyTypes(typeof(T_TagServices).Assembly).AsImplementedInterfaces().InstancePerHttpRequest();
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly)
                    .PropertiesAutowired();

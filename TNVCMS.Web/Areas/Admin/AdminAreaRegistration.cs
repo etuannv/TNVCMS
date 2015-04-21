@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Blog.Samples.MVCEF6.Web.Areas.Admin
+namespace TNVCMS.Web.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration
     {

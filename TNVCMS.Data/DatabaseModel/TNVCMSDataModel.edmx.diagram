@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="938110a99a1c40efbae48d63fa20555f" Name="Diagram1">
-        <EntityTypeShape EntityType="TNVCMSModel.T_News" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TNVCMSModel.T_NewsCategory" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="TNVCMSModel.T_NewsEvents" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
-        <AssociationConnector Association="TNVCMSModel.FK_T_News_T_NewsCategory" ManuallyRouted="false" />
-        <AssociationConnector Association="TNVCMSModel.FK_T_News_T_NewsEvents" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TNVCMSModel.T_News" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="TNVCMSModel.T_News_Tag" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="TNVCMSModel.T_Tag" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="TNVCMSModel.FK_T_News_Tag_T_News1" />
+        <AssociationConnector Association="TNVCMSModel.FK_T_News_Tag_T_Tag1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

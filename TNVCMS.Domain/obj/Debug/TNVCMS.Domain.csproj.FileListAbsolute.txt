@@ -16,12 +16,3 @@ D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\bin\Debug\EntityFramework.xml
 D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.csprojResolveAssemblyReference.cache
 D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.dll
 D:\Working\coding\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.pdb
-D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Domain.dll
-D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Domain.pdb
-D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Data.dll
-D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\bin\Debug\EntityFramework.dll
-D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Data.pdb
-D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\bin\Debug\EntityFramework.xml
-D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.csprojResolveAssemblyReference.cache
-D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.dll
-D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.pdb

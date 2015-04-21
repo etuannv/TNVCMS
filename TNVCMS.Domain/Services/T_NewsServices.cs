@@ -17,7 +17,6 @@ namespace TNVCMS.Domain.Services
         public IEnumerable<T_News> GetAllNews()
         {
             return _newsRepository.GetAll();
-            
         }
 
     }

@@ -13,7 +13,7 @@ namespace TNVCMS.Data.DatabaseModel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using TNVCMS.Data.DataAcess;
-
+    
     public partial class TNVCMSEntities : DbContext, IDbContext
     {
         public TNVCMSEntities()
@@ -32,7 +32,7 @@ namespace TNVCMS.Data.DatabaseModel
         }
     
         public virtual DbSet<T_News> T_News { get; set; }
-        public virtual DbSet<T_NewsCategory> T_NewsCategory { get; set; }
-        public virtual DbSet<T_NewsEvents> T_NewsEvents { get; set; }
+        public virtual DbSet<T_News_Tag> T_News_Tag { get; set; }
+        public virtual DbSet<T_Tag> T_Tag { get; set; }
     }
 }

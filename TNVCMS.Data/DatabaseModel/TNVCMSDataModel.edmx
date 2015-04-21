@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TNVCMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TNVCMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="T_News">
           <Key>
             <PropertyRef Name="ID" />
@@ -25,77 +25,84 @@
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="ModifiedDate" Type="datetime" />
-          <Property Name="NewsCategoryID" Type="int" />
-          <Property Name="NewsEventID" Type="int" />
         </EntityType>
-        <EntityType Name="T_NewsCategory">
+        <EntityType Name="T_News_Tag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TagID" Type="int" Nullable="false" />
+          <Property Name="NewsID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Tag">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="255" />
-          <Property Name="Priority" Type="int" />
+          <Property Name="Slug" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Taxonomy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentID" Type="int" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="T_NewsEvents">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="255" />
-          <Property Name="StartDate" Type="date" />
-          <Property Name="EndDate" Type="date" />
-          <Property Name="Priority" Type="int" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="ModifiedDate" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <Association Name="FK_T_News_T_NewsCategory">
-          <End Role="T_NewsCategory" Type="Self.T_NewsCategory" Multiplicity="0..1" />
-          <End Role="T_News" Type="Self.T_News" Multiplicity="*" />
+        <Association Name="FK_T_News_Tag_T_News1">
+          <End Role="T_News" Type="Self.T_News" Multiplicity="1" />
+          <End Role="T_News_Tag" Type="Self.T_News_Tag" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="T_NewsCategory">
+            <Principal Role="T_News">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="T_News">
-              <PropertyRef Name="NewsCategoryID" />
+            <Dependent Role="T_News_Tag">
+              <PropertyRef Name="NewsID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_T_News_T_NewsEvents">
-          <End Role="T_NewsEvents" Type="Self.T_NewsEvents" Multiplicity="0..1" />
-          <End Role="T_News" Type="Self.T_News" Multiplicity="*" />
+        <Association Name="FK_T_News_Tag_T_Tag1">
+          <End Role="T_Tag" Type="Self.T_Tag" Multiplicity="1" />
+          <End Role="T_News_Tag" Type="Self.T_News_Tag" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="T_NewsEvents">
+            <Principal Role="T_Tag">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="T_News">
-              <PropertyRef Name="NewsEventID" />
+            <Dependent Role="T_News_Tag">
+              <PropertyRef Name="TagID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="TNVCMSModelStoreContainer">
           <EntitySet Name="T_News" EntityType="Self.T_News" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="T_NewsCategory" EntityType="Self.T_NewsCategory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="T_NewsEvents" EntityType="Self.T_NewsEvents" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_T_News_T_NewsCategory" Association="Self.FK_T_News_T_NewsCategory">
-            <End Role="T_NewsCategory" EntitySet="T_NewsCategory" />
+          <EntitySet Name="T_News_Tag" EntityType="Self.T_News_Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Tag" EntityType="Self.T_Tag" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_T_News_Tag_T_News1" Association="Self.FK_T_News_Tag_T_News1">
             <End Role="T_News" EntitySet="T_News" />
+            <End Role="T_News_Tag" EntitySet="T_News_Tag" />
           </AssociationSet>
-          <AssociationSet Name="FK_T_News_T_NewsEvents" Association="Self.FK_T_News_T_NewsEvents">
-            <End Role="T_NewsEvents" EntitySet="T_NewsEvents" />
-            <End Role="T_News" EntitySet="T_News" />
+          <AssociationSet Name="FK_T_News_Tag_T_Tag1" Association="Self.FK_T_News_Tag_T_Tag1">
+            <End Role="T_Tag" EntitySet="T_Tag" />
+            <End Role="T_News_Tag" EntitySet="T_News_Tag" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TNVCMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TNVCMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_News" EntityType="TNVCMSModel.T_News" />
+          <EntitySet Name="T_News_Tag" EntityType="TNVCMSModel.T_News_Tag" />
+          <EntitySet Name="T_Tag" EntityType="TNVCMSModel.T_Tag" />
+          <AssociationSet Name="FK_T_News_Tag_T_News1" Association="TNVCMSModel.FK_T_News_Tag_T_News1">
+            <End Role="T_News" EntitySet="T_News" />
+            <End Role="T_News_Tag" EntitySet="T_News_Tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_News_Tag_T_Tag1" Association="TNVCMSModel.FK_T_News_Tag_T_Tag1">
+            <End Role="T_Tag" EntitySet="T_Tag" />
+            <End Role="T_News_Tag" EntitySet="T_News_Tag" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="T_News">
           <Key>
             <PropertyRef Name="ID" />
@@ -116,77 +123,59 @@
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="NewsCategoryID" Type="Int32" />
-          <Property Name="NewsEventID" Type="Int32" />
-          <NavigationProperty Name="T_NewsCategory" Relationship="Self.FK_T_News_T_NewsCategory" FromRole="T_News" ToRole="T_NewsCategory" />
-          <NavigationProperty Name="T_NewsEvents" Relationship="Self.FK_T_News_T_NewsEvents" FromRole="T_News" ToRole="T_NewsEvents" />
+          <NavigationProperty Name="T_News_Tag" Relationship="TNVCMSModel.FK_T_News_Tag_T_News1" FromRole="T_News" ToRole="T_News_Tag" />
         </EntityType>
-        <EntityType Name="T_NewsCategory">
+        <EntityType Name="T_News_Tag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagID" Type="Int32" Nullable="false" />
+          <Property Name="NewsID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_News" Relationship="TNVCMSModel.FK_T_News_Tag_T_News1" FromRole="T_News_Tag" ToRole="T_News" />
+          <NavigationProperty Name="T_Tag" Relationship="TNVCMSModel.FK_T_News_Tag_T_Tag1" FromRole="T_News_Tag" ToRole="T_Tag" />
+        </EntityType>
+        <EntityType Name="T_Tag">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Priority" Type="Int32" />
+          <Property Name="Slug" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Taxonomy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="Int32" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
           <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="T_News" Relationship="Self.FK_T_News_T_NewsCategory" FromRole="T_NewsCategory" ToRole="T_News" />
+          <NavigationProperty Name="T_News_Tag" Relationship="TNVCMSModel.FK_T_News_Tag_T_Tag1" FromRole="T_Tag" ToRole="T_News_Tag" />
         </EntityType>
-        <EntityType Name="T_NewsEvents">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="StartDate" Type="DateTime" Precision="0" />
-          <Property Name="EndDate" Type="DateTime" Precision="0" />
-          <Property Name="Priority" Type="Int32" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="T_News" Relationship="Self.FK_T_News_T_NewsEvents" FromRole="T_NewsEvents" ToRole="T_News" />
-        </EntityType>
-        <Association Name="FK_T_News_T_NewsCategory">
-          <End Role="T_NewsCategory" Type="Self.T_NewsCategory" Multiplicity="0..1" />
-          <End Role="T_News" Type="Self.T_News" Multiplicity="*" />
+        <Association Name="FK_T_News_Tag_T_News1">
+          <End Type="TNVCMSModel.T_News" Role="T_News" Multiplicity="1" />
+          <End Type="TNVCMSModel.T_News_Tag" Role="T_News_Tag" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="T_NewsCategory">
+            <Principal Role="T_News">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="T_News">
-              <PropertyRef Name="NewsCategoryID" />
+            <Dependent Role="T_News_Tag">
+              <PropertyRef Name="NewsID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_T_News_T_NewsEvents">
-          <End Role="T_NewsEvents" Type="Self.T_NewsEvents" Multiplicity="0..1" />
-          <End Role="T_News" Type="Self.T_News" Multiplicity="*" />
+        <Association Name="FK_T_News_Tag_T_Tag1">
+          <End Type="TNVCMSModel.T_Tag" Role="T_Tag" Multiplicity="1" />
+          <End Type="TNVCMSModel.T_News_Tag" Role="T_News_Tag" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="T_NewsEvents">
+            <Principal Role="T_Tag">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="T_News">
-              <PropertyRef Name="NewsEventID" />
+            <Dependent Role="T_News_Tag">
+              <PropertyRef Name="TagID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TNVCMSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="T_News" EntityType="Self.T_News" />
-          <EntitySet Name="T_NewsCategory" EntityType="Self.T_NewsCategory" />
-          <EntitySet Name="T_NewsEvents" EntityType="Self.T_NewsEvents" />
-          <AssociationSet Name="FK_T_News_T_NewsCategory" Association="Self.FK_T_News_T_NewsCategory">
-            <End Role="T_NewsCategory" EntitySet="T_NewsCategory" />
-            <End Role="T_News" EntitySet="T_News" />
-          </AssociationSet>
-          <AssociationSet Name="FK_T_News_T_NewsEvents" Association="Self.FK_T_News_T_NewsEvents">
-            <End Role="T_NewsEvents" EntitySet="T_NewsEvents" />
-            <End Role="T_News" EntitySet="T_News" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -195,52 +184,47 @@
           <EntitySetMapping Name="T_News">
             <EntityTypeMapping TypeName="TNVCMSModel.T_News">
               <MappingFragment StoreEntitySet="T_News">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="IsDescriptionDisplay" ColumnName="IsDescriptionDisplay" />
-                <ScalarProperty Name="AvataImageUrl" ColumnName="AvataImageUrl" />
-                <ScalarProperty Name="IsAvataDisplay" ColumnName="IsAvataDisplay" />
-                <ScalarProperty Name="IsHotNews" ColumnName="IsHotNews" />
-                <ScalarProperty Name="ContentNews" ColumnName="ContentNews" />
-                <ScalarProperty Name="Author" ColumnName="Author" />
-                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
-                <ScalarProperty Name="UnPublishDate" ColumnName="UnPublishDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="IsPublish" ColumnName="IsPublish" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="NewsCategoryID" ColumnName="NewsCategoryID" />
-                <ScalarProperty Name="NewsEventID" ColumnName="NewsEventID" />
+                <ScalarProperty Name="UnPublishDate" ColumnName="UnPublishDate" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="ContentNews" ColumnName="ContentNews" />
+                <ScalarProperty Name="IsHotNews" ColumnName="IsHotNews" />
+                <ScalarProperty Name="IsAvataDisplay" ColumnName="IsAvataDisplay" />
+                <ScalarProperty Name="AvataImageUrl" ColumnName="AvataImageUrl" />
+                <ScalarProperty Name="IsDescriptionDisplay" ColumnName="IsDescriptionDisplay" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="T_NewsCategory">
-            <EntityTypeMapping TypeName="TNVCMSModel.T_NewsCategory">
-              <MappingFragment StoreEntitySet="T_NewsCategory">
+          <EntitySetMapping Name="T_News_Tag">
+            <EntityTypeMapping TypeName="TNVCMSModel.T_News_Tag">
+              <MappingFragment StoreEntitySet="T_News_Tag">
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+                <ScalarProperty Name="TagID" ColumnName="TagID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="T_NewsEvents">
-            <EntityTypeMapping TypeName="TNVCMSModel.T_NewsEvents">
-              <MappingFragment StoreEntitySet="T_NewsEvents">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <EntitySetMapping Name="T_Tag">
+            <EntityTypeMapping TypeName="TNVCMSModel.T_Tag">
+              <MappingFragment StoreEntitySet="T_Tag">
                 <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Taxonomy" ColumnName="Taxonomy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

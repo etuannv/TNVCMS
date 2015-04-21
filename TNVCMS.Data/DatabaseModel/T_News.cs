@@ -14,6 +14,11 @@ namespace TNVCMS.Data.DatabaseModel
     
     public partial class T_News
     {
+        public T_News()
+        {
+            this.T_News_Tag = new HashSet<T_News_Tag>();
+        }
+    
         public int ID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -30,10 +35,7 @@ namespace TNVCMS.Data.DatabaseModel
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
-        public Nullable<int> NewsCategoryID { get; set; }
-        public Nullable<int> NewsEventID { get; set; }
     
-        public virtual T_NewsCategory T_NewsCategory { get; set; }
-        public virtual T_NewsEvents T_NewsEvents { get; set; }
+        public virtual ICollection<T_News_Tag> T_News_Tag { get; set; }
     }
 }
