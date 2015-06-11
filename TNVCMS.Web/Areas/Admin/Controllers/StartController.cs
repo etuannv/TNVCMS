@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Blog.Samples.MVCEF6.Web.Areas.Admin.Controllers
+namespace TNVCMS.Web.Areas.Admin.Controllers
 {
     public class StartController : Controller
     {

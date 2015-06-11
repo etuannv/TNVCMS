@@ -13,10 +13,19 @@ namespace TNVCMS.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            MvcSiteMapProvider.Web.Mvc.XmlSiteMapController.RegisterRoutes(routes);
+
             routes.MapRoute(
                 name: "Default",
+                url: "{controller}/{action}/{id}/{slug}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, slug = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "WithID",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+
             );
         }
     }

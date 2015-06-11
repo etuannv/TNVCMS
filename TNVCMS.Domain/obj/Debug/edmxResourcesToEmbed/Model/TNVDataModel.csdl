@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TNVCMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="T_News">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Slug" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AvataImageUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsHotNews" Type="Boolean" />
+    <Property Name="ContentNews" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PublishTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="T_News_Tag" Relationship="Self.FK_T_News_Tag_T_News1" FromRole="T_News" ToRole="T_News_Tag" />
+  </EntityType>
+  <EntityType Name="T_News_Tag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TagID" Type="Int32" Nullable="false" />
+    <Property Name="NewsID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="T_News" Relationship="Self.FK_T_News_Tag_T_News1" FromRole="T_News_Tag" ToRole="T_News" />
+    <NavigationProperty Name="T_Tag" Relationship="Self.FK_T_News_Tag_T_Tag1" FromRole="T_News_Tag" ToRole="T_Tag" />
+  </EntityType>
+  <EntityType Name="T_Tag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Slug" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Taxonomy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParentID" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParentPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_News_Tag" Relationship="Self.FK_T_News_Tag_T_Tag1" FromRole="T_Tag" ToRole="T_News_Tag" />
+  </EntityType>
+  <Association Name="FK_T_News_Tag_T_News1">
+    <End Role="T_News" Type="Self.T_News" Multiplicity="1" />
+    <End Role="T_News_Tag" Type="Self.T_News_Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_News">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_News_Tag">
+        <PropertyRef Name="NewsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_News_Tag_T_Tag1">
+    <End Role="T_Tag" Type="Self.T_Tag" Multiplicity="1" />
+    <End Role="T_News_Tag" Type="Self.T_News_Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Tag">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="T_News_Tag">
+        <PropertyRef Name="TagID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TNVCMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="T_News" EntityType="Self.T_News" />
+    <EntitySet Name="T_News_Tag" EntityType="Self.T_News_Tag" />
+    <EntitySet Name="T_Tag" EntityType="Self.T_Tag" />
+    <AssociationSet Name="FK_T_News_Tag_T_News1" Association="Self.FK_T_News_Tag_T_News1">
+      <End Role="T_News" EntitySet="T_News" />
+      <End Role="T_News_Tag" EntitySet="T_News_Tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_News_Tag_T_Tag1" Association="Self.FK_T_News_Tag_T_Tag1">
+      <End Role="T_Tag" EntitySet="T_Tag" />
+      <End Role="T_News_Tag" EntitySet="T_News_Tag" />
+    </AssociationSet>
+    <EntitySet Name="T_Adver" EntityType="TNVCMSModel.T_Adver" />
+  </EntityContainer>
+  <EntityType Name="T_Adver">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PublishDate" Type="DateTime" Precision="0" />
+    <Property Name="UnpublishDate" Type="DateTime" Precision="0" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

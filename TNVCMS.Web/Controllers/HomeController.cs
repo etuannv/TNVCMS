@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Web.Mvc;
+using TNVCMS.Domain.Model;
 using TNVCMS.Domain.Services;
 using TNVCMS.Web.Models;
 
@@ -6,20 +9,35 @@ namespace TNVCMS.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IT_NewsServices _newsServices;
+        private IT_NewsServices _newsServices;
+        private IT_SlideServices _slideServices;
 
-        public HomeController(IT_NewsServices newsServices)
+        public HomeController()
         {
-            _newsServices = newsServices;
+            _newsServices = new T_NewsServices();
+            _slideServices = new T_SlideServices();
+
         }
 
         public ActionResult Index()
         {
-            return View(new HomeViewModel()
-                {
-                    T_Newses = _newsServices.GetAllNews()
-                });
+            ViewData["hasSlide"] = true;
+            return View();
         }
 
+        public PartialViewResult GetSlide()
+        {
+            IEnumerable<T_Slide> slideImages = _slideServices.GetEnableSlide();
+            return PartialView("GetSlide", slideImages);
+        }
+        public PartialViewResult GetTopMenu()
+        {
+            return PartialView("GetTopMenu");
+        }
+
+        public PartialViewResult GetFooter()
+        {
+            return PartialView("GetFooter");
+        }
     }
 }

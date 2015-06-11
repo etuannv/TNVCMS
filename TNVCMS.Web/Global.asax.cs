@@ -6,8 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Autofac;
-using TNVCMS.Web.App_Start;
+
 
 namespace TNVCMS.Web
 {
@@ -19,13 +18,16 @@ namespace TNVCMS.Web
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
-            DependencyConfig.Configure(new ContainerBuilder());
-
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            RegisterCustomeBinder();
+        }
+        public static void RegisterCustomeBinder()
+        {
+            ModelBinders.Binders.Add(typeof(DateTime), new CustomeDateBinder());
+            ModelBinders.Binders.Add(typeof(DateTime?), new CustomeDateBinder());
         }
     }
 }

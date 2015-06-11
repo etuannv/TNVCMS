@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<!--
+﻿<!--
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
@@ -9,47 +8,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>@ViewBag.Title</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
-    <link href="/Content/themes/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/Css/bootstrap")
+    <!-- Admin LTE -->
+    @Styles.Render("~/Css/AdminStyle")
+    
+    
     <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- jQuery 2.1.3 -->
+    @Scripts.Render("~/bundles/jquery")
+    <!-- jquery validation -->
+    @Scripts.Render("~/bundles/jqueryval")
 
-    <!-- DATA TABLES -->
-    <link href="/Content/themes/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    @Scripts.Render("~/bundles/jqueryui")
+    
+    <!-- bootstrap -->
+    @Scripts.Render("~/bundles/bootstrap")
+    <!-- Admin LTE -->
+    @Scripts.Render("~/bundles/adminlte")
+    <!-- Ckeditor -->
+    @Scripts.Render("~/bundles/ckeditor")
 
-    <!-- Theme style -->
-    <link href="/Content/themes/dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-          page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect.
-    -->
-    <link href="/Content/themes/dist/css/skins/skin-blue.css" rel="stylesheet" type="text/css" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <!-- REQUIRED JS SCRIPTS -->
-    <!-- jQuery 2.1.3 -->
-    <script src="/Content/themes/plugins/jQuery/jQuery-2.1.3.min.js"></script>
-    <!-- Bootstrap 3.3.2 JS -->
-    <script src="/Content/themes/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-
-    <!-- DATA TABES SCRIPT -->
-    <script src="/Content/themes/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
-    <script src="/Content/themes/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
-    <!-- SlimScroll -->
-    <script src="/Content/themes/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-    <!-- FastClick -->
-    <script src='/Content/themes/plugins/fastclick/fastclick.min.js'></script>
-    <!-- AdminLTE App -->
-    <script src="/Content/themes/dist/js/app.min.js" type="text/javascript"></script>
-
-    <!-- Optionally, you can add Slimscroll and FastClick plugins.
-          Both of these plugins are recommended to enhance the
-          user experience -->
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -141,17 +129,18 @@ desired effect
                     <li class="treeview">
                         <a href="#"><span>Tin tức</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
-                            <li><a href="#">Thêm bài viết</a></li>
-                            <li><a href="/Admin/News/List">Danh sách bài viết</a></li>
-                            <li><a href="/Admin/Tag/List?taxonomy=@TNVCMS.Utilities.Constants.TAXONOMY_CATEGORY">Danh sách loại tin</a></li>
+                            <li><a href="/Admin/News/AddNew">Thêm bài viết</a></li>
+                            <li><a href="/Admin/News/List">Bài viết</a></li>
+                            <li><a href="/Admin/Tag/List?taxonomy=@TNVCMS.Utilities.Constants.TAXONOMY_CATEGORY">Chuyên mục</a></li>
+                            <li><a href="/Admin/Tag/List?taxonomy=@TNVCMS.Utilities.Constants.TAXONOMY_TAG">Tag</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
-                        <a href="#"><span>Món ăn</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <a href="#"><span>Media</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
-                            <li><a href="#">Thêm món ăn</a></li>
-                            <li><a href="#">Danh sách món ăn</a></li>
-                            <li><a href="#">Danh sách loại món ăn</a></li>
+                            <li><a href="/Admin/Adver/List">Quảng cáo</a></li>
+                            <li><a href="/Admin/Slide/List">Slide</a></li>
+                            <li><a href="#"></a></li>
                         </ul>
                     </li>
                 </ul><!-- /.sidebar-menu -->
@@ -164,8 +153,7 @@ desired effect
             <section class="content-header">
                 @RenderSection("header")
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                    <li class="active">Here</li>
+                   @Html.MvcSiteMap().SiteMapPath()
                 </ol>
             </section>
             <!-- Main content -->
@@ -184,15 +172,11 @@ desired effect
             <strong>Copyright &copy; 2015 <a href="http://comdatviet.com">Company</a>.</strong> All rights reserved.
         </footer>
     </div><!-- ./wrapper -->
-    @section Scripts
-    {
-        @Scripts.Render("~/bundles/jqueryval")
-        @RenderSection("scripts", required: false)
-        <script type="text/javascript">
-            jQuery(document).ready(function () {
-                $('.focus :input').focus();
-            });
-        </script>
-    }
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            $('.focus :input').focus();
+        });
+    </script>
 </body>
 </html>

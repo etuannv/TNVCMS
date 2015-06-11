@@ -1,0 +1,5 @@
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Utilities\bin\Debug\TNVCMS.Utilities.dll
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Utilities\bin\Debug\TNVCMS.Utilities.pdb
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Utilities\obj\Debug\TNVCMS.Utilities.dll
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Utilities\obj\Debug\TNVCMS.Utilities.pdb
+D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Utilities\obj\Debug\TNVCMS.Utilities.csprojResolveAssemblyReference.cache

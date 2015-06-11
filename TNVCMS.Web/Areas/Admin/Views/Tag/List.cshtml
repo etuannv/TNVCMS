@@ -1,9 +1,9 @@
 ﻿@using MvcPaging;
-@model IPagedList<TNVCMS.Data.DatabaseModel.T_Tag>
+@model IPagedList<TNVCMS.Domain.Model.T_Tag>
 @*@model IEnumerable<TNVCMS.Data.DatabaseModel.T_Tag>*@
 
 @{
-    ViewBag.Title = "Danh sách tin";
+    ViewBag.Title = "Danh sách loại tin";
 }
 
 @section header {
@@ -53,8 +53,8 @@
                         <thead>
                             <tr role="row">
                                 <th>Tên</th>
-                                <th>Mô tả</th>
                                 <th>Slug</th>
+                                <th>Mô tả</th>
                                 <th>ID</th>
                                 <th></th>
                             </tr>
@@ -62,8 +62,8 @@
                         <tfoot>
                             <tr>
                                 <th>Tên</th>
-                                <th>Mô tả</th>
                                 <th>Slug</th>
+                                <th>Mô tả</th>
                                 <th>ID</th>
                                 <th></th>
                             </tr>
@@ -73,15 +73,17 @@
                             {
                                 <tr class="odd">
                                     <td>
-                                        @Html.ActionLink(
+                                        <strong>
+                                            @Html.ActionLink(
                                             item.Title,
                                             "Edit",
                                             "Tag",
                                               new { @id = item.ID },
                                              new { @class = "" })
+                                        </strong>
                                     </td>
-                                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Slug)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
                                     <td width="5%">@Html.DisplayFor(modelItem => item.ID)</td>
                                     <td width="3%">@Html.ActionLink("Xóa", "Delete", new { id = item.ID })</td>
                                 </tr>

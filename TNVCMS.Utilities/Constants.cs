@@ -10,5 +10,11 @@ namespace TNVCMS.Utilities
     {
         public const string TAXONOMY_CATEGORY = "category";
         public const string TAXONOMY_TAG = "tag";
+
+        public const string NEWS_STATUS_DRAFT = "DRAFT";
+        public const string NEWS_STATUS_PEDDING = "PEDDING";
+        public const string NEWS_STATUS_PUBLIC = "PUBLISHED";
+
+        
     }
 }

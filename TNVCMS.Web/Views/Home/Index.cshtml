@@ -4,72 +4,102 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
+<div class="divPanel notop page-content">
 
-@foreach (var item in Model.T_Newses) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDescriptionDisplay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AvataImageUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsAvataDisplay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsHotNews)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContentNews)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PublishDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnPublishDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsPublish)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TagID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NewsEventID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
 
-</table>
+    <div class="row-fluid">
+        <!--Edit Main Content Area here-->
+        <div class="span12" id="divMain">
+            <h1>Chào mừng</h1>
+
+            <p>
+                <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</strong> Sed ipsum metus, pulvinar sed volutpat sit amet, fermentum in orci. Quisque vitae neque lectus, quis accumsan massa. Vivamus viverra orci eu dolor tristique sollicitudin. Duis sollicitudin laoreet tellus ac dictum.
+                Fusce suscipit lectus vel elit posuere volutpat. Morbi ornare eros ut magna ullamcorper feugiat.
+                Vivamus feugiat ligula vel nisi venenatis eleifend. Morbi accumsan rhoncus viverra. Integer orci nisi,
+                cursus sit amet luctus quis, dictum eget massa.
+            </p>
+
+            <br />
+            <br />
+
+            <div class="row-fluid">
+                <div class="span3">
+                    <div class="box">
+                        <i class="icon-wrench"></i>
+                        <h4 class="title">Vận chuyển thiết bị cơ giới</h4> <hr />
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus, sapien nec dignissim porta.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus, sapien nec dignissim porta.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="span3">
+                    <div class="box">
+                        <i class="icon-leaf"></i>
+                        <h4 class="title">Thiết bị công trình</h4> <hr />
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus, sapien nec dignissim porta.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus, sapien nec dignissim porta.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="span3">
+                    <div class="box">
+                        <i class="icon-edit"></i>
+                        <h4 class="title">Phụ tùng máy công trình</h4> <hr />
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus, sapien nec dignissim porta.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus, sapien nec dignissim porta.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="span3">
+                    <div class="box">
+                        <i class="icon-signal"></i>
+                        <h4 class="title">Xăng đàu</h4> <hr />
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus, sapien nec dignissim porta.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce cursus, sapien nec dignissim porta.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row-fluid">
+                <div class="span3">
+                    <h5 class="text-info">Dự án 1</h5>
+                    <img src="~/Content/themes/hoaan/images/home-image.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br /><a href="#">Chi tiết &raquo;</a></p>
+                </div>
+                <div class="span3">
+                    <h5 class="text-info">Dự án 2</h5>
+                    <img src="~/Content/themes/hoaan/images/home-image.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br /><a href="#">Chi tiết &raquo;</a></p>
+                </div>
+                <div class="span3">
+                    <h5 class="text-info">Dự án 3</h5>
+                    <img src="~/Content/themes/hoaan/images/home-image.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br /><a href="#">Chi tiết &raquo;</a></p>
+                </div>
+                <div class="span3">
+                    <h5 class="text-info">Dự án 4</h5>
+                    <img src="~/Content/themes/hoaan/images/home-image.jpg" class="img-polaroid" style="margin:5px 0px 15px;" alt="">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br /><a href="#">Chi tiết &raquo;</a></p>
+                </div>
+            </div>
+
+        </div>
+        <!--End Main Content-->
+    </div>
+
+    <div id="footerInnerSeparator"></div>
+</div>

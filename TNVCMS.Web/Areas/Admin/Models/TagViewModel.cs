@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using TNVCMS.Data.DatabaseModel;
+using TNVCMS.Domain.Model;
+
 
 namespace TNVCMS.Web.Areas.Admin.Models
 {
@@ -12,7 +13,9 @@ namespace TNVCMS.Web.Areas.Admin.Models
     {
         public IEnumerable<T_Tag> TagList { get; set; }
         
-        public TagViewModel(){ }
+        public TagViewModel(){ 
+
+        }
         public TagViewModel(T_Tag iTag, IEnumerable<T_Tag> iTagList) {
             ID = iTag.ID;
             Title = iTag.Title;
@@ -20,6 +23,7 @@ namespace TNVCMS.Web.Areas.Admin.Models
             Taxonomy = iTag.Taxonomy;
             Description = iTag.Description;
             ParentID = iTag.ParentID;
+            ParentPath = iTag.ParentPath;
             CreatedDate = iTag.CreatedDate;
             CreatedBy = iTag.CreatedBy;
             ModifiedDate = iTag.ModifiedDate;
@@ -36,6 +40,7 @@ namespace TNVCMS.Web.Areas.Admin.Models
             RetTag.Taxonomy = Taxonomy;
             RetTag.Description = Description;
             RetTag.ParentID = ParentID;
+            RetTag.ParentPath = ParentPath;
             RetTag.CreatedDate = CreatedDate;
             RetTag.CreatedBy = CreatedBy;
             RetTag.ModifiedDate = ModifiedDate;

@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D0D4C2
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNVCMS.Data", "TNVCMS.Data\TNVCMS.Data.csproj", "{2B9DF2C3-B373-42FD-988B-142263F10C56}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNVCMS.Domain", "TNVCMS.Domain\TNVCMS.Domain.csproj", "{1E64C609-B16C-402C-A0D7-AD77CAEC17EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TNVCMS.Web", "TNVCMS.Web\TNVCMS.Web.csproj", "{084A9999-4C6F-404F-AC46-70AFA99E10DF}"
@@ -24,10 +22,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2B9DF2C3-B373-42FD-988B-142263F10C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B9DF2C3-B373-42FD-988B-142263F10C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B9DF2C3-B373-42FD-988B-142263F10C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B9DF2C3-B373-42FD-988B-142263F10C56}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1E64C609-B16C-402C-A0D7-AD77CAEC17EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1E64C609-B16C-402C-A0D7-AD77CAEC17EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E64C609-B16C-402C-A0D7-AD77CAEC17EF}.Release|Any CPU.ActiveCfg = Release|Any CPU

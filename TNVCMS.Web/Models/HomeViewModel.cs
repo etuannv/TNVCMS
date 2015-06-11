@@ -1,5 +1,6 @@
-﻿using TNVCMS.Data.DatabaseModel;
+﻿
 using System.Collections.Generic;
+using TNVCMS.Domain.Model;
 
 namespace TNVCMS.Web.Models
 {

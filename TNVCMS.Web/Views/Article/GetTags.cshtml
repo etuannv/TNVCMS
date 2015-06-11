@@ -1,0 +1,12 @@
+﻿@model IEnumerable<TNVCMS.Domain.Model.T_Tag>
+
+<div class="block_tag width_common space_bottom_20">
+    <div class="txt_tag">Tags</div>
+    @foreach (TNVCMS.Domain.Model.T_Tag tag in Model)
+    {
+        if(!String.IsNullOrEmpty(tag.Title) )
+        { 
+            @Html.ActionLink(tag.Title, "ContentByTag", "Home", new { @id = tag.ID }, new { @class="tag_item"})
+        }
+    }
+</div>

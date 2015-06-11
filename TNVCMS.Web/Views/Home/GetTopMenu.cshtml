@@ -1,0 +1,50 @@
+﻿<div class="navbar">
+    <button type="button" class="btn btn-navbar-highlight btn-large btn-primary" data-toggle="collapse" data-target=".nav-collapse">
+        Danh mục <span class="icon-chevron-down icon-white"></span>
+    </button>
+    <div class="nav-collapse collapse">
+        <ul class="nav nav-pills ddmenu">
+            <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+            <li>@Html.ActionLink("Giới thiệu", "Detail", "Article", new { id = "22", slug = "gioi-thieu-cong-ty-tnhh-thuong-mai-va-xay-dung-hoa-an" }, null)</li>
+            <li>@Html.ActionLink("Dịch vụ", "Services", "Home")</li>
+            <li>@Html.ActionLink("Tuyển dụng", "Product", "Home")</li>
+            <li>@Html.ActionLink("Liên hệ", "Detail", "Article", new { id = "23", slug = "lien-he" }, null)</li>
+        </ul>
+    </div>
+</div>
+@*<script type="text/javascript">
+    var currentLocation = window.location;
+    $(function () {
+        $('.ddmenu li a').each(function () {
+            if (this.href == currentLocation) {
+                $(this).parent().addClass("active");
+            }
+        });
+    });
+
+</script>*@
+
+
+
+<script type="text/javascript" charset="utf-8">
+    jQuery(document).ready(function ($) {
+        setNavigation();
+    });
+    function setNavigation() {
+        var path = window.location.pathname;
+        path = path.replace(/\/$/, "");
+        path = decodeURIComponent(path);
+        
+        $(".nav a").each(function () {
+            var href = $(this).attr('href');
+            if (path.substring(0, href.length) === href) {
+                $(this).closest('li').addClass('active');
+            }
+        });
+        if (path == "" || path == null) {
+            //forcus on fist
+            $(".nav li:first-child").addClass('active');
+        }
+    }
+
+</script>
