@@ -5,7 +5,7 @@
 
 
 
-  <mvcSiteMapNode title="Hòa An" controller="Home" action="Index" description="Hòa An, Vông ty TNHH Thương mại và Dịch vụ Hòa An, xây dựng" metaRobotsValues="index follow noodp noydir">
+  <mvcSiteMapNode title="Vui Vĩnh Phúc" controller="Home" action="Index" description="Hòa An, Vông ty TNHH Thương mại và Dịch vụ Hòa An, xây dựng" metaRobotsValues="index follow noodp noydir">
     <mvcSiteMapNode title="Quản trị" area="Admin" controller="Start" action="Index" metaRobotsValues="noindex nofollow">
       <mvcSiteMapNode title="Tin tức" area="Admin" controller="News" action="Manage" metaRobotsValues="noindex nofollow">
         <mvcSiteMapNode title="Thêm mới tin" controller="News" action="AddNew" metaRobotsValues="noindex nofollow"/>
@@ -18,7 +18,10 @@
     
     <mvcSiteMapNode title="Details" controller="Article" action="Detail" dynamicNodeProvider="TNVCMS.Web.TNVCMSDynamicNodeProvider, TNVCMS.Web" />
     <mvcSiteMapNode title="Giới thiệu" controller="Article" action="Detail" preservedRouteParameters="id, slug" description="Giới thiệu công ty Hòa An, Hòa An" />
+    <mvcSiteMapNode title="Dịch vụ" controller="Service" action="Detail" preservedRouteParameters="id" description="Giới thiệu công ty Hòa An, Hòa An" />
+    <mvcSiteMapNode title="Tin tức" controller="Article" action="ListInCate" preservedRouteParameters="id" description="Tin tức" />
     <mvcSiteMapNode title="Liên hệ" controller="Article" action="Detail" preservedRouteParameters="id, slug" description="Liên hệ, Hòa An" />
+    <mvcSiteMapNode title="Album ảnh" controller="Album" action="List" description="Hình ảnh công ty" />
     
   </mvcSiteMapNode>
 </mvcSiteMap>

@@ -13,6 +13,11 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
+            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account", new { area = "" });
+            return View();
+        }
+        public ActionResult Login()
+        {
             return View();
         }
 

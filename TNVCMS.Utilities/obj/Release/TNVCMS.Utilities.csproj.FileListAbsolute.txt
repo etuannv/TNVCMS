@@ -1,0 +1,5 @@
+C:\GitHub\TNVCMS\TNVCMS.Utilities\bin\Release\TNVCMS.Utilities.dll
+C:\GitHub\TNVCMS\TNVCMS.Utilities\bin\Release\TNVCMS.Utilities.pdb
+C:\GitHub\TNVCMS\TNVCMS.Utilities\obj\Release\TNVCMS.Utilities.csprojResolveAssemblyReference.cache
+C:\GitHub\TNVCMS\TNVCMS.Utilities\obj\Release\TNVCMS.Utilities.dll
+C:\GitHub\TNVCMS\TNVCMS.Utilities\obj\Release\TNVCMS.Utilities.pdb

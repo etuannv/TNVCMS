@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TNVCMS.Domain.Model;
 using TNVCMS.Utilities;
+using System.Data.Entity;
 
 namespace TNVCMS.Domain.Services
 {
@@ -32,11 +33,21 @@ namespace TNVCMS.Domain.Services
             }
             return ResultList.OrderByDescending(k => k.ID);
         }
-        public IEnumerable<T_News> GetByCategory(int iCateID)
+        public IEnumerable<T_News> GetByTaxonomy(int iCateID)
+        {
+            var data = from n in _dataContext.T_News
+                    join m in _dataContext.T_News_Tag on n.ID equals m.NewsID
+                    join q in _dataContext.T_Tag on m.TagID equals q.ID
+                    where m.TagID == iCateID
+                    select n;
+            
+            return data.OrderByDescending(a=>a.ID);
+        }
+
+        public IEnumerable<T_News> GetByTaxonomy(int iCateID, int number)
         {
 
-            //_dataContext.T_News_Tag.Where(m => m.TagID == iCateID);
-            return null;
+            return GetByTaxonomy(iCateID).OrderByDescending(m => m.ID).Select(m => m).Take(number);
         }
 
 

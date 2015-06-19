@@ -25,6 +25,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         }
         //
         // GET: /Admin/Adver/List
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult List(string search, int? page)
         {
@@ -37,6 +38,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // GET: /Admin/Adver/AddNew
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult AddNew()
         {
@@ -45,6 +47,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // POST: /Admin/Adver/AddNew
+        [Authorize]
         [AcceptVerbs("POST")]
         [ValidateAntiForgeryToken]
         public ActionResult AddNew(T_Adver iAdver)
@@ -92,7 +95,9 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         }
 
 
+
         // GET: /Admin/Adver/Delete
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult Delete(int? id)
         {
@@ -106,6 +111,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // POST: /Admin/Adver/Delete
+        [Authorize]
         [ValidateAntiForgeryToken]
         [AcceptVerbs("POST")]
         public ActionResult Delete(int id)
@@ -117,6 +123,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         }
 
         // GET: /Admin/Adver/Edit
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult Edit(int? id)
         {
@@ -130,6 +137,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // POST: /Admin/Adver/Edit
+        [Authorize]
         [ValidateAntiForgeryToken]
         [AcceptVerbs("POST")]
         public ActionResult Edit(T_Adver iAdver)
@@ -154,6 +162,8 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             }
         }
 
+
+        [Authorize]
         [AcceptVerbs("GET")]
         public JsonResult AdverSearch(string term)
         {

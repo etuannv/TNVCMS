@@ -27,6 +27,12 @@ namespace TNVCMS.Web
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
 
             );
+            routes.MapRoute(
+                name: "GetSildeOne",
+                url: "{controller}/{action}/{id}/{width}/{height}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, width = UrlParameter.Optional , height = UrlParameter.Optional }
+
+            );
         }
     }
 }

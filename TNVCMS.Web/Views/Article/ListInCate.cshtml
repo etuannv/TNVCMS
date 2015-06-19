@@ -1,0 +1,46 @@
+﻿@using MvcPaging;
+@model IPagedList<TNVCMS.Domain.Model.T_News>
+
+<link href="~/Content/themes/admin/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+<div class="divPanel notop page-content">
+
+    <div class="breadcrumbs">
+        @Html.MvcSiteMap().SiteMapPath()
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            @foreach (var item in Model)
+                {
+                    <div class="row-fluid news-incate">
+                        <div class="span2">
+                            <a href="/Article/Detail/@item.ID/@item.Slug"><img alt="Ảnh đại diện" class="img-polaroid" src="@item.AvataImageUrl"></a>
+                        </div>
+                        <div class="span10">
+                            <a href="/Article/Detail/@item.ID/@item.Slug">
+                                <h4>@item.Title</h4>
+                            </a>
+                            @Html.Raw(HttpUtility.HtmlDecode(@TNVCMS.Utilities.Common.GetDescription(@item.ContentNews, 80)))
+                        </div>
+                    </div>
+                    <hr />
+                }
+            <div class="dataTables_paginate paging_bootstrap">
+                @Html.Pager(Model.PageSize, Model.PageNumber, Model.TotalItemCount).Options(o => o
+                                    .DisplayTemplate("Bootstrap3Pagination")
+                                    .MaxNrOfPages(14)
+                                    .AlwaysAddFirstPageNumber()
+                                    .SetPreviousPageText("← Trước")
+                                    .SetNextPageText("→ Sau")
+                                             .RouteValues(new { })
+                                    )
+            </div>
+
+        </div>
+
+    </div>
+    <div id="footerInnerSeparator"></div>
+</div>
+
+

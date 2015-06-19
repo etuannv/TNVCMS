@@ -12,6 +12,9 @@
         <EntityTypeShape EntityType="TNVCMSModel.T_Tag" Width="1.5" PointX="0.75" PointY="1" />
         <AssociationConnector Association="TNVCMSModel.FK_T_News_Tag_T_News1" />
         <AssociationConnector Association="TNVCMSModel.FK_T_News_Tag_T_Tag1" />
+        <EntityTypeShape EntityType="TNVCMSModel.T_SlideGroup" Width="1.5" PointX="7.125" PointY="6.875" />
+        <AssociationConnector Association="TNVCMSModel.FK_T_Slide_T_Slide_Group1" />
+        <EntityTypeShape EntityType="TNVCMSModel.T_Config" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

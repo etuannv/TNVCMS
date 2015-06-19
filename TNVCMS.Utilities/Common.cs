@@ -7,11 +7,53 @@ using System.Threading.Tasks;
 
 namespace TNVCMS.Utilities
 {
+    public enum Config
+    {
+        SiteTitle,
+        GioiThieuID,
+        LienHeID,
+        SlideChinhGroupID,
+        SlideDoiTacGroupID,
+        AlbumPath,
+        VanChuyenThietBiCoGioiID,
+        ThietBiCongTrinhID,
+        PhuTungMayCongTrinhID,
+        XangDauID,
+        SlideVanChuyenThietBiCoGioiID,
+        SlideThietBiCongTrinhID,
+        SlidePhuTungMayCongTrinhID,
+        SlideXangDauID,
+        TinTucCateID
+    }
     public static class Common
     {
+
+        public static string GetDescription(string content, int limit = 0)
+        {
+            string result = "";
+            string[] data = content.Split(new string[] { @"<hr />" }, StringSplitOptions.None);
+            if (data.Count() > 0)
+            {
+                result = data[0];
+
+                if(limit != 0 && result.Length > limit)
+                {
+                    result = string.Join(" ", result.Split().Take(limit));
+                    result += "...";
+                }
+            }
+
+            return result;
+        }
         public static string GetUniqueString()
         {
             return Guid.NewGuid().ToString().Replace("-", "");
+        }
+
+        public static int GetRandomInt(int from, int to)
+        {
+            Random rnd = new Random();
+            return rnd.Next(from, to); // creates a number between from and to
         }
         public static string ToUrlSlug(string value)
         {

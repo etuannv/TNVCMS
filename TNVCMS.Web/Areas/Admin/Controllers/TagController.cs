@@ -23,6 +23,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         }
         //
         // GET: /Admin/Tag/List
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult List(string taxonomy, string search, int? page)
         {
@@ -36,6 +37,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // GET: /Admin/Tag/AddNew
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult AddNew(string taxonomy)
         {
@@ -48,6 +50,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // POST: /Admin/Tag/AddNew
+        [Authorize]
         [AcceptVerbs("POST")]
         [ValidateAntiForgeryToken]
         public ActionResult AddNew(TagViewModel iTagVM)
@@ -75,7 +78,9 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // GET: /Admin/Tag/Delete
+        [Authorize]
         [AcceptVerbs("GET")]
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -91,6 +96,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // POST: /Admin/Tag/Delete
+        [Authorize]
         [ValidateAntiForgeryToken]
         [AcceptVerbs("POST")]
         public ActionResult Delete(int id)
@@ -103,6 +109,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         }
 
         // GET: /Admin/Tag/Edit
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult Edit(int? id)
         {
@@ -120,6 +127,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // POST: /Admin/Tag/Edit
+        [Authorize]
         [ValidateAntiForgeryToken]
         [AcceptVerbs("POST")]
         public ActionResult Edit(TagViewModel iTagVM)
@@ -146,6 +154,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             }
         }
 
+        [Authorize]
         [AcceptVerbs("GET")]
         public JsonResult TagSearch(string term)
         {

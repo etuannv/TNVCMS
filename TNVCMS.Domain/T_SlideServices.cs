@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TNVCMS.Domain.Model;
+using System.Data.Entity;
 using TNVCMS.Utilities;
 
 namespace TNVCMS.Domain.Services
@@ -17,7 +18,7 @@ namespace TNVCMS.Domain.Services
 
         public IEnumerable<T_Slide> GetAll()
         {
-            return from m in _dataContext.T_Slide
+            return from m in _dataContext.T_Slide.Include(m=>m.T_SlideGroup)
                     select m;
         }
 
@@ -63,6 +64,7 @@ namespace TNVCMS.Domain.Services
                 UpdatedItem.Link = iSlide.Link;
                 UpdatedItem.ImagePath = iSlide.ImagePath;
                 UpdatedItem.Enable = iSlide.Enable;
+                UpdatedItem.GroupID = iSlide.GroupID;
                 return new ReturnValue<bool>(_dataContext.SaveChanges() > 0, "");
             }
             catch (Exception)
@@ -102,8 +104,9 @@ namespace TNVCMS.Domain.Services
             IEnumerable<T_Slide> ResultList;
             if (!string.IsNullOrEmpty(term))
             {
-                string SlugTerm = term.Replace(' ', '-');
-                ResultList = _dataContext.T_Slide.Where(m => m.Title.Contains(term));
+                ResultList = from m in _dataContext.T_Slide.Include(m => m.T_SlideGroup)
+                             where (m.Title.Contains(term))
+                             select m;
             }
             else
             {
@@ -114,6 +117,10 @@ namespace TNVCMS.Domain.Services
         public IEnumerable<T_Slide> GetEnableSlide()
         {
             return _dataContext.T_Slide.Where(m => m.Enable == true);
+        }
+        public IEnumerable<T_Slide> GetSlideByGroupID(int GroupID)
+        {
+            return _dataContext.T_Slide.Where(m => m.GroupID == GroupID);
         }
     }
 }

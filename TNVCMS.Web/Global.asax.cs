@@ -7,7 +7,6 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-
 namespace TNVCMS.Web
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -23,6 +22,7 @@ namespace TNVCMS.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             RegisterCustomeBinder();
+            MvcSiteMapProvider.DI.Composer.Compose();
         }
         public static void RegisterCustomeBinder()
         {

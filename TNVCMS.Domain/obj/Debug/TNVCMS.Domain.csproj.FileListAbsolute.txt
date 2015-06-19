@@ -27,3 +27,13 @@ D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\bin
 D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.csprojResolveAssemblyReference.cache
 D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.dll
 D:\SETUP\OnlineLocation\OneDrive\WorkingProjects\Github\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Domain.dll.config
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Domain.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Domain.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Utilities.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TNVCMS\TNVCMS.Domain\bin\Debug\TNVCMS.Utilities.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TNVCMS\TNVCMS.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TNVCMS\TNVCMS.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\TNVCMS\TNVCMS.Domain\obj\Debug\TNVCMS.Domain.pdb

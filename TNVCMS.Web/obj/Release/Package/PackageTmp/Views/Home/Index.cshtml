@@ -1,0 +1,161 @@
+﻿@model TNVCMS.Web.Models.HomeViewModel
+
+@{
+    ViewBag.Title = @Html.MvcSiteMap().SiteMapTitle();
+}
+
+
+<div class="divPanel notop page-content">
+
+
+    <div class="row-fluid">
+        <!--Edit Main Content Area here-->
+        <div class="span12" id="divMain">
+            <h1>Chào mừng</h1>
+
+            <p>
+                <strong>Chào mừng bạn đến với website Vui Vĩnh Phúc.</strong> Vui Vĩnh Phúc là công ty chuyên về lĩnh vực vận tải, thiết bị công trình,
+                kinh doanh xăng dầu. Chúng tôi rất mong muốn được hợp tác, phát triển.
+            </p>
+
+            <br />
+            <br />
+            <div class="row-fluid">
+                <div class="span3">
+                    <div class="box">
+                        <a href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.VanChuyenThietBiCoGioiID.ToString())" class="only-display">
+                            <i class="icon-road"></i>
+                            <h4 class="title">Vận chuyển thiết bị cơ giới</h4>
+                        </a> <hr />
+                        <p>
+                            Vui Vĩnh Phúc chuyên vận chuyển thiết bị cơ giới với đội xe đông đảo có thể đáp ứng ngay các yêu cầu <br />
+                            <a style="margin:5px 0px 15px;" class="btn btn-info" href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.VanChuyenThietBiCoGioiID.ToString())">Chi tiết >></a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="span3">
+                    <div class="box">
+                        <a href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.ThietBiCongTrinhID.ToString())" class="only-display">
+                            <i class="icon-tasks"></i>
+                            <h4 class="title">Thiết bị công trình</h4> <hr />
+                        </a>
+                        <p>
+                            Vui Vĩnh Phúc chuyên vận chuyển thiết bị cơ giới với đội xe đông đảo có thể đáp ứng ngay các yêu cầu<br />
+                            <a style="margin:5px 0px 15px;" class="btn btn-info" href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.ThietBiCongTrinhID.ToString())">Chi tiết</a>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="span3">
+                    <div class="box">
+                        <a href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PhuTungMayCongTrinhID.ToString())" class="only-display">
+                            <i class="icon-wrench"></i>
+                            <h4 class="title">Phụ tùng máy công trình</h4>
+                        </a> <hr />
+                        <p>
+                            Vui Vĩnh Phúc chuyên vận chuyển thiết bị cơ giới với đội xe đông đảo có thể đáp ứng ngay các yêu cầu<br />
+                            <a style="margin:5px 0px 15px;" class="btn btn-info" href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PhuTungMayCongTrinhID.ToString())">Chi tiết >></a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="span3">
+                    <div class="box">
+                        <a href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.XangDauID.ToString())" class="only-display">
+                            <i class="icon-signal"></i>
+                            <h4 class="title">Xăng dầu</h4>
+                        </a> <hr />
+                        <p>
+                            Vui Vĩnh Phúc chuyên vận chuyển thiết bị cơ giới với đội xe đông đảo có thể đáp ứng ngay các yêu cầu<br />
+                            <a style="margin:5px 0px 15px;" class="btn btn-info" href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.XangDauID.ToString())">Chi tiết >></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row-fluid">
+                    <div class="span3">
+                        <div class="box">
+                            <a href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.VanChuyenThietBiCoGioiID.ToString())" class="only-display">
+                                <h4 class="title">Vận chuyển thiết bị cơ giới</h4>
+                                @Html.Action("GetSlideOne", "Home", new
+                           {
+                               id = @TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.SlideVanChuyenThietBiCoGioiID.ToString()),
+                               width = "250px",
+                               height = "150px"
+                           })
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="span3">
+                        <div class="box">
+                            <a href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.ThietBiCongTrinhID.ToString())" class="only-display">
+                                <h4 class="title">Thiết bị công trình</h4>
+                                @Html.Action("GetSlideOne", "Home", new
+                           {
+                               id = @TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.SlideThietBiCongTrinhID.ToString()),
+                               width = "250px",
+                               height = "150px"
+                           })
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="span3">
+                        <div class="box">
+                            <a href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PhuTungMayCongTrinhID.ToString())" class="only-display">
+                                <h4 class="title">Phụ tùng máy công trình</h4>
+                                @Html.Action("GetSlideOne", "Home", new
+                           {
+                               id = @TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.SlidePhuTungMayCongTrinhID.ToString()),
+                               width = "250px",
+                               height = "150px"
+                           })
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="span3">
+                        <div class="box">
+                            <a href="/Article/Detail?id=@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.XangDauID.ToString())" class="only-display">
+                                <h4 class="title">Xăng dầu</h4>
+                                @Html.Action("GetSlideOne", "Home", new
+                           {
+                               id = @TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.SlideXangDauID.ToString()),
+                               width = "250px",
+                               height = "150px"
+                           })
+                            </a>
+                        </div>
+                    </div>
+                </div>*@
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <h3 class="title-full">Bài viết</h3>
+                    <div class="article-group">
+                        @Html.Action("GetNewsInCategory", "Home", new { CateId = 82, Number = 3 })
+                    </div>
+                </div>
+                    
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <h3 class="title-full">Hình ảnh</h3>
+                    <div class="border-all">
+                        @Html.Action("GetCarousel", "Home")
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--End Main Content-->
+    </div>
+
+    <div id="footerInnerSeparator"></div>
+</div>

@@ -1,0 +1,12 @@
+C:\GitHub\TNVCMS\TNVCMS.Domain\bin\Release\TNVCMS.Domain.dll.config
+C:\GitHub\TNVCMS\TNVCMS.Domain\bin\Release\TNVCMS.Domain.dll
+C:\GitHub\TNVCMS\TNVCMS.Domain\bin\Release\TNVCMS.Domain.pdb
+C:\GitHub\TNVCMS\TNVCMS.Domain\bin\Release\EntityFramework.dll
+C:\GitHub\TNVCMS\TNVCMS.Domain\bin\Release\EntityFramework.SqlServer.dll
+C:\GitHub\TNVCMS\TNVCMS.Domain\bin\Release\TNVCMS.Utilities.dll
+C:\GitHub\TNVCMS\TNVCMS.Domain\bin\Release\TNVCMS.Utilities.pdb
+C:\GitHub\TNVCMS\TNVCMS.Domain\bin\Release\EntityFramework.xml
+C:\GitHub\TNVCMS\TNVCMS.Domain\bin\Release\EntityFramework.SqlServer.xml
+C:\GitHub\TNVCMS\TNVCMS.Domain\obj\Release\TNVCMS.Domain.csprojResolveAssemblyReference.cache
+C:\GitHub\TNVCMS\TNVCMS.Domain\obj\Release\TNVCMS.Domain.dll
+C:\GitHub\TNVCMS\TNVCMS.Domain\obj\Release\TNVCMS.Domain.pdb

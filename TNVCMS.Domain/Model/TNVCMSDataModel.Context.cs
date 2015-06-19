@@ -30,5 +30,7 @@ namespace TNVCMS.Domain.Model
         public virtual DbSet<T_News_Tag> T_News_Tag { get; set; }
         public virtual DbSet<T_Slide> T_Slide { get; set; }
         public virtual DbSet<T_Tag> T_Tag { get; set; }
+        public virtual DbSet<T_SlideGroup> T_SlideGroup { get; set; }
+        public virtual DbSet<T_Config> T_Config { get; set; }
     }
 }

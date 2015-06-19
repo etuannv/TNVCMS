@@ -10,7 +10,8 @@ namespace TNVCMS.Domain.Services
         IEnumerable<T_News> GetAll();
 
         IEnumerable<T_News> GetNews(int? cateId, string search);
-        IEnumerable<T_News> GetByCategory(int iCateID);
+        IEnumerable<T_News> GetByTaxonomy(int iCateID);
+        IEnumerable<T_News> GetByTaxonomy(int iCateID, int number);
         T_News GetByID(int id);
         T_News GetBySlug(string slug);
         ReturnValue<bool> AddNewNews(T_News iNews);

@@ -51,7 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IT_ConfigServices.cs" />
+    <Compile Include="IT_SlideGroupServices.cs" />
     <Compile Include="IT_SlideServices.cs" />
+    <Compile Include="Model\T_SlideModel.cs" />
     <Compile Include="Model\AdverModel.cs" />
     <Compile Include="IT_AdverServices.cs" />
     <Compile Include="Model\TNVCMSDataModel.Context.cs">
@@ -72,6 +75,9 @@
     <Compile Include="Model\T_Adver.cs">
       <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\T_Config.cs">
+      <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\T_News.cs">
       <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
     </Compile>
@@ -81,6 +87,9 @@
     <Compile Include="Model\T_Slide.cs">
       <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\T_SlideGroup.cs">
+      <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\T_Tag.cs">
       <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
     </Compile>
@@ -88,6 +97,8 @@
     <Compile Include="IT_News_TagServices.cs" />
     <Compile Include="IT_TagServices.cs" />
     <Compile Include="IT_NewsServices.cs" />
+    <Compile Include="T_ConfigServices.cs" />
+    <Compile Include="T_SlideGroupServices.cs" />
     <Compile Include="T_SlideServices.cs" />
     <Compile Include="T_News_TagServices.cs" />
     <Compile Include="T_AdverServices.cs" />

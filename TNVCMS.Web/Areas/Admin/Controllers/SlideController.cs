@@ -17,14 +17,17 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
     public class SlideController : Controller
     {
         private readonly IT_SlideServices _SlideServices;
+        private readonly IT_SlideGroupServices _slideGroupServices;
 
 
         public SlideController()
         {
             if (_SlideServices == null) _SlideServices = new T_SlideServices();
+            if (_slideGroupServices == null) _slideGroupServices = new T_SlideGroupServices();
         }
         //
         // GET: /Admin/Slide/List
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult List(string search, int? page)
         {
@@ -37,14 +40,18 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // GET: /Admin/Slide/AddNew
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult AddNew()
         {
-            return View();
+            SlideViewModel Model = new SlideViewModel();
+            Model.SlideGroupList = _slideGroupServices.GetAll();
+            return View(Model);
         }
 
 
         // POST: /Admin/Slide/AddNew
+        [Authorize]
         [AcceptVerbs("POST")]
         [ValidateAntiForgeryToken]
         public ActionResult AddNew(T_Slide iSlide)
@@ -65,9 +72,10 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             }
             else
             {
+                SlideViewModel Model = new SlideViewModel(iSlide, _slideGroupServices.GetAll());
                 // Get Slide_List again
                 ModelState.AddModelError("Error", result.Msg);
-                return View(iSlide);
+                return View(Model);
             }
         }
 
@@ -93,6 +101,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // GET: /Admin/Slide/Delete
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult Delete(int? id)
         {
@@ -106,6 +115,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // POST: /Admin/Slide/Delete
+        [Authorize]
         [ValidateAntiForgeryToken]
         [AcceptVerbs("POST")]
         public ActionResult Delete(int id)
@@ -117,6 +127,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         }
 
         // GET: /Admin/Slide/Edit
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult Edit(int? id)
         {
@@ -124,12 +135,13 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            T_Slide model = _SlideServices.GetByID((int)id);
-            return View("Edit", model);
+            SlideViewModel Model = new SlideViewModel(_SlideServices.GetByID((int)id), _slideGroupServices.GetAll());
+            return View("Edit", Model);
         }
 
 
         // POST: /Admin/Slide/Edit
+        [Authorize]
         [ValidateAntiForgeryToken]
         [AcceptVerbs("POST")]
         public ActionResult Edit(T_Slide iSlide)
@@ -152,6 +164,8 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             }
         }
 
+
+        [Authorize]
         [AcceptVerbs("GET")]
         public JsonResult SlideSearch(string term)
         {

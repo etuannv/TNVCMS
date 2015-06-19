@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+
+
+  <mvcSiteMapNode title="Vui Vĩnh Phúc" controller="Home" action="Index" description="Hòa An, Vông ty TNHH Thương mại và Dịch vụ Hòa An, xây dựng" metaRobotsValues="index follow noodp noydir">
+    <mvcSiteMapNode title="Quản trị" area="Admin" controller="Start" action="Index" metaRobotsValues="noindex nofollow">
+      <mvcSiteMapNode title="Tin tức" area="Admin" controller="News" action="Manage" metaRobotsValues="noindex nofollow">
+        <mvcSiteMapNode title="Thêm mới tin" controller="News" action="AddNew" metaRobotsValues="noindex nofollow"/>
+        <mvcSiteMapNode title="Bài viết" controller="News" action="List" metaRobotsValues="noindex nofollow"/>
+        <mvcSiteMapNode title="Chuyên mục" controller="Tag" action="List" taxonomy="category" metaRobotsValues="noindex nofollow">
+          <mvcSiteMapNode title="Thêm chuyên mục" controller="Tag" action="AddNew" taxonomy="category" metaRobotsValues="noindex nofollow"/>
+        </mvcSiteMapNode>
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="Details" controller="Article" action="Detail" dynamicNodeProvider="TNVCMS.Web.TNVCMSDynamicNodeProvider, TNVCMS.Web" />
+    <mvcSiteMapNode title="Giới thiệu" controller="Article" action="Detail" preservedRouteParameters="id, slug" description="Giới thiệu công ty Hòa An, Hòa An" />
+    <mvcSiteMapNode title="Liên hệ" controller="Article" action="Detail" preservedRouteParameters="id, slug" description="Liên hệ, Hòa An" />
+    <mvcSiteMapNode title="Album ảnh" controller="Album" action="List" description="Hình ảnh công ty" />
+    
+  </mvcSiteMapNode>
+</mvcSiteMap>

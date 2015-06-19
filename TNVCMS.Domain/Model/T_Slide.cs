@@ -19,5 +19,8 @@ namespace TNVCMS.Domain.Model
         public string Link { get; set; }
         public string ImagePath { get; set; }
         public Nullable<bool> Enable { get; set; }
+        public Nullable<int> GroupID { get; set; }
+    
+        public virtual T_SlideGroup T_SlideGroup { get; set; }
     }
 }

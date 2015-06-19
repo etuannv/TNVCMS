@@ -29,6 +29,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         }
         //
         // GET: /Admin/News/List
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult List(int? cateId, string search, int? page)
         {
@@ -39,6 +40,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             return View(MyList);
         }
 
+        [Authorize]
         public PartialViewResult GetTags(int id, string taxonomy)
         {
             IEnumerable<T_Tag> TagList = _news_TagServices.GetTagByNewsID(id, taxonomy);
@@ -46,6 +48,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         }
 
         // GET: /Admin/News/AddNew
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult AddNew()
         {
@@ -57,6 +60,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // POST: /Admin/News/AddNew
+        [Authorize]
         [AcceptVerbs("POST")]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -129,6 +133,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // GET: /Admin/News/Edit
+        [Authorize]
         [AcceptVerbs("GET")]
         
         public ActionResult Edit(int? id)
@@ -166,6 +171,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         }
 
         // POST: /Admin/News/Edit
+        [Authorize]
         [AcceptVerbs("POST")]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -208,6 +214,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // GET: /Admin/Tag/Delete
+        [Authorize]
         [AcceptVerbs("GET")]
         public ActionResult Delete(int? id)
         {
@@ -221,6 +228,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
 
         // POST: /Admin/Tag/Delete
+        [Authorize]
         [ValidateAntiForgeryToken]
         [AcceptVerbs("POST")]
         public ActionResult Delete(int id)
