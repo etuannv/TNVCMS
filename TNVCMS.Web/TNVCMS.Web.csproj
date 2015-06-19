@@ -3037,6 +3037,9 @@
     <Content Include="Views\Article\GetNewsInCategory.cshtml" />
     <Content Include="Views\Article\ListInCate.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Bootstrap3Pagination.cshtml" />
+    <Content Include="Views\Article\GetLastestNews.cshtml" />
+    <Content Include="Views\Article\GetRelatedNews.cshtml" />
+    <Content Include="Views\Article\ContentByTag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

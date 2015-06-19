@@ -19,5 +19,13 @@ namespace TNVCMS.Domain.Services
         ReturnValue<bool> UpdateNews(T_News iNews);
         ReturnValue<bool> DeleteNews(T_News iNews);
         ReturnValue<bool> DeleteNews(int id);
+
+        IEnumerable<T_News> GetLastNews(int limit);
+
+        IEnumerable<T_News> GetRelatedNews(int newsId, int limit);
+
+        IEnumerable<T_News> GetNewsByTag(int tagId, int limit);
+
+        T_Tag GetCateByNewsID(int newsID);
     }
 }

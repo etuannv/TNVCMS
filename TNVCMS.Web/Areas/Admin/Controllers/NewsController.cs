@@ -36,7 +36,11 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             ViewData["search"] = search;
             IEnumerable<T_News> ListNew = _newsServices.GetNews(cateId, search);
-            IPagedList<T_News> MyList = MvcPaging.PagingExtensions.ToPagedList(ListNew, currentPageIndex, GlobalVariables.PageSize, ListNew.Count());
+            int PageSizeAdmin = 10;
+            Int32.TryParse(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PageSizeAdmin.ToString()), out PageSizeAdmin);
+            PageSizeAdmin = (PageSizeAdmin < 1) ? 20 : PageSizeAdmin;
+
+            IPagedList<T_News> MyList = MvcPaging.PagingExtensions.ToPagedList(ListNew, currentPageIndex, PageSizeAdmin, ListNew.Count());
             return View(MyList);
         }
 
@@ -96,7 +100,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
         private void AddListTag(string TagStringList, int iNewsID)
         {
-            var TagList = TagStringList.Split(';');
+            var TagList = TagStringList.Split( new string[]{";"}, StringSplitOptions.RemoveEmptyEntries);
             foreach(string item in TagList)
             {
                 AddNewTagAndTagForNews(item, iNewsID);

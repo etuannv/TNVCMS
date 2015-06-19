@@ -67,3 +67,17 @@
         <!-- Form Element sizes -->
     </div><!--/.col (left) -->
 </div>   <!-- /.row -->
+
+
+<script src="/Scripts/custome.js"></script>
+<script type="text/javascript">
+    $("#Slug").focus(function () {
+        genSlug();
+    });
+
+    function genSlug() {
+        var title = $('#Title').val().trim();
+        var myslug = slug(title);
+        $('#Slug').val(myslug);
+    }
+</script>

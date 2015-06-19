@@ -6,7 +6,7 @@
     {
         if(!String.IsNullOrEmpty(tag.Title) )
         { 
-            @Html.ActionLink(tag.Title, "ContentByTag", "Home", new { @id = tag.ID }, new { @class="tag_item"})
+            @Html.ActionLink(tag.Title, "ContentByTag", "Article", new { @id = tag.ID, @slug = tag.Slug }, new { @class="tag_item"})
         }
     }
 </div>

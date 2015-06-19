@@ -138,6 +138,46 @@ namespace TNVCMS.Domain.Services
                 return new ReturnValue<bool>(false, "");
             }
         }
+        public IEnumerable<T_News> GetLastNews(int limit)
+        {
+            return _dataContext.T_News.OrderByDescending(m => m.ID).Select(m => m).Take(limit);
+        }
 
+        public IEnumerable<T_News> GetRelatedNews(int newsId, int limit)
+        {
+            //Search news for same tag
+            IT_TagServices tagService = new T_TagServices();
+            List<T_Tag> TagList = tagService.GetTagByNewsID(TNVCMS.Utilities.Constants.TAXONOMY_TAG, newsId).ToList(); ;
+            return GetNewsByTagList(TagList, limit);
+        }
+
+        private IEnumerable<T_News> GetNewsByTagList(List<T_Tag> TagList, int limit)
+        {
+            List<int> ListTagID = TagList.Select(s => s.ID).ToList();
+            return (from m in _dataContext.T_News
+                    join n in _dataContext.T_News_Tag on m.ID equals n.NewsID
+                    where ListTagID.Contains(n.TagID)
+                    select m).Take(limit).Distinct();
+        }
+
+        public IEnumerable<T_News> GetNewsByTag(int tagId, int limit)
+        {
+            var q = (from m in _dataContext.T_News
+                    join n in _dataContext.T_News_Tag on m.ID equals n.NewsID
+                    where n.TagID == tagId
+                    select m).Distinct().OrderByDescending(s=>s.ID);
+            if(limit > 0)
+                return q.Take(limit);
+            else
+                return q;
+        }
+
+        public T_Tag GetCateByNewsID(int newsID)
+        {
+            return (from m in _dataContext.T_Tag
+                     join n in _dataContext.T_News_Tag on m.ID equals n.TagID
+                     where n.NewsID == newsID && m.Taxonomy == TNVCMS.Utilities.Constants.TAXONOMY_CATEGORY
+                     select m).FirstOrDefault();
+        }
     }
 }

@@ -20,23 +20,8 @@
 
             </div>
             <div class="span3" id="footerArea2">
-
                 <h3>Mới nhất</h3>
-                <p>
-                    <a href="#" title="">Máy xây dựng giá rẻ nhất</a><br />
-                    <span style="text-transform:none;">2 giờ trước</span>
-                </p>
-                <p>
-                    <a href="#" title="">Làm thế nào vận hành máy tốt nhất</a><br />
-                    <span style="text-transform:none;">5 giờ trước</span>
-                </p>
-                <p>
-                    <a href="#" title="">Tư vấn xây nhà 4 tầng</a><br />
-                    <span style="text-transform:none;">19 giờ trước</span>
-                </p>
-                <p>
-                    <a href="#" title="">XEM CÁC BÀI KHÁC</a>
-                </p>
+                @Html.Action("GetLastestNews", "Article", new { @limit =5})
 
             </div>
             <div class="span3" id="footerArea3">

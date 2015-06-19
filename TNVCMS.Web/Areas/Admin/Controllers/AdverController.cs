@@ -32,7 +32,10 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             ViewData["search"] = search;
             IEnumerable<T_Adver> Cate = _AdverServices.AdverSearch(search);
-            IPagedList<T_Adver> MyList = MvcPaging.PagingExtensions.ToPagedList(Cate, currentPageIndex, GlobalVariables.PageSize, Cate.Count());
+            int PageSizeAdmin = 10;
+            Int32.TryParse(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PageSizeAdmin.ToString()), out PageSizeAdmin);
+            PageSizeAdmin = (PageSizeAdmin < 1) ? 20 : PageSizeAdmin;
+            IPagedList<T_Adver> MyList = MvcPaging.PagingExtensions.ToPagedList(Cate, currentPageIndex, PageSizeAdmin, Cate.Count());
             return View(MyList);
         }
 

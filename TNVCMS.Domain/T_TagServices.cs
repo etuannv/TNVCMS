@@ -88,7 +88,7 @@ namespace TNVCMS.Domain.Services
 
         public bool IsExist(T_Tag iTag)
         {
-            T_Tag TagFound = _dataContext.T_Tag.Where(m => m.Title == iTag.Title || m.Slug == iTag.Slug).SingleOrDefault();
+            T_Tag TagFound = _dataContext.T_Tag.Where( m => m.ID != iTag.ID &&(m.Title == iTag.Title || m.Slug == iTag.Slug)).SingleOrDefault();
             return (TagFound != null) ? true : false;
         }
 
@@ -119,6 +119,7 @@ namespace TNVCMS.Domain.Services
         public ReturnValue<bool> AddNewTag(T_Tag iTag)
         {
             if (IsExist(iTag)) return new ReturnValue<bool>(false, "Mục đã tồn tại");
+            if (string.IsNullOrEmpty(iTag.Title) || string.IsNullOrEmpty(iTag.Slug)) return new ReturnValue<bool>(false, "Dữ liệu không đúng");
             try
             {
                 _dataContext.T_Tag.Add(iTag);
@@ -132,7 +133,8 @@ namespace TNVCMS.Domain.Services
         }
         public ReturnValue<bool> UpdateTag(T_Tag iTag)
         {
-            //if (IsExist(iTag)) return new ReturnValue<bool>(false, "Mục đã tồn tại");
+            if (IsExist(iTag)) return new ReturnValue<bool>(false, "Mục đã tồn tại");
+            if (string.IsNullOrEmpty(iTag.Title) || string.IsNullOrEmpty(iTag.Slug)) return new ReturnValue<bool>(false, "Dữ liệu không đúng");
             try
             {
                 T_Tag UpdatedItem = _dataContext.T_Tag.Where(m => m.ID == iTag.ID).SingleOrDefault();
@@ -205,6 +207,12 @@ namespace TNVCMS.Domain.Services
                 return _dataContext.T_Tag.Where(m => m.Taxonomy == Utilities.Constants.TAXONOMY_TAG);
             }
         }
-
+        public IEnumerable<T_Tag> GetTagByNewsID(string taxonomy, int newsId)
+        {
+            return from m in _dataContext.T_News_Tag
+                    join n in _dataContext.T_Tag on m.TagID equals n.ID
+                    where m.NewsID == newsId && n.Taxonomy == taxonomy
+                    select n;
+        }
     }
 }

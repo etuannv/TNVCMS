@@ -31,7 +31,9 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             ViewData["taxonomy"] = taxonomy;
             ViewData["search"] = search;
             IEnumerable<T_Tag> Cate = _tagServices.GetByTaxonomyForDisplay(taxonomy, null, search);
-            IPagedList<T_Tag> MyList = MvcPaging.PagingExtensions.ToPagedList(Cate, currentPageIndex, GlobalVariables.PageSize, Cate.Count());
+            int PageSizeAdmin = Convert.ToInt32(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PageSizeAdmin.ToString()));
+            PageSizeAdmin = (PageSizeAdmin < 1) ? 20 : PageSizeAdmin;
+            IPagedList<T_Tag> MyList = MvcPaging.PagingExtensions.ToPagedList(Cate, currentPageIndex, PageSizeAdmin, Cate.Count());
             return View(MyList);
         }
 

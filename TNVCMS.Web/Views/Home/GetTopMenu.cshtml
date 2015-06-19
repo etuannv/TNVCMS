@@ -4,16 +4,19 @@
     </button>
     <div class="nav-collapse collapse">
         <ul class="nav nav-pills ddmenu">
-            <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+            <li>@Html.ActionLink("Trang chủ", "Index", "Home", null)</li>
             <li>@Html.ActionLink("Giới thiệu", "Detail", "Article", 
-                    new { id = Convert.ToInt32(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.GioiThieuID.ToString()))}, null)
+                    new { id = Convert.ToInt32(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.GioiThieuID.ToString())), slug="gioi-thieu"}, null)
             </li>
             <li>@Html.ActionLink("Dịch vụ", "Services", "Home")</li>
             <li>@Html.ActionLink("Tin tức", "ListInCate", "Article", 
-                    new { id = Convert.ToInt32(@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.TinTucCateID.ToString()))}, null)</li>
-            <li>@Html.ActionLink("Tuyển dụng", "Product", "Home")</li>
+                    new { id = Convert.ToInt32(@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.TinTucCateID.ToString())), slug="tin-tuc"}, null)</li>
+            <li>
+                @Html.ActionLink("Tuyển dụng", "ListInCate", "Article",
+                    new { id = Convert.ToInt32(@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.TuyenDungCateID.ToString())), slug="tuyen-dung" }, null)
+            </li>
             <li>@Html.ActionLink("Liên hệ", "Detail", "Article", 
-                    new { id = Convert.ToInt32(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.LienHeID.ToString())) }, null)
+                    new { id = Convert.ToInt32(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.LienHeID.ToString())), slug="lien-he" }, null)
             </li>
         </ul>
     </div>

@@ -23,11 +23,17 @@ namespace TNVCMS.Utilities
         SlideThietBiCongTrinhID,
         SlidePhuTungMayCongTrinhID,
         SlideXangDauID,
-        TinTucCateID
+        TinTucCateID,
+        TuyenDungCateID,
+        PageSizeAdmin,
+        PageSizeClient
     }
     public static class Common
     {
-
+        public static string StripHTML(string input)
+        {
+            return Regex.Replace(input, "<.*?>", String.Empty);
+        }
         public static string GetDescription(string content, int limit = 0)
         {
             string result = "";
@@ -43,7 +49,7 @@ namespace TNVCMS.Utilities
                 }
             }
 
-            return result;
+            return StripHTML(result);
         }
         public static string GetUniqueString()
         {

@@ -25,5 +25,7 @@ namespace TNVCMS.Domain.Services
 
         IEnumerable<T_Tag> TagSearch(string term);
 
+
+        IEnumerable<T_Tag> GetTagByNewsID(string taxonomy, int newsId);
     }
 }
