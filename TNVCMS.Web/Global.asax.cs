@@ -23,11 +23,28 @@ namespace TNVCMS.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             RegisterCustomeBinder();
             MvcSiteMapProvider.DI.Composer.Compose();
+            Application["OnlineVisitors"] = 1;
+            Application["TotalVisitors"] = Convert.ToInt32(GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.VisitCount.ToString()));
         }
         public static void RegisterCustomeBinder()
         {
             ModelBinders.Binders.Add(typeof(DateTime), new CustomeDateBinder());
             ModelBinders.Binders.Add(typeof(DateTime?), new CustomeDateBinder());
         }
+
+        public void Session_Start(object sender, EventArgs e) {
+            Application.Lock();
+            Application["OnlineVisitors"] = (int)Application["OnlineVisitors"] + 1;
+            Application["TotalVisitors"] = (int)Application["TotalVisitors"] + 1;
+            Application.UnLock();
+            //Increase total count
+            GlobalConfig.Instance.SetValue(TNVCMS.Utilities.Config.VisitCount.ToString(), ((int)Application["TotalVisitors"] + 1).ToString());
+        }
+
+        public void Session_End(object sender, EventArgs e) {
+            Application.Lock();
+            Application["OnlineVisitors"] = (int)Application["OnlineVisitors"] - 1;
+            Application.UnLock();
+        }  
     }
 }

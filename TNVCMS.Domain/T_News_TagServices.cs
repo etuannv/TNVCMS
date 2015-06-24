@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TNVCMS.Utilities;
 using TNVCMS.Domain.Model;
+using System.Data.Entity;
 
 namespace TNVCMS.Domain.Services
 {
@@ -77,11 +78,8 @@ namespace TNVCMS.Domain.Services
             //if (IsExist(iNews_Tag)) return new ReturnValue<bool>(false, "Mục đã tồn tại");
             try
             {
-                T_News_Tag UpdateItem = _dataContext.T_News_Tag.Where(m=>m.ID == iNews_Tag.ID).SingleOrDefault();
-                UpdateItem.NewsID = iNews_Tag.NewsID;
-                UpdateItem.TagID = iNews_Tag.TagID;
-                _dataContext.SaveChanges();
-                return new ReturnValue<bool>(true, "");
+                _dataContext.Entry(iNews_Tag).State = EntityState.Modified;
+                return new ReturnValue<bool>(_dataContext.SaveChanges() > 0, "");
             }
             catch (Exception)
             {

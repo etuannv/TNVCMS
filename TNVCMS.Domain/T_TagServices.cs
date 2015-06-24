@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using TNVCMS.Domain.Model;
 using TNVCMS.Utilities;
@@ -88,14 +89,14 @@ namespace TNVCMS.Domain.Services
 
         public bool IsExist(T_Tag iTag)
         {
-            T_Tag TagFound = _dataContext.T_Tag.Where( m => m.ID != iTag.ID &&(m.Title == iTag.Title || m.Slug == iTag.Slug)).SingleOrDefault();
+            T_Tag TagFound = _dataContext.T_Tag.Where( m => m.ID != iTag.ID && m.Taxonomy == iTag.Taxonomy &&(m.Title == iTag.Title || m.Slug == iTag.Slug)).SingleOrDefault();
             return (TagFound != null) ? true : false;
         }
 
         public T_Tag AddNewTagAndReturn(T_Tag iTag)
         {
             //Check exist
-            T_Tag TagFound = _dataContext.T_Tag.Where(m => m.Title == iTag.Title || m.Slug == iTag.Slug).SingleOrDefault();
+            T_Tag TagFound = _dataContext.T_Tag.Where( m =>m.Taxonomy == iTag.Taxonomy && ( m.Title == iTag.Title || m.Slug == iTag.Slug)).SingleOrDefault();
             //Return exist Tag
             if (TagFound != null) return TagFound;
             else
@@ -137,15 +138,8 @@ namespace TNVCMS.Domain.Services
             if (string.IsNullOrEmpty(iTag.Title) || string.IsNullOrEmpty(iTag.Slug)) return new ReturnValue<bool>(false, "Dữ liệu không đúng");
             try
             {
-                T_Tag UpdatedItem = _dataContext.T_Tag.Where(m => m.ID == iTag.ID).SingleOrDefault();
-                UpdatedItem.Title = iTag.Title;
-                UpdatedItem.Description = iTag.Description;
-                UpdatedItem.Slug = iTag.Slug;
-                UpdatedItem.ParentID = iTag.ParentID;
-                UpdatedItem.ParentPath = iTag.ParentPath;
-                UpdatedItem.ModifiedBy = iTag.ModifiedBy;
-                UpdatedItem.ModifiedDate = iTag.ModifiedDate;
-                return new ReturnValue<bool>(true, "");
+                _dataContext.Entry(iTag).State = EntityState.Modified;
+                return new ReturnValue<bool>(_dataContext.SaveChanges() > 0, "");
             }
             catch (Exception)
             {

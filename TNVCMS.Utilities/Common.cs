@@ -26,7 +26,8 @@ namespace TNVCMS.Utilities
         TinTucCateID,
         TuyenDungCateID,
         PageSizeAdmin,
-        PageSizeClient
+        PageSizeClient,
+        VisitCount
     }
     public static class Common
     {
@@ -51,6 +52,25 @@ namespace TNVCMS.Utilities
 
             return StripHTML(result);
         }
+
+        public static string GetDescriptionByChar(string content, int limit = 0)
+        {
+            string result = "";
+            string[] data = content.Split(new string[] { @"<hr />" }, StringSplitOptions.None);
+            if (data.Count() > 0)
+            {
+                result = data[0];
+
+                if (limit != 0 && result.Length > limit)
+                {
+                    result = result.Substring(0, limit);
+                    result += "...";
+                }
+            }
+
+            return StripHTML(result);
+        }
+
         public static string GetUniqueString()
         {
             return Guid.NewGuid().ToString().Replace("-", "");
@@ -109,6 +129,23 @@ namespace TNVCMS.Utilities
                 text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
             }
             return text;
+        }
+
+        //public static string GetFilename(string filePath)
+        //{
+        //    System.IO.Path.GetFileName(filePath)
+            
+        //}
+
+        public static string GetFileNameReal(string item)
+        {
+            string FileName = System.IO.Path.GetFileNameWithoutExtension(item);
+            string[] List = FileName.Split('_');
+            if (List.Length > 1)
+            {
+                return List[1];
+            }
+            else return FileName;
         }
     }
 }

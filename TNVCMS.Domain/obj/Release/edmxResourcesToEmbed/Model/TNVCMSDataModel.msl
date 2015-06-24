@@ -94,5 +94,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="T_Album">
+      <EntityTypeMapping TypeName="TNVCMSModel.T_Album">
+        <MappingFragment StoreEntitySet="T_Album">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

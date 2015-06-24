@@ -4,6 +4,7 @@ using System.Linq;
 using TNVCMS.Domain.Model;
 using System.Data.Entity;
 using TNVCMS.Utilities;
+using System.IO;
 
 namespace TNVCMS.Domain.Services
 {
@@ -18,8 +19,8 @@ namespace TNVCMS.Domain.Services
 
         public IEnumerable<T_Slide> GetAll()
         {
-            return from m in _dataContext.T_Slide.Include(m=>m.T_SlideGroup)
-                    select m;
+            return from m in _dataContext.T_Slide.Include(m => m.T_SlideGroup)
+                   select m;
         }
 
         public T_Slide GetByID(int id)
@@ -35,8 +36,8 @@ namespace TNVCMS.Domain.Services
         public T_Slide AddNewSlideAndReturn(T_Slide iSlide)
         {
             _dataContext.T_Slide.Add(iSlide);
-                _dataContext.SaveChanges();
-                return iSlide;
+            _dataContext.SaveChanges();
+            return iSlide;
         }
 
 
@@ -59,12 +60,7 @@ namespace TNVCMS.Domain.Services
             //if (IsExist(iSlide)) return new ReturnValue<bool>(false, "Mục đã tồn tại");
             try
             {
-                T_Slide UpdatedItem = _dataContext.T_Slide.Where(m => m.ID == iSlide.ID).SingleOrDefault();
-                UpdatedItem.Title = iSlide.Title;
-                UpdatedItem.Link = iSlide.Link;
-                UpdatedItem.ImagePath = iSlide.ImagePath;
-                UpdatedItem.Enable = iSlide.Enable;
-                UpdatedItem.GroupID = iSlide.GroupID;
+                _dataContext.Entry(iSlide).State = EntityState.Modified;
                 return new ReturnValue<bool>(_dataContext.SaveChanges() > 0, "");
             }
             catch (Exception)
@@ -77,6 +73,7 @@ namespace TNVCMS.Domain.Services
         {
             try
             {
+                //Delete this slide
                 _dataContext.T_Slide.Remove(iSlide);
                 _dataContext.SaveChanges();
                 return new ReturnValue<bool>(true, "");
@@ -99,18 +96,20 @@ namespace TNVCMS.Domain.Services
             }
         }
 
-        public IEnumerable<T_Slide> SlideSearch(string term)
+        public IEnumerable<T_Slide> SlideSearch(string term, int? slideGroupID)
         {
-            IEnumerable<T_Slide> ResultList;
-            if (!string.IsNullOrEmpty(term))
+            IEnumerable<T_Slide> ResultList = GetAll();
+            if (slideGroupID != null)
             {
-                ResultList = from m in _dataContext.T_Slide.Include(m => m.T_SlideGroup)
-                             where (m.Title.Contains(term))
+                ResultList = from m in ResultList
+                             where (m.GroupID == slideGroupID)
                              select m;
             }
-            else
+            if (!string.IsNullOrEmpty(term))
             {
-                ResultList = GetAll();
+                ResultList = from m in ResultList
+                             where (m.Title.Contains(term))
+                             select m;
             }
             return ResultList.OrderByDescending(m => m.ID);
         }
@@ -121,6 +120,15 @@ namespace TNVCMS.Domain.Services
         public IEnumerable<T_Slide> GetSlideByGroupID(int GroupID)
         {
             return _dataContext.T_Slide.Where(m => m.GroupID == GroupID);
+        }
+
+        public void DeleteSlideBySlideGroup(int groupID)
+        {
+            IEnumerable<T_Slide> ListSlide = GetSlideByGroupID(groupID);
+            foreach (T_Slide slide in ListSlide)
+            {
+                DeleteSlide(slide);
+            }
         }
     }
 }

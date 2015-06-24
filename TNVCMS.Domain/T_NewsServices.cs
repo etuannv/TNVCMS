@@ -24,8 +24,25 @@ namespace TNVCMS.Domain.Services
 
         public IEnumerable<T_News> GetNews(int? cateId, string search)
         {
-            IEnumerable<T_News> ResultList = GetAll();
-            if (cateId != null) ResultList = ResultList.Where(m => m.T_News_Tag.Any(b => b.TagID == cateId));
+            IEnumerable<T_News> ResultList;
+            // Get all category child
+            if(cateId.HasValue)
+            {
+                List<int> CateIDList = _dataContext.T_Tag.Where(y => y.ParentID == cateId).Select(m=>m.ID).ToList();
+                CateIDList.Add((int)cateId);
+
+
+                ResultList = from m in _dataContext.T_News
+                             join n in _dataContext.T_News_Tag on m.ID equals n.NewsID
+                             where CateIDList.Contains(n.TagID)
+                             select m;
+            }
+            else
+            {
+                ResultList = GetAll();
+            }
+
+            
             if (!string.IsNullOrEmpty(search))
             {
                 string SearchSlug = search.Replace(' ', '-');
@@ -35,10 +52,13 @@ namespace TNVCMS.Domain.Services
         }
         public IEnumerable<T_News> GetByTaxonomy(int iCateID)
         {
+            List<int> CateIDList = _dataContext.T_Tag.Where(y => y.ParentID == iCateID).Select(m => m.ID).ToList();
+            CateIDList.Add(iCateID);
+
             var data = from n in _dataContext.T_News
                     join m in _dataContext.T_News_Tag on n.ID equals m.NewsID
                     join q in _dataContext.T_Tag on m.TagID equals q.ID
-                    where m.TagID == iCateID
+                    where CateIDList.Contains(m.TagID)
                     select n;
             
             return data.OrderByDescending(a=>a.ID);
@@ -46,8 +66,20 @@ namespace TNVCMS.Domain.Services
 
         public IEnumerable<T_News> GetByTaxonomy(int iCateID, int number)
         {
-
             return GetByTaxonomy(iCateID).OrderByDescending(m => m.ID).Select(m => m).Take(number);
+        }
+        //public IEnumerable<T_News> GetByTaxonomyList(List<int> CateIdList, int Number)
+        //{
+
+        //    return (from n in _dataContext.T_News
+        //               join m in _dataContext.T_News_Tag on n.ID equals m.NewsID
+        //               join q in _dataContext.T_Tag on m.TagID equals q.ID
+        //               where CateIdList.Contains(m.TagID)
+        //               select n).Take(Number);
+        //}
+        public IEnumerable<T_News> GetRandomByTaxonomy(int iCateID, int number)
+        {
+            return GetByTaxonomy(iCateID).OrderByDescending(m => Guid.NewGuid()).Select(m => m).Take(number);
         }
 
 
@@ -93,19 +125,8 @@ namespace TNVCMS.Domain.Services
             if (IsExist(iNews)) return new ReturnValue<bool>(false, "Mục đã tồn tại");
             try
             {
-                T_News UpdateItem = GetByID(iNews.ID);
-                UpdateItem.Title = iNews.Title;
-                UpdateItem.Slug = iNews.Slug;
-                UpdateItem.AvataImageUrl = iNews.AvataImageUrl;
-                UpdateItem.IsHotNews = iNews.IsHotNews;
-                UpdateItem.ContentNews = iNews.ContentNews;
-                UpdateItem.Author = iNews.Author;
-                UpdateItem.PublishTime = iNews.PublishTime;
-                UpdateItem.Status = iNews.Status;
-                UpdateItem.ModifiedBy = iNews.ModifiedBy;
-                UpdateItem.ModifiedDate = iNews.ModifiedDate;
-                _dataContext.SaveChanges();
-                return new ReturnValue<bool>(true, "");
+                _dataContext.Entry(iNews).State = EntityState.Modified;
+                return new ReturnValue<bool>(_dataContext.SaveChanges() > 0, "");
             }
             catch (Exception)
             {

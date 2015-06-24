@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using TNVCMS.Domain.Model;
 using TNVCMS.Utilities;
@@ -58,9 +59,7 @@ namespace TNVCMS.Domain.Services
             //if (IsExist(iSlideGroup)) return new ReturnValue<bool>(false, "Mục đã tồn tại");
             try
             {
-                T_SlideGroup UpdatedItem = _dataContext.T_SlideGroup.Where(m => m.ID == iSlideGroup.ID).SingleOrDefault();
-                UpdatedItem.Title = iSlideGroup.Title;
-                UpdatedItem.Description = iSlideGroup.Description;
+                _dataContext.Entry(iSlideGroup).State = EntityState.Modified;
                 return new ReturnValue<bool>(_dataContext.SaveChanges() > 0, "");
             }
             catch (Exception)

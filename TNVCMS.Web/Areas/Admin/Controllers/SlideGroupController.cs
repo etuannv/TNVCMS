@@ -97,8 +97,13 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         public ActionResult Delete(int id)
         {
             T_SlideGroup SlideGroup = _slideGroupServices.GetByID((int)id);
+
+            //Delete all slide of this group
+            T_SlideServices SlideService = new T_SlideServices();
+            SlideService.DeleteSlideBySlideGroup(SlideGroup.ID);
+
+            //Delet this grou[p
             _slideGroupServices.DeleteSlideGroup(id);
-            //TODO: Update parent tree
             return RedirectToAction("List", "SlideGroup");
         }
 
@@ -134,6 +139,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
                 return View(iSlideGroup);
             }
         }
+
 
         [Authorize]
         [AcceptVerbs("GET")]

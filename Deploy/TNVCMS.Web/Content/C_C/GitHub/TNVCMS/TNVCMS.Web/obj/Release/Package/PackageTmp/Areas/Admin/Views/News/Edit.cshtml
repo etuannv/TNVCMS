@@ -1,0 +1,189 @@
+﻿@model TNVCMS.Web.Areas.Admin.Models.NewsViewModel
+
+@using TNVCMS.Web.Areas.Admin.Models;
+@{
+    ViewBag.Title = "Sửa";
+}
+
+@section header {
+    <h1>
+        <span>Tin tức</span>
+        <small>Sửa</small>
+    </h1>
+}
+
+<div class="row">
+    @using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <!-- left column -->
+        <div class="col-md-9">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <div class="box-header">
+
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                @Html.ValidationSummary()
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.ID)
+                <div class="box-body">
+                    <div class="form-group focus">
+                        <label>Tên</label>
+                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Nhập tên" })
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                    <div class="form-group">
+                        <label>Slug</label>
+                        @Html.TextBoxFor(m => m.Slug, new { @class = "form-control", placeholder = "Nhập slug" })
+                        @Html.ValidationMessageFor(model => model.Slug)
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nội dung</label>
+                        @Html.TextAreaFor(m => m.ContentNews, new { @class = "form-control ckeditor", cols = "80", rows = "10", placeholder = "Nhập nội dung tin" })
+                        @Html.ValidationMessageFor(model => model.ContentNews)
+                    </div>
+
+                </div><!-- /.box-body -->
+
+            </div><!-- /.box -->
+        </div><!--/.col (left) -->
+    <!-- right column -->
+        <div class="col-md-3">
+            <!-- general form elements -->
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Đăng bài</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="form-group">
+                        <label>Trạng thái</label>
+                        <select name="Status" class="form-control">
+                            @if(Model.Status == @TNVCMS.Utilities.Constants.NEWS_STATUS_DRAFT)
+                            { 
+                                <option selected value="@TNVCMS.Utilities.Constants.NEWS_STATUS_DRAFT">Lưu tạm</option>
+                            }
+                            else
+                            { 
+                                <option value="@TNVCMS.Utilities.Constants.NEWS_STATUS_DRAFT">Lưu tạm</option>
+                            }
+    
+                            @if (Model.Status == @TNVCMS.Utilities.Constants.NEWS_STATUS_PEDDING)
+                            {
+                                 <option selected value="@TNVCMS.Utilities.Constants.NEWS_STATUS_PEDDING">Chờ xuất bản</option>
+                            }
+                            else
+                            {
+                                 <option value="@TNVCMS.Utilities.Constants.NEWS_STATUS_PEDDING">Chờ xuất bản</option>
+                            }
+                            @if (Model.Status == @TNVCMS.Utilities.Constants.NEWS_STATUS_PUBLIC)
+                            {
+                                <option selected value="@TNVCMS.Utilities.Constants.NEWS_STATUS_PUBLIC">Xuất bản</option>
+                            }
+                            else
+                            {
+                                <option value="@TNVCMS.Utilities.Constants.NEWS_STATUS_PUBLIC">Xuất bản</option>
+                            }
+                           
+                            
+                        </select>
+                    </div>
+                </div><!-- /.box-body -->
+                <div class="box-footer">
+                    <button style="float:right;" type="submit" name="Published" value="Published" class="btn btn-primary">Đăng bài</button>
+                    <button type="submit" name="Saved" value="Saved" class="btn btn-default">Lưu tạm</button>
+                </div>
+            </div>
+
+            <!-- general form elements -->
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Chuyên mục</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="form-group">
+                        <select name="Category" class="form-control">
+                            @foreach (var item in Model.CategoryList)
+                            {
+                                foreach (var MyCate in Model.MyCategoryList)
+                                {
+                                    if (MyCate.ID == item.ID)
+                                    {
+                                        <option selected value="@item.ID">@item.Title</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.ID">@item.Title</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    @*<div class="cate-list">
+
+                                <ul class="list-unstyled">
+
+                                    @foreach (var item in Model.CategoryList)
+                                    {
+                                        <li>
+                                            <input type="checkbox" class="cate" value="@item.ID" />@item.Title
+                                        </li>
+                                    }
+
+                                </ul>
+                        </div>*@
+                </div>
+                <!-- /.box-body -->
+            </div>
+
+            <!-- general form elements -->
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Tag</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    @*<input id="tags" type="text" data-role="tagsinput"> (TODO:AutoComplelte)*@
+
+                    <input id="tags" name="Tags" value='@ViewData["TagList"]' class="form-control" type="text">
+                </div>
+            </div>
+
+            <!-- general form elements -->
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Ảnh đại diện</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="form-group">
+                        <input type="file" name="ImageData" id="ImageData" onchange="fileCheck(this);" />
+                        <img src="@Model.AvataImageUrl" alt="Ảnh đại diện" style="width: 100%; padding-top:20px;"> 
+                    </div>
+                </div><!-- /.box-body -->
+            </div>
+
+
+        </div>   <!-- /.row -->
+    }
+
+</div>
+
+
+<script src="~/Scripts/custome.js"></script>
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="/ckfinder/ckfinder.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        CKFinder.setupCKEditor(null, '/ckfinder/');
+    });
+
+
+    $("#Slug").focus(function () {
+        genSlug();
+    });
+
+    function genSlug() {
+        var title = $('#Title').val().trim();
+        var myslug = slug(title);
+        $('#Slug').val(myslug);
+    }
+</script>

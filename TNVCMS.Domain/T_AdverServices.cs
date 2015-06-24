@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using TNVCMS.Domain.Model;
 using TNVCMS.Utilities;
@@ -58,15 +59,7 @@ namespace TNVCMS.Domain.Services
             //if (IsExist(iAdver)) return new ReturnValue<bool>(false, "Mục đã tồn tại");
             try
             {
-                T_Adver UpdatedItem = _dataContext.T_Adver.Where(m => m.ID == iAdver.ID).SingleOrDefault();
-                UpdatedItem.Title = iAdver.Title;
-                UpdatedItem.Description = iAdver.Description;
-                UpdatedItem.Link = iAdver.Link;
-                UpdatedItem.ImagePath = iAdver.ImagePath;
-                UpdatedItem.PublishDate = iAdver.PublishDate;
-                UpdatedItem.UnpublishDate = iAdver.UnpublishDate;
-                UpdatedItem.ModifiedBy = iAdver.ModifiedBy;
-                UpdatedItem.ModifiedDate = iAdver.ModifiedDate;
+                _dataContext.Entry(iAdver).State = EntityState.Modified;
                 return new ReturnValue<bool>(_dataContext.SaveChanges() > 0, "");
             }
             catch (Exception)

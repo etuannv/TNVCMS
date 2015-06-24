@@ -4,34 +4,64 @@
     </button>
     <div class="nav-collapse collapse">
         <ul class="nav nav-pills ddmenu">
-            <li>@Html.ActionLink("Trang chủ", "Index", "Home", null)</li>
-            <li>@Html.ActionLink("Giới thiệu", "Detail", "Article", 
-                    new { id = Convert.ToInt32(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.GioiThieuID.ToString())), slug="gioi-thieu"}, null)
-            </li>
-            <li>@Html.ActionLink("Dịch vụ", "Services", "Home")</li>
-            <li>@Html.ActionLink("Tin tức", "ListInCate", "Article", 
-                    new { id = Convert.ToInt32(@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.TinTucCateID.ToString())), slug="tin-tuc"}, null)</li>
+            <li>@Html.ActionLink("Trang chủ", "Index", "Home", null, null)</li>
             <li>
-                @Html.ActionLink("Tuyển dụng", "ListInCate", "Article",
-                    new { id = Convert.ToInt32(@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.TuyenDungCateID.ToString())), slug="tuyen-dung" }, null)
+                <a href="/Article/Detail/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkArticle(TNVCMS.Utilities.Config.GioiThieuID.ToString())">Giới thiệu</a>
             </li>
-            <li>@Html.ActionLink("Liên hệ", "Detail", "Article", 
-                    new { id = Convert.ToInt32(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.LienHeID.ToString())), slug="lien-he" }, null)
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Cho thuê <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.VanChuyenThietBiCoGioiID.ToString())">Thuê thiết bị vận tải&nbsp;&raquo;</a>
+                        <ul class="dropdown-menu sub-menu">
+                            <li><a href="/Article/ListInCate/112/xe-5-8-tan">Xe 5 - 8 tấn</a></li>
+                            <li><a href="/Article/ListInCate/113/xe-3-chan">Xe 3 chân</a></li>
+                            <li><a href="/Article/ListInCate/114/xe-4-chan">Xe 4 chân</a></li>
+                            <li><a href="/Article/ListInCate/115/xe-dau-keo">Xe đầu kéo</a></li>
+                            <li><a href="/Article/ListInCate/116/xe-tec-cho-xang-dau">Xe chở xăng dầu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.ThietBiCongTrinhID.ToString())">Thuê thiết bị công trình&nbsp;&raquo;</a>
+                        <ul class="dropdown-menu sub-menu">
+                            <li><a href="/Article/ListInCate/118/may-xuc">Máy xúc</a></li>
+                            <li><a href="/Article/ListInCate/119/may-ui">Máy ủi</a></li>
+                            <li><a href="/Article/ListInCate/120/may-lu">Máy lu</a></li>
+                            <li><a href="/Article/ListInCate/121/may-san">Máy san</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.PhuTungMayCongTrinhID.ToString())">Phụ tùng máy công trình</a></li>
+                    <li><a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.XangDauID.ToString())">Xăng dầu&nbsp;&raquo;</a></li>
+                    <li><a href="/Article/Detail/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkArticle(TNVCMS.Utilities.Config.LienHeID.ToString())">Liên hệ</a></li>
+                </ul>
+            </li>
+
+
+            <li>
+                <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.TinTucCateID.ToString())">Tin tức</a>
+            </li>
+            <li>
+                <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.TuyenDungCateID.ToString())">Tuyển dụng</a>
+            </li>
+            <li>
+                <a href="/Article/Detail/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkArticle(TNVCMS.Utilities.Config.LienHeID.ToString())">Liên hệ</a>
             </li>
         </ul>
     </div>
 </div>
 @*<script type="text/javascript">
-    var currentLocation = window.location;
-    $(function () {
-        $('.ddmenu li a').each(function () {
-            if (this.href == currentLocation) {
-                $(this).parent().addClass("active");
-            }
+        var currentLocation = window.location;
+        $(function () {
+            $('.ddmenu li a').each(function () {
+                if (this.href == currentLocation) {
+                    $(this).parent().addClass("active");
+                }
+            });
         });
-    });
 
-</script>*@
+    </script>*@
 
 
 
@@ -43,7 +73,7 @@
         var path = window.location.pathname;
         path = path.replace(/\/$/, "");
         path = decodeURIComponent(path);
-        
+
         $(".nav a").each(function () {
             var href = $(this).attr('href');
             if (path.substring(0, href.length) === href) {

@@ -29,11 +29,21 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         // GET: /Admin/Slide/List
         [Authorize]
         [AcceptVerbs("GET")]
-        public ActionResult List(string search, int? page)
+        public ActionResult List(string search, int? GroupID, int? page)
         {
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             ViewData["search"] = search;
-            IEnumerable<T_Slide> Cate = _SlideServices.SlideSearch(search);
+            if (GroupID.HasValue)
+            {
+                Session["SlideGroup"] = GroupID;
+            }
+            else
+            {
+                if (Session["SlideGroup"] != null) GroupID = (int)Session["SlideGroup"];
+            }
+            ViewBag.GroupID = new SelectList(_slideGroupServices.GetAll().OrderBy(m => m.Title), "Id", "Title", GroupID);
+
+            IEnumerable<T_Slide> Cate = _SlideServices.SlideSearch(search, GroupID);
             int PageSizeAdmin = 10;
             Int32.TryParse(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PageSizeAdmin.ToString()), out PageSizeAdmin);
             PageSizeAdmin = (PageSizeAdmin < 1) ? 20 : PageSizeAdmin;
@@ -64,7 +74,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             string PathReturn = UploadSlideImage(file);
             iSlide.ImagePath = PathReturn;
             ReturnValue<bool> result = new ReturnValue<bool>(false, "");
-        
+
             if (ModelState.IsValid)
             {
                 result = _SlideServices.AddNewSlide(iSlide);
@@ -124,9 +134,24 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         public ActionResult Delete(int id)
         {
             T_Slide Slide = _SlideServices.GetByID((int)id);
+            DeleteFile(Slide.ImagePath);
             _SlideServices.DeleteSlide(id);
             //TODO: Update parent tree
             return RedirectToAction("List", "Slide");
+        }
+
+        private void DeleteFile(string path)
+        {
+            try
+            {
+                string FilePath = Server.MapPath(path);
+                if (System.IO.File.Exists(FilePath))
+                {
+                    System.IO.File.Delete(FilePath);
+                }
+            }
+            catch
+            { }
         }
 
         // GET: /Admin/Slide/Edit
@@ -167,13 +192,6 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             }
         }
 
-
-        [Authorize]
-        [AcceptVerbs("GET")]
-        public JsonResult SlideSearch(string term)
-        {
-            return this.Json( _SlideServices.SlideSearch(term), JsonRequestBehavior.AllowGet);
-        }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using TNVCMS.Domain.Model;
 using TNVCMS.Utilities;
@@ -58,10 +59,7 @@ namespace TNVCMS.Domain.Services
             //if (IsExist(iConfig)) return new ReturnValue<bool>(false, "Mục đã tồn tại");
             try
             {
-                T_Config UpdatedItem = _dataContext.T_Config.Where(m => m.ID == iConfig.ID).SingleOrDefault();
-                UpdatedItem.Title = iConfig.Title;
-                UpdatedItem.Key = iConfig.Key;
-                UpdatedItem.Value = iConfig.Value;
+                _dataContext.Entry(iConfig).State = EntityState.Modified;
                 return new ReturnValue<bool>(_dataContext.SaveChanges() > 0, "");
             }
             catch (Exception)
@@ -108,6 +106,11 @@ namespace TNVCMS.Domain.Services
                 ResultList = GetAll();
             }
             return ResultList.OrderByDescending(m => m.ID);
+        }
+
+        public T_Config GetByKey(string key)
+        {
+            return _dataContext.T_Config.Where(m => m.Key == key).FirstOrDefault();
         }
     }
 }

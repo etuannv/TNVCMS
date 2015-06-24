@@ -13,8 +13,9 @@ namespace TNVCMS.Domain.Services
         ReturnValue<bool> UpdateSlide(T_Slide iSlide);
         ReturnValue<bool> DeleteSlide(T_Slide iSlide);
         ReturnValue<bool> DeleteSlide(int id);
-        IEnumerable<T_Slide> SlideSearch(string term);
+        IEnumerable<T_Slide> SlideSearch(string term, int? slideGroupID);
         IEnumerable<T_Slide> GetEnableSlide();
         IEnumerable<T_Slide> GetSlideByGroupID(int GroupID);
+        void DeleteSlideBySlideGroup(int groupID);
     }
 }

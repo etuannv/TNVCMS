@@ -19,10 +19,11 @@
             <br />
             <div>@Html.Action("GetTags", new { @id = Model.ID, @taxonomy = TNVCMS.Utilities.Constants.TAXONOMY_TAG })</div>
         </div>
+        <div id="contentInnerSeparator"></div>
         <!--/End Main Content Area here-->
         <!--Edit Sidebar Content here-->
         <div class="span3">
-            <h3 class="title-full">Bài viết khác</h3>
+            <h3 class="title-full">Dịch vụ khác</h3>
             @Html.Action("GetRelatedNews", "Article", new { newsId = Model.ID, @limit = 5 })
             <h3 class="title-full">Hình ảnh</h3>
             @Html.Action("GetSlideOne", "Home",new {id = 6, width = "251px", height = "180px"})

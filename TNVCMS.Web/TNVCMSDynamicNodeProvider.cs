@@ -29,6 +29,7 @@ namespace TNVCMS.Web
                 dynamicNode.Title = article.Title;
                 dynamicNode.RouteValues.Add("id", article.ID);
                 dynamicNode.RouteValues.Add("slug", article.Slug);
+                dynamicNode.PreservedRouteParameters = new List<string> { article.Slug };
                 string Description = Utilities.Common.GetDescription(article.ContentNews, 50);
                 dynamicNode.Description = (Description== null)? article.Title: Description;
                 dynamicNode.ParentKey = "Chuyên mục " +  _newServices.GetCateByNewsID(article.ID).Title;
@@ -38,6 +39,7 @@ namespace TNVCMS.Web
             // Return 
             return returnValue;
         }
+
     }
 
 
@@ -63,7 +65,44 @@ namespace TNVCMS.Web
                 dynamicNode.RouteValues.Add("id", tag.ID);
                 dynamicNode.RouteValues.Add("slug", tag.Slug);
                 dynamicNode.Description = tag.Description;
+                if (tag.ParentID != null)
+                {
+                    //Add parent key
+                    dynamicNode.ParentKey = "Chuyên mục " + _tagServices.GetByID((int)tag.ParentID).Title;
+                }
 
+                returnValue.Add(dynamicNode);
+            }
+
+            // Return 
+            return returnValue;
+        }
+    }
+
+
+    public class AlbumDynamicNodeProvider : DynamicNodeProviderBase
+    {
+        IT_AlbumServices _albumService;
+
+        public AlbumDynamicNodeProvider()
+        {
+            _albumService = new T_AlbumServices();
+        }
+        public override IEnumerable<DynamicNode> GetDynamicNodeCollection(ISiteMapNode node)
+        {
+            // Build value 
+            var returnValue = new List<DynamicNode>();
+
+            // Create a node for each Category
+            foreach (var item in _albumService.GetAll())
+            {
+                DynamicNode dynamicNode = new DynamicNode();
+                dynamicNode.Title = item.Title;
+                dynamicNode.RouteValues.Add("id", item.ID);
+                dynamicNode.RouteValues.Add("slug", item.Slug);
+                dynamicNode.PreservedRouteParameters = new List<string> { item.Slug };
+                dynamicNode.Description = item.Description;
+                dynamicNode.ParentKey = "Album";
                 returnValue.Add(dynamicNode);
             }
 

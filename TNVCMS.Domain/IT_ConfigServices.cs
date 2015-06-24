@@ -14,5 +14,6 @@ namespace TNVCMS.Domain.Services
         ReturnValue<bool> DeleteConfig(T_Config iConfig);
         ReturnValue<bool> DeleteConfig(int id);
         IEnumerable<T_Config> ConfigSearch(string term);
+        T_Config GetByKey(string key);
     }
 }

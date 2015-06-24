@@ -7,19 +7,25 @@
 
   <mvcSiteMapNode title="Vui Vĩnh Phúc" controller="Home" action="Index" description="Hòa An, Vông ty TNHH Thương mại và Dịch vụ Hòa An, xây dựng" metaRobotsValues="index follow noodp noydir">
     <mvcSiteMapNode title="Quản trị" area="Admin" controller="Start" action="Index" metaRobotsValues="noindex nofollow">
-      <mvcSiteMapNode title="Tin tức" area="Admin" controller="News" action="Manage" metaRobotsValues="noindex nofollow">
         <mvcSiteMapNode title="Thêm mới tin" controller="News" action="AddNew" metaRobotsValues="noindex nofollow"/>
         <mvcSiteMapNode title="Bài viết" controller="News" action="List" metaRobotsValues="noindex nofollow"/>
-        <mvcSiteMapNode title="Chuyên mục" controller="Tag" action="List" taxonomy="category" metaRobotsValues="noindex nofollow">
-          <mvcSiteMapNode title="Thêm chuyên mục" controller="Tag" action="AddNew" taxonomy="category" metaRobotsValues="noindex nofollow"/>
-        </mvcSiteMapNode>
-      </mvcSiteMapNode>
+        <mvcSiteMapNode title="Chuyên mục" controller="Tag" action="List" taxonomy="category" metaRobotsValues="noindex nofollow"/>
+        <mvcSiteMapNode title="Tag" controller="Tag" action="List" taxonomy="tag" metaRobotsValues="noindex nofollow"/>
+        <mvcSiteMapNode title="Danh sách slide" controller="Slide" action="List" metaRobotsValues="noindex nofollow"/>
+        <mvcSiteMapNode title="Dánh sách nhóm slie" controller="SlideGroup" action="List" metaRobotsValues="noindex nofollow"/>
+        <mvcSiteMapNode title="Danh sách Album" controller="Album" action="List" metaRobotsValues="noindex nofollow"/>
     </mvcSiteMapNode>
-    
-    <mvcSiteMapNode title="Details" controller="Article" action="Detail" dynamicNodeProvider="TNVCMS.Web.TNVCMSDynamicNodeProvider, TNVCMS.Web" />
+
+
+
+    <mvcSiteMapNode title="ListInCate" controller="Article" action="ListInCate" dynamicNodeProvider="TNVCMS.Web.CategoryDynamicNodeProvider, TNVCMS.Web">
+      <mvcSiteMapNode title="Details" controller="Article" action="Detail" dynamicNodeProvider="TNVCMS.Web.DetailDynamicNodeProvider, TNVCMS.Web" />    
+    </mvcSiteMapNode>
     <mvcSiteMapNode title="Giới thiệu" controller="Article" action="Detail" preservedRouteParameters="id, slug" description="Giới thiệu công ty Hòa An, Hòa An" />
-    <mvcSiteMapNode title="Liên hệ" controller="Article" action="Detail" preservedRouteParameters="id, slug" description="Liên hệ, Hòa An" />
-    <mvcSiteMapNode title="Album ảnh" controller="Album" action="List" description="Hình ảnh công ty" />
+    <mvcSiteMapNode title="Bài viết liên quan" controller="Article" action="ContentByTag" preservedRouteParameters="id,slug" description="Bài viết liên quan" />
+    <mvcSiteMapNode title="Danh sách Album" controller="AlbumClient" key="Album" action="List" description="Danh sách Album" >
+      <mvcSiteMapNode title="Album Detail" controller="AlbumClient" action="Detail" dynamicNodeProvider="TNVCMS.Web.AlbumDynamicNodeProvider, TNVCMS.Web" />
+    </mvcSiteMapNode>
     
   </mvcSiteMapNode>
 </mvcSiteMap>

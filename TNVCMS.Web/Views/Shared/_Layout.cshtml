@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>@Html.MvcSiteMap().SiteMapTitle()</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="@Html.Raw(HttpUtility.HtmlDecode(@MvcSiteMapProvider.SiteMaps.Current.CurrentNode.Description))">
+    <meta name="description" content="@Html.Raw(HttpUtility.HtmlDecode(@MvcSiteMapProvider.SiteMaps.Current.CurrentNode.Description))" >
     <meta name="author" content="http://tuvantinhoc.vn">
     <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
     @Html.MvcSiteMap().MetaRobotsTag()
@@ -41,7 +41,7 @@
     <link href="http://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css">*@
 
-    ><link href="~/Content/themes/hoaan/styles/custom.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/themes/hoaan/styles/custom.css" rel="stylesheet" type="text/css" />
     
 
 
@@ -77,11 +77,12 @@
 
                 </div>
             </div>
-            @if (ViewData["hasSlide"] != null)
-            {
-                @Html.Action("GetSlide", "Home")
-            }
-        </div>
+
+                @if (ViewData["hasSlide"] != null)
+                {
+                    @Html.Action("GetSlide", "Home")
+                }
+            </div>
 
         <div class="contentArea">
             <!--Edit Main Content Area here-->

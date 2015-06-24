@@ -16,6 +16,15 @@
     <Property Name="ModifiedDate" Type="datetime" />
     <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="T_Album">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Slug" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+  </EntityType>
   <EntityType Name="T_Config">
     <Key>
       <PropertyRef Name="ID" />
@@ -124,6 +133,7 @@
   </Association>
   <EntityContainer Name="TNVCMSModelStoreContainer">
     <EntitySet Name="T_Adver" EntityType="Self.T_Adver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Album" EntityType="Self.T_Album" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_Config" EntityType="Self.T_Config" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_News" EntityType="Self.T_News" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_News_Tag" EntityType="Self.T_News_Tag" Schema="dbo" store:Type="Tables" />

@@ -1,5 +1,204 @@
 /***** BASE CSS *****/
 
+.albumContainer
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    clear: both;
+    margin: 10px auto;
+    padding-top: 1px;
+    width: 98%;
+	float: left;
+}
+
+.pt-actions
+{
+	text-align: left; 
+	width: 90%; 
+	padding: 1px 0 3px;
+	border-bottom: 1px solid #E8E6E6;
+	margin-top: 20px;
+}
+
+.pt-actions input
+{
+	background-color: #E0E0E0;
+    background-image: linear-gradient(to bottom, #FAFAFA 0px, #DCDCDC 100%);
+    border-color: #CCCCCC #CCCCCC #AAAAAA;
+    box-shadow: 0 0 1px #FFFFFF inset;
+    text-shadow: 0 1px 0 #FFFFFF;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    height: 2.5em;
+    outline: 0 none;
+    padding: 0 0.5em;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: normal;
+	width: 80px;
+	margin-left: 4px;
+}
+.pt-actions input:hover
+{
+    background-image: linear-gradient(to bottom, #F0F0F0 0px, #E6E6E6 100%);
+    border-color: #AAAAAA #AAAAAA #999999;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.pt-albumbox
+{
+	width:100%;
+	float: left;
+	margin-top: 5px;
+}
+
+.pt-albumbox a
+{
+	font-weight: normal;
+}
+
+.albumContainer .paging {
+	float: left;
+	margin-top:15px;
+}
+.pt-item
+{
+	background: none repeat scroll 0 0 #F8F7F8;
+	border:1px solid #F5F1F1;
+	margin: 8px 3px 3px 3px;
+	width: 130px;
+	height: 130px;
+	float: left;
+}
+
+.pt-item-client
+{
+	background: none repeat scroll 0 0 #F8F7F8;
+    border: 1px solid #F5F1F1;
+    float: left;
+    height: 70px;
+    margin: 1px 8px 7px 8px;
+    width: 105px;
+}
+
+.pt-item-client img
+{
+	height: 100%;
+	width: 100%;
+}
+.pt-item input
+{
+	float: left;
+    margin: 1px;
+	width: 13px;
+	height: 13px;
+}
+
+.pt-album
+{
+	width:auto;
+	height:80px;
+	text-align: center;	
+}
+
+.pt-album img
+{
+	width:auto;
+	height:auto;
+	text-align: center;
+	margin-left: -5px;
+}
+
+.pt-album-name
+{
+	font-size: 11px;
+    font-weight: normal;
+    height: auto;
+    min-height: 55px;
+    text-align: center;
+    padding-top: 5px;
+    width: auto;
+}
+
+/*------------------------- Image in album css --------------*/
+
+.pt-img-box
+{
+	width:100%;
+	float: left;
+	margin-top: 5px;
+}
+.pt-img-box a
+{
+	font-weight: normal;
+}
+
+.pt-img-item
+{
+	background: none repeat scroll 0 0 #F8F7F8;
+	border:1px solid #F5F1F1;
+	margin: 8px 3px 3px 3px;
+	width: 130px;
+	height: 130px;
+	float: left;
+}
+
+.pt-img-item input
+{
+    left: 1px;
+    margin: 1px;
+    opacity: 0.7;
+    position: absolute;
+    top: 1px;
+}
+.pt-img-item input:hover
+{
+    opacity: 0.9
+}
+
+.pt-img
+{
+    position: relative;
+    text-align: center;
+    width: auto;
+	height: 95px;
+}
+
+.pt-img img
+{
+	height: 100%;
+    width: 100%;
+}
+
+.pt-img-name
+{
+	font-size: 11px;
+    font-weight: normal;
+    height: auto;
+    text-align: center;
+    padding-top: 5px;
+    width: auto;
+}
+
+.pt_input
+{
+    border-style: solid;
+    border-width: 1px;
+    color: #666666;
+    font-family: Monaco,"Liberation Mono",Courier,monospace;
+    font-size: 12px;
+    height: 27px;
+    max-width: 350px;
+    padding: 0;
+    width: 68%;
+}
+
+
+
+
 
 .article-group
 {
@@ -40,9 +239,8 @@
 
  .news-incate img
  {
-    height: 107px;
     margin: 8px 0;
-    width: 155px;
+    width:100%;
  }
 
 .news-desc img
@@ -215,6 +413,10 @@ margin-right: -20px !important; /* fix bg cover issue */
 /* Responsive Image */
 
 img {max-width:100%;height:auto;width:auto;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+img:hover
+{
+    opacity: 0.4;
+}
 
 /* Responsive Video from Zurb Foundation. Copyright (c) 2011 ZURB, http://www.zurb.com/ License: MIT */
 
@@ -474,7 +676,7 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: "He
 
 .ddmenu.nav-pills li a {font-size: 16px; line-height: 17px;}
 
-.ddmenu .dropdown-menu li a {font-family: 'Pontano Sans'; line-height: 26px; font-size: 15px;}
+.ddmenu .dropdown-menu li a {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; line-height: 26px; font-size: 15px;}
 
 .camera_caption {font-size: 15px; font-family: Oxygen, sans-serif; letter-spacing: 1px; line-height: 22px; text-transform: lowercase; font-weight: normal;}
 
@@ -570,7 +772,11 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: "He
     .navbar .ddmenu {margin-top: 0px;margin-bottom: 0px;}
 
 }
-
+@media (max-width: 500px) {
+    .divPanel {
+    padding: 10px;
+    }
+}
 
 
 

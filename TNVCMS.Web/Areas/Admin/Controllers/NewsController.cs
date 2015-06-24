@@ -33,6 +33,17 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         [AcceptVerbs("GET")]
         public ActionResult List(int? cateId, string search, int? page)
         {
+            if (cateId.HasValue)
+            {
+                Session["cateId"] = cateId;
+            }
+            else
+            {
+                if (Session["cateId"] != null) cateId = (int)Session["cateId"];
+            }
+            ViewBag.cateId = new SelectList(_tagServices.GetByTaxonomyForDisplay(TNVCMS.Utilities.Constants.TAXONOMY_CATEGORY), "ID", "Title", cateId);
+
+
             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
             ViewData["search"] = search;
             IEnumerable<T_News> ListNew = _newsServices.GetNews(cateId, search);
@@ -54,6 +65,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         // GET: /Admin/News/AddNew
         [Authorize]
         [AcceptVerbs("GET")]
+        [SiteMapCacheRelease]
         public ActionResult AddNew()
         {
             IEnumerable<T_Tag> CatList = _tagServices.GetByTaxonomyForDisplay(Utilities.Constants.TAXONOMY_CATEGORY);

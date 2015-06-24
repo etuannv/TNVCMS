@@ -9,44 +9,32 @@
 
                 <h3>Giới thiệu</h3>
 
-                <p>Công ty TTHH Thương mại và Xây Dựng Hòa An là công ty ....</p>
+                <p>Công ty TTHH Thương mại và Xây Dựng Hòa An chuyên cung cấp các dịch vụ dưới đây</p>
 
                 <p>
-                    <a href="#" title="Terms of Use">Liên hệ</a><br />
-                    <a href="#" title="Privacy Policy">Hỏi đáp</a><br />
-                    <a href="#" title="FAQ">Thuê máy</a><br />
-                    <a href="#" title="Sitemap">Sitemap</a>
+                    
+                    <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.VanChuyenThietBiCoGioiID.ToString())">Thuê thiết bị vận tải</a><br />
+                    <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.ThietBiCongTrinhID.ToString())">Thuê thiết bị công trình</a><br />
+                    <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.PhuTungMayCongTrinhID.ToString())">Phụ tùng máy công trình</a><br />
+                    <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.XangDauID.ToString())">Mua bán xăng dầu</a><br />
+                    <a href="/Article/Detail/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkArticle(TNVCMS.Utilities.Config.LienHeID.ToString())">Liên hệ</a> <br />
+                    <a href="~/sitemap.xml" title="Sitemap">Sitemap</a>
                 </p>
 
             </div>
             <div class="span3" id="footerArea2">
-
                 <h3>Mới nhất</h3>
-                <p>
-                    <a href="#" title="">Máy xây dựng giá rẻ nhất</a><br />
-                    <span style="text-transform:none;">2 giờ trước</span>
-                </p>
-                <p>
-                    <a href="#" title="">Làm thế nào vận hành máy tốt nhất</a><br />
-                    <span style="text-transform:none;">5 giờ trước</span>
-                </p>
-                <p>
-                    <a href="#" title="">Tư vấn xây nhà 4 tầng</a><br />
-                    <span style="text-transform:none;">19 giờ trước</span>
-                </p>
-                <p>
-                    <a href="#" title="">XEM CÁC BÀI KHÁC</a>
-                </p>
+                @Html.Action("GetLastestNews", "Article", new { @limit =5})
 
             </div>
             <div class="span3" id="footerArea3">
 
                 <h3>Thống kê</h3>
                 <p>
-                    <a href="#" title="">Trực tuyến: 40</a><br />
+                    <a href="#" title="">Trực tuyến: @ApplicationInstance.Application["OnlineVisitors"]</a><br />
                 </p>
                 <p>
-                    <a href="#" title="">Lượt truy cập: 500</a><br />
+                    <a href="#" title="">Lượt truy cập: @ApplicationInstance.Application["TotalVisitors"]</a><br />
                     <br />
                 </p>
             </div>
@@ -84,7 +72,7 @@
         <div class="row-fluid">
             <div class="span12">
                 <p class="copyright">
-                    Website đang chạy thử nghiệm. Copyright © 2015 Công ty TNHH Thương mại và Xây dựng Vui Vĩnh Phúc. All Rights Reserved.
+                    Website đang chạy thử nghiệm. Bản quyền thuộc Công ty TNHH Thương mại và Xây dựng Vui Vĩnh Phúc.
                 </p>
 
                 <p class="social_bookmarks">
@@ -92,7 +80,9 @@
                     <a href=""><i class="social foundicon-twitter"></i> Twitter</a>
                     <a href="#"><i class="social foundicon-pinterest"></i> Pinterest</a>
                     <a href="#"><i class="social foundicon-rss"></i> Rss</a>
+                <span style="text-align:right; float:right;">Thiết kế bởi: <a href="mailto:etuannv@gmail.com" style='text-transform: none; font-size: 12px !important; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;'>Nguyễn Văn Tuấn</a></span>
                 </p>
+                
             </div>
         </div>
 

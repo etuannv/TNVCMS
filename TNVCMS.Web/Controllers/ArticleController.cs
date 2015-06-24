@@ -29,51 +29,8 @@ namespace TNVCMS.Web.Controllers
         [SiteMapTitle("Title")]
         public ActionResult Detail(int id, string slug)
         {
-            T_News ANews = _newServices.GetByID(id);
+            T_News ANews = _newServices.GetByID(id);           
             return View(ANews);
-        }
-
-        public PartialViewResult GetTags(int id, string taxonomy)
-        {
-            IEnumerable<T_Tag> TagList = _news_TagServices.GetTagByNewsID(id, taxonomy);
-            return PartialView(TagList);
-        }
-        public PartialViewResult GetNewsInCategory(int CateId, int Number = 5)
-        {
-            //Get limit itme
-            IEnumerable<T_News> NewsList = _newServices.GetByTaxonomy(CateId, 5);
-            return PartialView("GetNewsInCategory", NewsList);
-        }
-
-        [SiteMapTitle("Title")]
-        public ActionResult ListInCate(int id, int? page)
-        {
-            T_TagServices tagServices = new T_TagServices();
-            ViewBag.CateTitle = tagServices.GetByID(id).Title;
-            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
-            // Get all with paging
-            IEnumerable<T_News> NewsList = _newServices.GetByTaxonomy(id);
-            int PageSizeClient;
-            Int32.TryParse(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PageSizeClient.ToString()), out PageSizeClient);
-            PageSizeClient = (PageSizeClient < 1)?20: PageSizeClient;
-            IPagedList<T_News> Model = MvcPaging.PagingExtensions.ToPagedList(NewsList, currentPageIndex, PageSizeClient, NewsList.Count());
-            return View("ListInCate", Model);
-
-        }
-        public PartialViewResult GetLastestNews(int limit = 5)
-        {
-            //Get limit itme
-            IEnumerable<T_News> NewsList = _newServices.GetLastNews(5);
-            return PartialView("GetLastestNews", NewsList);
-
-        }
-
-        public PartialViewResult GetRelatedNews(int newsId, int limit = 5)
-        {
-            //Get limit itme
-            IEnumerable<T_News> NewsList = _newServices.GetRelatedNews(newsId, 5);
-            return PartialView("GetRelatedNews", NewsList);
-
         }
 
         public ActionResult ContentByTag(int id, int? page, int limit = 0)
@@ -92,5 +49,84 @@ namespace TNVCMS.Web.Controllers
             return View("ContentByTag", Model);
 
         }
+
+
+        [SiteMapTitle("Title")]
+        public ActionResult ListInCate(int id, int? page)
+        {
+            T_TagServices tagServices = new T_TagServices();
+            ViewBag.CateTitle = tagServices.GetByID(id).Title;
+            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
+            // Get all with paging
+            IEnumerable<T_News> NewsList = _newServices.GetByTaxonomy(id);
+            int PageSizeClient;
+            Int32.TryParse(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PageSizeClient.ToString()), out PageSizeClient);
+            PageSizeClient = (PageSizeClient < 1)?20: PageSizeClient;
+            IPagedList<T_News> Model = MvcPaging.PagingExtensions.ToPagedList(NewsList, currentPageIndex, PageSizeClient, NewsList.Count());
+            return View("ListInCate", Model);
+
+        }
+
+
+        [SiteMapTitle("Title")]
+        public ActionResult ListInCateModern(int id, int? page)
+        {
+            T_TagServices tagServices = new T_TagServices();
+            ViewBag.CateTitle = tagServices.GetByID(id).Title;
+            int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
+            // Get all with paging
+            IEnumerable<T_News> NewsList = _newServices.GetByTaxonomy(id);
+            int PageSizeClient;
+            Int32.TryParse(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PageSizeClient.ToString()), out PageSizeClient);
+            PageSizeClient = (PageSizeClient < 1) ? 20 : PageSizeClient;
+            IPagedList<T_News> Model = MvcPaging.PagingExtensions.ToPagedList(NewsList, currentPageIndex, PageSizeClient, NewsList.Count());
+            return View("ListInCateModern", Model);
+
+        }
+
+        public PartialViewResult GetTags(int id, string taxonomy)
+        {
+            IEnumerable<T_Tag> TagList = _news_TagServices.GetTagByNewsID(id, taxonomy);
+            return PartialView(TagList);
+        }
+        public PartialViewResult GetNewsInCategory(int CateId, int Number = 5)
+        {
+            //Get limit itme
+            IEnumerable<T_News> NewsList = _newServices.GetByTaxonomy(CateId, Number);
+            return PartialView("GetNewsInCategory", NewsList);
+        }
+
+        public PartialViewResult GetNewsInCategoryDisplayRight(int CateId, int Number = 5)
+        {
+            //Get limit itme
+            IEnumerable<T_News> NewsList = _newServices.GetRandomByTaxonomy(CateId, Number);
+            return PartialView("GetNewsInCategoryDisplayRight", NewsList);
+        }
+
+
+        public PartialViewResult GetNewsInCategoryModern(int CateId, int Number = 8, int column = 4)
+        {
+
+            ViewBag.Column = column;
+            IEnumerable<T_News> NewsList = _newServices.GetByTaxonomy(CateId, Number);
+            return PartialView("GetNewsInCategoryModern", NewsList);
+        }
+
+        public PartialViewResult GetLastestNews(int limit = 5)
+        {
+            //Get limit itme
+            IEnumerable<T_News> NewsList = _newServices.GetLastNews(limit);
+            return PartialView("GetLastestNews", NewsList);
+
+        }
+
+        public PartialViewResult GetRelatedNews(int newsId, int limit = 5)
+        {
+            //Get limit itme
+            IEnumerable<T_News> NewsList = _newServices.GetRelatedNews(newsId, limit);
+            return PartialView("GetRelatedNews", NewsList);
+
+        }
+
     }
 }

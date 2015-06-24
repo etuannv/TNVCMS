@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcPaging;
+using MvcSiteMapProvider.Web.Mvc.Filters;
 using TNVCMS.Domain.Model;
 using TNVCMS.Domain.Services;
 using TNVCMS.Utilities;
@@ -56,6 +57,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         [Authorize]
         [AcceptVerbs("POST")]
         [ValidateAntiForgeryToken]
+        [SiteMapCacheRelease]
         public ActionResult AddNew(T_Config iConfig)
         {
             ReturnValue<bool> result = new ReturnValue<bool>(false, "");
@@ -95,6 +97,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         [Authorize]
         [ValidateAntiForgeryToken]
         [AcceptVerbs("POST")]
+        [SiteMapCacheRelease]
         public ActionResult Delete(int id)
         {
             T_Config Config = _configServices.GetByID((int)id);
@@ -106,6 +109,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         // GET: /Admin/Config/Edit
         [Authorize]
         [AcceptVerbs("GET")]
+        
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -121,6 +125,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         [Authorize]
         [ValidateAntiForgeryToken]
         [AcceptVerbs("POST")]
+        [SiteMapCacheRelease]
         public ActionResult Edit(T_Config iConfig)
         {
             ReturnValue<bool> result = _configServices.UpdateConfig(iConfig);

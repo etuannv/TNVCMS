@@ -21,6 +21,15 @@
           <Property Name="ModifiedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="T_Album">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Slug" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="T_Config">
           <Key>
             <PropertyRef Name="ID" />
@@ -129,6 +138,7 @@
         </Association>
         <EntityContainer Name="TNVCMSModelStoreContainer">
           <EntitySet Name="T_Adver" EntityType="Self.T_Adver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Album" EntityType="Self.T_Album" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Config" EntityType="Self.T_Config" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_News" EntityType="Self.T_News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_News_Tag" EntityType="Self.T_News_Tag" Schema="dbo" store:Type="Tables" />
@@ -172,6 +182,7 @@
             <End Role="T_Slide" EntitySet="T_Slide" />
           </AssociationSet>
           <EntitySet Name="T_Config" EntityType="TNVCMSModel.T_Config" />
+          <EntitySet Name="T_Album" EntityType="TNVCMSModel.T_Album" />
         </EntityContainer>
         <EntityType Name="T_Adver">
           <Key>
@@ -301,6 +312,15 @@
           <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="T_Album">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Slug" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -400,7 +420,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="T_Album">
+            <EntityTypeMapping TypeName="TNVCMSModel.T_Album">
+              <MappingFragment StoreEntitySet="T_Album">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

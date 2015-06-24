@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TNVCMS.Domain.Model.T_News>
+
+@foreach (var item in Model)
+{
+    <div class="">
+        <a href="/Article/Detail/@item.ID/@item.Slug">
+            @if (string.IsNullOrEmpty(@item.AvataImageUrl))
+            {
+                <img alt="Ảnh đại diện" class="img-polaroid" src="/Content/themes/hoaan/images/ImageUnavailable.gif">
+            }
+            else
+            {
+                <img alt="Ảnh đại diện" class="img-polaroid" src="@item.AvataImageUrl">
+            }
+        </a>
+    </div>
+    <div class="news-desc">
+        <a href="/Article/Detail/@item.ID/@item.Slug">
+            <h4>@item.Title</h4>
+        </a>
+        @Html.Raw(HttpUtility.HtmlDecode(@TNVCMS.Utilities.Common.GetDescription(@item.ContentNews, 45)))
+        @Html.ActionLink("Chi tiết", "Detail", "Article", new { @id = item.ID, @slug = item.Slug }, null)
+    </div>
+    <hr />
+}

@@ -5,6 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MvcPaging;
+using MvcSiteMapProvider.Web.Mvc.Filters;
 using TNVCMS.Domain.Model;
 using TNVCMS.Domain.Services;
 using TNVCMS.Utilities;
@@ -41,6 +42,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         // GET: /Admin/Tag/AddNew
         [Authorize]
         [AcceptVerbs("GET")]
+        [SiteMapCacheRelease]
         public ActionResult AddNew(string taxonomy)
         {
             ViewData["taxonomy"] = taxonomy;
@@ -55,6 +57,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         [Authorize]
         [AcceptVerbs("POST")]
         [ValidateAntiForgeryToken]
+        [SiteMapCacheRelease]
         public ActionResult AddNew(TagViewModel iTagVM)
         {
             ViewData["taxonomy"] = iTagVM.Taxonomy;

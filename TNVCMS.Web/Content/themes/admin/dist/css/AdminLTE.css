@@ -27,8 +27,29 @@ body {
 	padding-left: 15px;
 }
 
+.image-item
+{
+    position:relative;
+    float: left;
+}
+.top-del
+{
+    color: #aaa;
+    font-weight: bold;
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
 
-
+.top-del:hover
+{
+    color:#fff;
+}
+.small-pic
+{
+    width: 144px;
+    height: 91px;
+}
 /* info and errors */
 .message-info {
     border: 1px solid;

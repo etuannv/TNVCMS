@@ -44,6 +44,9 @@
                                     <label>
                                         @Html.TextBox("search", ViewData["search"] as string, new { @class = "form-control" })
                                     </label>
+                                    <label>
+                                        @Html.DropDownList("CateID", null, "--------- Tất cả ------", new { @class = "form-control", onchange = "this.form.submit();" })
+                                    </label>
                                 }
                             </div>
                         </div>

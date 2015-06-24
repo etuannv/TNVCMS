@@ -1,7 +1,5 @@
 ﻿@model TNVCMS.Domain.Model.T_News
-@{
-    ViewBag.Title = Model.Title;
-}
+
 
 <div class="divPanel notop page-content">
 
@@ -21,24 +19,14 @@
             <br />
             <div>@Html.Action("GetTags", new { @id = Model.ID, @taxonomy = TNVCMS.Utilities.Constants.TAXONOMY_TAG })</div>
         </div>
+        <div id="contentInnerSeparator"></div>
         <!--/End Main Content Area here-->
         <!--Edit Sidebar Content here-->
         <div class="span3">
-            <h3>Bài viết khác</h3>
-            <p><a href="#">Tiêu đề hiển thị bài viết số 1</a></p>
-            <p><a href="#">Tiêu đề hiển thị bài viết số 2</a></p>
-            <p><a href="#">Tiêu đề hiển thị bài viết số 3</a></p>
-            <p><a href="#">Tiêu đề hiển thị bài viết số 4</a></p>
-            <p><a href="#">Tiêu đề hiển thị bài viết số 5</a></p>
-            <h3>Dịch vụ</h3>
-            <img src="~/Content/themes/hoaan/images/windmill.jpg" class="img-polaroid" alt="">
-
-            <h3>Dự án</h3>
-            <p><a href="#">Thông tin dự án 1</a></p>
-            <p><a href="#">Thông tin dự án 2</a></p>
-            <p><a href="#">Thông tin dự án 3</a></p>
-            <p><a href="#">Thông tin dự án 4</a></p>
-            <p><a href="#">Thông tin dự án 5</a></p>
+            <h3 class="title-full">Dịch vụ khác</h3>
+            @Html.Action("GetRelatedNews", "Article", new { newsId = Model.ID, @limit = 5 })
+            <h3 class="title-full">Hình ảnh</h3>
+            @Html.Action("GetSlideOne", "Home",new {id = 6, width = "251px", height = "180px"})
         </div>
         <!--/End Sidebar Content -->
     </div>
