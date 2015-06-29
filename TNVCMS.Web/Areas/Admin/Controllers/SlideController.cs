@@ -22,8 +22,8 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
         public SlideController()
         {
-            if (_SlideServices == null) _SlideServices = new T_SlideServices();
-            if (_slideGroupServices == null) _slideGroupServices = new T_SlideGroupServices();
+            _SlideServices = new T_SlideServices();
+            _slideGroupServices = new T_SlideGroupServices();
         }
         //
         // GET: /Admin/Slide/List

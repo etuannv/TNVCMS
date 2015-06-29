@@ -23,9 +23,9 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
         public NewsController()
         {
-            if (_newsServices == null) _newsServices = new T_NewsServices();
-            if (_tagServices == null) _tagServices = new T_TagServices();
-            if (_news_TagServices == null) _news_TagServices = new T_News_TagServices();
+            _newsServices = new T_NewsServices();
+            _tagServices = new T_TagServices();
+            _news_TagServices = new T_News_TagServices();
         }
         //
         // GET: /Admin/News/List

@@ -1,4 +1,4 @@
-﻿<div class="navbar">
+﻿@*<div class="navbar">
     <button type="button" class="btn btn-navbar-highlight btn-large btn-primary" data-toggle="collapse" data-target=".nav-collapse">
         Danh mục <span class="icon-chevron-down icon-white"></span>
     </button>
@@ -6,14 +6,14 @@
         <ul class="nav nav-pills ddmenu">
             <li>@Html.ActionLink("Trang chủ", "Index", "Home", null, null)</li>
             <li>
-                <a href="/Article/Detail/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkArticle(TNVCMS.Utilities.Config.GioiThieuID.ToString())">Giới thiệu</a>
+                <a href="/Article/Detail/">Giới thiệu</a>
             </li>
 
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle">Cho thuê <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.VanChuyenThietBiCoGioiID.ToString())">Thuê thiết bị vận tải&nbsp;&raquo;</a>
+                        <a href="/Article/ListInCate/">Thuê thiết bị vận tải&nbsp;&raquo;</a>
                         <ul class="dropdown-menu sub-menu">
                             <li><a href="/Article/ListInCate/112/xe-5-8-tan">Xe 5 - 8 tấn</a></li>
                             <li><a href="/Article/ListInCate/113/xe-3-chan">Xe 3 chân</a></li>
@@ -23,7 +23,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.ThietBiCongTrinhID.ToString())">Thuê thiết bị công trình&nbsp;&raquo;</a>
+                        <a href="/Article/ListInCate/">Thuê thiết bị công trình&nbsp;&raquo;</a>
                         <ul class="dropdown-menu sub-menu">
                             <li><a href="/Article/ListInCate/118/may-xuc">Máy xúc</a></li>
                             <li><a href="/Article/ListInCate/119/may-ui">Máy ủi</a></li>
@@ -32,58 +32,22 @@
                         </ul>
                     </li>
 
-                    <li><a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.PhuTungMayCongTrinhID.ToString())">Phụ tùng máy công trình</a></li>
-                    <li><a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.XangDauID.ToString())">Xăng dầu&nbsp;&raquo;</a></li>
-                    <li><a href="/Article/Detail/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkArticle(TNVCMS.Utilities.Config.LienHeID.ToString())">Liên hệ</a></li>
+                    <li><a href="/Article/ListInCate/">Phụ tùng máy công trình</a></li>
+                    <li><a href="/Article/ListInCate/">Xăng dầu&nbsp;&raquo;</a></li>
                 </ul>
             </li>
 
 
             <li>
-                <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.TinTucCateID.ToString())">Tin tức</a>
+                <a href="/Article/ListInCate/">Tin tức</a>
             </li>
             <li>
-                <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.TuyenDungCateID.ToString())">Tuyển dụng</a>
+                <a href="/Article/ListInCate/">Tuyển dụng</a>
             </li>
             <li>
-                <a href="/Article/Detail/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkArticle(TNVCMS.Utilities.Config.LienHeID.ToString())">Liên hệ</a>
+                <a href="/Article/Detail/">Liên hệ</a>
             </li>
         </ul>
     </div>
-</div>
-@*<script type="text/javascript">
-        var currentLocation = window.location;
-        $(function () {
-            $('.ddmenu li a').each(function () {
-                if (this.href == currentLocation) {
-                    $(this).parent().addClass("active");
-                }
-            });
-        });
+</div>*@
 
-    </script>*@
-
-
-
-<script type="text/javascript" charset="utf-8">
-    jQuery(document).ready(function ($) {
-        setNavigation();
-    });
-    function setNavigation() {
-        var path = window.location.pathname;
-        path = path.replace(/\/$/, "");
-        path = decodeURIComponent(path);
-
-        $(".nav a").each(function () {
-            var href = $(this).attr('href');
-            if (path.substring(0, href.length) === href) {
-                $(this).closest('li').addClass('active');
-            }
-        });
-        if (path == "" || path == null) {
-            //forcus on fist
-            $(".nav li:first-child").addClass('active');
-        }
-    }
-
-</script>

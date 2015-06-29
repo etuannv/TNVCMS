@@ -23,7 +23,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         public ConfigController()
         {
             
-            if (_configServices == null) _configServices = new T_ConfigServices();
+            _configServices = new T_ConfigServices();
         }
         //
         // GET: /Admin/Config/List

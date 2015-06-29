@@ -5,7 +5,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>@ViewBag.Title</title>
+    <title>@Html.MvcSiteMap().SiteMapTitle()</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="~/Content/themes/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -135,6 +135,7 @@ desired effect
                         <a href="#"><span>Config</span> <i class="fa fa-angle-left pull-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="/Admin/Config/List"><i class="fa fa-circle-o"></i>General</a></li>
+                            <li><a href="/Admin/Menu/List"><i class="fa fa-circle-o"></i>Menu</a></li>
                         </ul>
                     </li>
                 </ul><!-- /.sidebar-menu -->

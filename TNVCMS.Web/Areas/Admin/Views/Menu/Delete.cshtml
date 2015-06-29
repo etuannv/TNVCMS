@@ -1,4 +1,4 @@
-﻿@model TNVCMS.Domain.Model.T_News
+﻿@model TNVCMS.Domain.Model.T_Menu
 
 @{
     ViewBag.Title = "Xóa";
@@ -6,9 +6,7 @@
 
 @section header {
     <h1>
-        
-        <span>Tin tức</span>
-        
+        <span>Menu</span>
         <small>Xóa</small>
     </h1>
 }
@@ -22,12 +20,8 @@
                 <h3 class="box-title">Bạn có chắc chắn muốn xóa ? </h3>
             </div><!-- /.box-header -->
 
-            @Html.ValidationSummary()
+
             <div class="box-body">
-                <div class="form-group">
-                    <label>ID</label>
-                    @Html.DisplayFor(m => m.ID, new { @class = "form-control" })
-                </div>
                 <div class="form-group">
                     <label>Tên</label>
                     @Html.DisplayFor(m => m.Title, new { @class = "form-control" })
@@ -36,9 +30,29 @@
                     <label>Slug</label>
                     @Html.DisplayFor(m => m.Slug, new { @class = "form-control" })
                 </div>
+                <div class="form-group">
+                    <label>Cấp cha</label>
+                    @Html.DropDownList("ParentID", null, "--- Chọn cấp cha ---", new { @class = "form-control", @disabled = "true" })
+                </div>
+                <div class="form-group">
+                    <label>Thứ tự</label>
+                    @Html.DisplayFor(m => m.Order, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Mô tả</label>
+                    @Html.DisplayFor(m => m.Description, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Đường dẫn</label>
+                    @Html.DisplayFor(m => m.Link, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Hoạt động</label>
+                    @Html.CheckBoxFor(m => m.Enable, new { @class = "", @disabled = "true" })
+                </div>
             </div><!-- /.box-body -->
             <!-- form start -->
-            @using (Html.BeginForm("Delete", "News", FormMethod.Post))
+            @using (Html.BeginForm("Delete", "Menu", FormMethod.Post))
             {
                 @Html.AntiForgeryToken()
                 @Html.HiddenFor(m => m.ID)

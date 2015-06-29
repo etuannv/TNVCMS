@@ -10,21 +10,9 @@ namespace TNVCMS.Utilities
     public enum Config
     {
         SiteTitle,
-        GioiThieuID,
-        LienHeID,
         SlideChinhGroupID,
         SlideDoiTacGroupID,
         AlbumPath,
-        VanChuyenThietBiCoGioiID,
-        ThietBiCongTrinhID,
-        PhuTungMayCongTrinhID,
-        XangDauID,
-        SlideVanChuyenThietBiCoGioiID,
-        SlideThietBiCongTrinhID,
-        SlidePhuTungMayCongTrinhID,
-        SlideXangDauID,
-        TinTucCateID,
-        TuyenDungCateID,
         PageSizeAdmin,
         PageSizeClient,
         VisitCount

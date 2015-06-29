@@ -56,7 +56,11 @@
     <Compile Include="IT_Album.cs" />
     <Compile Include="IT_SlideGroupServices.cs" />
     <Compile Include="IT_SlideServices.cs" />
+    <Compile Include="IT_MenuServices.cs" />
     <Compile Include="Model\T_Album.cs">
+      <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\T_Menu.cs">
       <DependentUpon>TNVCMSDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\T_SlideModel.cs" />
@@ -108,6 +112,7 @@
     <Compile Include="T_SlideServices.cs" />
     <Compile Include="T_News_TagServices.cs" />
     <Compile Include="T_AdverServices.cs" />
+    <Compile Include="T_MenuServices.cs" />
     <Compile Include="T_TagServices.cs" />
     <Compile Include="T_NewsServices.cs" />
   </ItemGroup>

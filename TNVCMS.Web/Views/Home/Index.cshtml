@@ -76,7 +76,7 @@
                 <div class="span12">
                     <h3 class="title-full">Thiết bị vận tải</h3>
                     <div class="article-group">
-                        @Html.Action("GetNewsInCategoryModern", "Article", new { CateId = Convert.ToInt32(@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.VanChuyenThietBiCoGioiID.ToString())), Number = 8, column = 4 })
+                        @Html.Action("GetNewsInCategoryModern", "Article", new { CateId = 111, Number = 8, column = 4 })
                     </div>
                 </div>
             </div>
@@ -85,7 +85,23 @@
                 <div class="span12">
                     <h3 class="title-full">Thiết bị công trình</h3>
                     <div class="article-group">
-                        @Html.Action("GetNewsInCategoryModern", "Article", new { CateId = Convert.ToInt32(@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.ThietBiCongTrinhID.ToString())), Number = 8, column = 4 })
+                        @Html.Action("GetNewsInCategoryModern", "Article", new { CateId = 117, Number = 8, column = 4 })
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <h3 class="title-full">Phụ tùng máy công trình</h3>
+                    <div class="article-group">
+                        @Html.Action("GetNewsInCategoryModern", "Article", new { CateId = 102, Number = 8, column = 4 })
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <h3 class="title-full">Xăng dầu</h3>
+                    <div class="article-group">
+                        @Html.Action("GetNewsInCategoryModern", "Article", new { CateId = 91, Number = 8, column = 4 })
                     </div>
                 </div>
             </div>
@@ -94,7 +110,7 @@
                 <div class="span12">
                     <h3 class="title-full">Tin tức</h3>
                     <div class="article-group">
-                        @Html.Action("GetNewsInCategory", "Article", new { CateId = Convert.ToInt32(@TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.TinTucCateID.ToString())), Number = 3 })
+                        @Html.Action("GetNewsInCategory", "Article", new { CateId = 82, Number = 3 })
                     </div>
                 </div>
                     

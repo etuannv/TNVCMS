@@ -21,7 +21,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
         public AlbumController()
         {
-            if (_service == null) _service = new T_AlbumServices();
+            _service = new T_AlbumServices();
         }
         //
         // GET: /Admin/Album/List

@@ -39,6 +39,20 @@
           <Property Name="Key" Type="nvarchar" MaxLength="50" />
           <Property Name="Value" Type="nvarchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="T_Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Slug" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="ParentPath" Type="varchar" MaxLength="500" />
+          <Property Name="Link" Type="nvarchar" MaxLength="500" />
+          <Property Name="Order" Type="int" />
+          <Property Name="Enable" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="T_News">
           <Key>
             <PropertyRef Name="ID" />
@@ -140,6 +154,7 @@
           <EntitySet Name="T_Adver" EntityType="Self.T_Adver" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Album" EntityType="Self.T_Album" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Config" EntityType="Self.T_Config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Menu" EntityType="Self.T_Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_News" EntityType="Self.T_News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_News_Tag" EntityType="Self.T_News_Tag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Slide" EntityType="Self.T_Slide" Schema="dbo" store:Type="Tables" />
@@ -183,6 +198,7 @@
           </AssociationSet>
           <EntitySet Name="T_Config" EntityType="TNVCMSModel.T_Config" />
           <EntitySet Name="T_Album" EntityType="TNVCMSModel.T_Album" />
+          <EntitySet Name="T_Menu" EntityType="TNVCMSModel.T_Menu" />
         </EntityContainer>
         <EntityType Name="T_Adver">
           <Key>
@@ -321,6 +337,20 @@
           <Property Name="Slug" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="T_Menu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Slug" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="ParentPath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="Enable" Type="Boolean" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -423,6 +453,21 @@
           <EntitySetMapping Name="T_Album">
             <EntityTypeMapping TypeName="TNVCMSModel.T_Album">
               <MappingFragment StoreEntitySet="T_Album">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Slug" ColumnName="Slug" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Menu">
+            <EntityTypeMapping TypeName="TNVCMSModel.T_Menu">
+              <MappingFragment StoreEntitySet="T_Menu">
+                <ScalarProperty Name="Enable" ColumnName="Enable" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="ParentPath" ColumnName="ParentPath" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Slug" ColumnName="Slug" />
                 <ScalarProperty Name="Title" ColumnName="Title" />

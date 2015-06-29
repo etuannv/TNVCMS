@@ -62,19 +62,19 @@
 
         <div class="transparent-bg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
 
-        <div class=" notop nobottom">
+        <div class="divPanel notop nobottom">
             <div class="row-fluid">
                 <div class="span12">
-                    <div id="headerSeparator"></div>
 
-                            <div id="divLogo" class="pull-left">
-                                <a href="/" id="divSiteTitle"><img style="width:100%" src="/Content/themes/hoaan/images/banner.jpeg" /></a><br />
-                            </div>
+                    <div id="divLogo" class="pull-left">
+                        <a href="/" id="divSiteTitle">Vui Vĩnh Phúc</a><br />
+                        <a href="/" id="divTagLine"></a>
+                    </div>
 
-                            <div id="divMenuRight" class="pull-right">
-                                @Html.Action("GetTopMenu", "Home")
-                            </div>
-                        <br style="clear:both" /><div style="margin-bottom:10px"></div>
+                    <div id="divMenuRight" class="pull-right">
+                        @Html.Action("GetTopMenu", "Home")
+                    </div>
+
                 </div>
             </div>
 
@@ -96,7 +96,6 @@
 </body>
 </html>
 
-
 <script type="text/javascript" charset="utf-8">
     jQuery(document).ready(function ($) {
         setNavigation();
@@ -116,7 +115,7 @@
         });
         if (path == "" || path == null) {
             //forcus on fist
-            $(".nav > li:first-child").addClass('active');
+            $(".nav li:first-child").addClass('active');
         }
     }
 

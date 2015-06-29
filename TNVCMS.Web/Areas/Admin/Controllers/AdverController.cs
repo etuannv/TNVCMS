@@ -21,7 +21,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
         public AdverController()
         {
-            if (_AdverServices == null) _AdverServices = new T_AdverServices();
+            _AdverServices = new T_AdverServices();
         }
         //
         // GET: /Admin/Adver/List

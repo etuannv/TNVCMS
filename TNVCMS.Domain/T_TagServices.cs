@@ -164,6 +164,8 @@ namespace TNVCMS.Domain.Services
         {
             try
             {
+                if (TagHasChild(id)) return new ReturnValue<bool>(false, "Không thể xóa, vì có mục con");
+                if(CategoryHasNews(id)) return new ReturnValue<bool>(false, "Không thể xóa, vì có có bài viết trong mục này");
                 T_Tag DelTag = GetByID(id);
                 return DeleteTag(DelTag);
             }
@@ -171,6 +173,25 @@ namespace TNVCMS.Domain.Services
             {
                 return new ReturnValue<bool>(false, "");
             }
+        }
+
+        private bool CategoryHasNews(int tagId)
+        {
+            var q = (from m in _dataContext.T_Tag
+                     join n in _dataContext.T_News_Tag on m.ID equals n.NewsID
+                     where n.TagID == tagId && m.Taxonomy == TNVCMS.Utilities.Constants.TAXONOMY_CATEGORY
+                     select m).SingleOrDefault();
+            if (q != null) return true;
+            else return false;
+        }
+
+        private bool TagHasChild(int tagId)
+        {
+            var q = (from m in _dataContext.T_Tag
+                    where m.ParentID == tagId
+                    select m).SingleOrDefault();
+            if (q != null) return true;
+            else return false;
         }
 
         public string GetPath(int? parentID)

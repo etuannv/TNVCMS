@@ -20,7 +20,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
 
         public TagController()
         {
-            if (_tagServices == null) _tagServices = new T_TagServices();
+            _tagServices = new T_TagServices();
         }
         //
         // GET: /Admin/Tag/List
@@ -108,9 +108,19 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
         {
             T_Tag Tag = _tagServices.GetByID((int)id);
             ViewData["taxonomy"] = Tag.Taxonomy;
-            _tagServices.DeleteTag(id);
-            //TODO: Update parent tree
-            return RedirectToAction("List", "Tag", new { @taxonomy = Tag.Taxonomy });
+            ReturnValue<bool> result = _tagServices.DeleteTag(id);
+            if (result.RetValue)
+            {
+                return RedirectToAction("List", "Tag", new { @taxonomy = Tag.Taxonomy });
+            }
+            else
+            {
+                IEnumerable<T_Tag> TagList = _tagServices.GetByTaxonomyForDisplay(Tag.Taxonomy);
+                TagViewModel model = new TagViewModel(Tag, TagList);
+                // Get Tag_List again
+                ModelState.AddModelError("Error", result.Msg);
+                return View(model);
+            }
         }
 
         // GET: /Admin/Tag/Edit
@@ -143,6 +153,7 @@ namespace TNVCMS.Web.Areas.Admin.Controllers
             Tag.Slug = iTagVM.Slug;
             Tag.Description = iTagVM.Description;
             Tag.ParentID = iTagVM.ParentID;
+            Tag.ParentPath = _tagServices.GetPath(Tag.ParentID);
             Tag.ModifiedDate = DateTime.Now;
             //Tag.ModifiedBy = "admin";
             ReturnValue<bool> result = _tagServices.UpdateTag(Tag);

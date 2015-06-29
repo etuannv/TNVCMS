@@ -213,6 +213,7 @@
     <Compile Include="Areas\Admin\Controllers\AlbumController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlideGroupController.cs" />
     <Compile Include="Areas\Admin\Controllers\StartController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\TagController.cs" />
     <Compile Include="Areas\Admin\Models\AccountModels.cs" />
     <Compile Include="Areas\Admin\Models\NewsViewModel.cs" />
@@ -1979,7 +1980,10 @@
     <Content Include="Content\themes\hoaan\images\6.jpg" />
     <Content Include="Content\themes\hoaan\images\7.jpg" />
     <Content Include="Content\themes\hoaan\images\8.jpg" />
+    <Content Include="Content\themes\hoaan\images\banner.jpeg" />
     <Content Include="Content\themes\hoaan\images\bg_icon_tag.gif" />
+    <Content Include="Content\themes\hoaan\images\bg_menu.png" />
+    <Content Include="Content\themes\hoaan\images\border.png" />
     <Content Include="Content\themes\hoaan\images\building.jpg" />
     <Content Include="Content\themes\hoaan\images\css3.png" />
     <Content Include="Content\themes\hoaan\images\folder_images_80.png" />
@@ -2881,6 +2885,10 @@
     <Content Include="Areas\Admin\Views\Album\List.cshtml" />
     <Content Include="Areas\Admin\Views\Album\GetAlbumImage.cshtml" />
     <Content Include="Areas\Admin\Views\Album\UploadImage.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\AddNew.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\List.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

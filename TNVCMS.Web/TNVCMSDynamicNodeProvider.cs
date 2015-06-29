@@ -64,6 +64,7 @@ namespace TNVCMS.Web
                 dynamicNode.Title = tag.Title;
                 dynamicNode.RouteValues.Add("id", tag.ID);
                 dynamicNode.RouteValues.Add("slug", tag.Slug);
+                dynamicNode.PreservedRouteParameters = new List<string> { tag.Slug };
                 dynamicNode.Description = tag.Description;
                 if (tag.ParentID != null)
                 {

@@ -33,5 +33,6 @@ namespace TNVCMS.Domain.Model
         public virtual DbSet<T_SlideGroup> T_SlideGroup { get; set; }
         public virtual DbSet<T_Config> T_Config { get; set; }
         public virtual DbSet<T_Album> T_Album { get; set; }
+        public virtual DbSet<T_Menu> T_Menu { get; set; }
     }
 }
