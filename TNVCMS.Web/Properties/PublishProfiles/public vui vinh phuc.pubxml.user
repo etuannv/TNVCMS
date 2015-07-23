@@ -91,6 +91,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Areas/Admin/Views/Config/List.cshtml">
       <publishTime>06/12/2015 13:37:22</publishTime>
     </File>
+    <File Include="Areas/Admin/Views/Menu/AddNew.cshtml">
+      <publishTime>06/28/2015 07:54:11</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Menu/Delete.cshtml">
+      <publishTime>06/28/2015 07:54:09</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Menu/Edit.cshtml">
+      <publishTime>06/28/2015 07:54:11</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Menu/List.cshtml">
+      <publishTime>06/26/2015 17:00:05</publishTime>
+    </File>
     <File Include="Areas/Admin/Views/News/AddNew.cshtml">
       <publishTime>06/19/2015 17:24:20</publishTime>
     </File>
@@ -104,13 +116,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/10/2015 08:08:17</publishTime>
     </File>
     <File Include="Areas/Admin/Views/News/List.cshtml">
-      <publishTime>06/23/2015 15:28:57</publishTime>
+      <publishTime>06/24/2015 10:53:46</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Shared/DisplayTemplates/Bootstrap3Pagination.cshtml">
       <publishTime>04/20/2015 19:43:28</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Shared/_AdminLayout.cshtml">
-      <publishTime>06/23/2015 16:40:35</publishTime>
+      <publishTime>06/28/2015 09:10:33</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Slide/AddNew.cshtml">
       <publishTime>06/12/2015 09:54:44</publishTime>
@@ -314,13 +326,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/12/2015 16:08:05</publishTime>
     </File>
     <File Include="bin/TNVCMS.Domain.dll">
-      <publishTime>06/24/2015 10:12:35</publishTime>
+      <publishTime>07/13/2015 13:29:07</publishTime>
     </File>
     <File Include="bin/TNVCMS.Utilities.dll">
-      <publishTime>06/24/2015 10:12:35</publishTime>
+      <publishTime>07/13/2015 13:29:06</publishTime>
     </File>
     <File Include="bin/TNVCMS.Web.dll">
-      <publishTime>06/24/2015 10:12:37</publishTime>
+      <publishTime>07/13/2015 13:29:10</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>06/12/2015 16:08:12</publishTime>
@@ -3823,6 +3835,144 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/FileManager/images/DuLieuNen/xang dau 3.jpg">
       <publishTime>06/17/2015 17:00:09</publishTime>
     </File>
+    <File Include="Content/FileManager/images/May xuc/DAEWOO SOLAR 50W-III/DAEWOO SOLAR 50W-III 1.jpg">
+      <publishTime>07/13/2015 08:40:50</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/DAEWOO SOLAR 50W-III/DAEWOO SOLAR 50W-III 2.jpg">
+      <publishTime>07/13/2015 08:40:50</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/DAEWOO SOLAR 50W-III/DAEWOO SOLAR 50W-III 3.jpg">
+      <publishTime>07/13/2015 08:40:50</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/DOOSAN DX140W/DOOSAN DX140W  2.jpg">
+      <publishTime>07/13/2015 09:22:34</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/DOOSAN DX140W/DOOSAN DX140W  3.jpeg">
+      <publishTime>07/13/2015 09:22:34</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/DOOSAN DX140W/DOOSAN DX140W 1.JPG">
+      <publishTime>07/13/2015 09:22:34</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/DOOSAN SOLAR 200W-III/DOOSAN SOLAR 200W-III 1.jpg">
+      <publishTime>07/13/2015 08:57:42</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/DOOSAN SOLAR 200W-III/DOOSAN SOLAR 200W-III 2.jpg">
+      <publishTime>07/13/2015 08:57:42</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 150-5 can dai/HITACHI 150-5 can dai 1.jpg">
+      <publishTime>07/13/2015 09:46:21</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 150-5 can dai/HITACHI 150-5 can dai 2.jpg">
+      <publishTime>07/13/2015 09:46:21</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 270-3 can dai/HITACHI 270-3 can dai 1.JPG">
+      <publishTime>07/13/2015 09:54:16</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 270-3 can dai/HITACHI 270-3 can dai 2.jpg">
+      <publishTime>07/13/2015 09:54:16</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 270-3 can dai/HITACHI 270-3 can dai 3.jpg">
+      <publishTime>07/13/2015 09:54:16</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 270-3/HITACHI 270-3 1.jpg">
+      <publishTime>07/13/2015 09:50:53</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 270-3/HITACHI 270-3 2.jpg">
+      <publishTime>07/13/2015 09:50:53</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 270-3/HITACHI 270-3 3.jpg">
+      <publishTime>07/13/2015 09:50:53</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 270-3/HITACHI 270-3 4.jpg">
+      <publishTime>07/13/2015 09:50:53</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 400-5/HITACHI 400-5 1.jpg">
+      <publishTime>07/13/2015 09:57:11</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 400-5/HITACHI 400-5 2.jpg">
+      <publishTime>07/13/2015 09:57:11</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/HITACHI 400-5/HITACHI 400-5 3.jpg">
+      <publishTime>07/13/2015 09:57:11</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOBELKO 200-3 can dai/KOBELKO 200-3 can dai 1.jpg">
+      <publishTime>07/13/2015 10:03:27</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOBELKO 200-3/KOBELKO 200-3 1.jpg">
+      <publishTime>07/13/2015 09:59:57</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOBELKO 200-3/KOBELKO 200-3 2.jpg">
+      <publishTime>07/13/2015 09:59:57</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOBELKO 200-3/KOBELKO 200-3 3.jpg">
+      <publishTime>07/13/2015 09:59:57</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/Komatsu 200 - 3/KOMATSU200-3 1.jpg">
+      <publishTime>07/13/2015 09:12:41</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/Komatsu 200 - 3/KOMATSU200-3 2.jpg">
+      <publishTime>07/13/2015 09:12:42</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/Komatsu 200 - 3/KOMATSU200-3 3.jpeg">
+      <publishTime>07/13/2015 09:12:42</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU200-6 Can dai/KOMATSU200-6 Can dai 1.jpg">
+      <publishTime>07/13/2015 09:29:54</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU200-6 Can dai/KOMATSU200-6 Can dai 2.jpg">
+      <publishTime>07/13/2015 09:29:54</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU200-6 Can dai/KOMATSU200-6 Can dai 3.jpeg">
+      <publishTime>07/13/2015 09:29:54</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU200-6 Can dai/KOMATSU200-6 Can dai 4.JPG">
+      <publishTime>07/13/2015 09:29:55</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU200-6 Can dai/KOMATSU200-6 Can dai 5.JPG">
+      <publishTime>07/13/2015 09:29:55</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU200-6/KOMATSU200-6  1.jpg">
+      <publishTime>07/13/2015 09:25:39</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU200-6/KOMATSU200-6  3.jpg">
+      <publishTime>07/13/2015 09:25:39</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU200-6/KOMATSU200-6 2.jpg">
+      <publishTime>07/13/2015 09:25:39</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU200-6/KOMATSU200-6 4.jpg">
+      <publishTime>07/13/2015 09:25:39</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU300-6/KOMATSU300-6 1.jpg">
+      <publishTime>07/13/2015 09:33:59</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU300-6/KOMATSU300-6 2.JPG">
+      <publishTime>07/13/2015 09:33:59</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU450-6/KOMATSU450-6 1.jpg">
+      <publishTime>07/13/2015 09:37:30</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU450-6/KOMATSU450-6 2.jpg">
+      <publishTime>07/13/2015 09:37:30</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU450-6/KOMATSU450-6 3.jpg">
+      <publishTime>07/13/2015 09:37:30</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU800-8/KOMATSU800-8 1.png">
+      <publishTime>07/13/2015 09:40:06</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU800-8/KOMATSU800-8 2.jpg">
+      <publishTime>07/13/2015 09:40:06</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU800-8/KOMATSU800-8 3.jpg">
+      <publishTime>07/13/2015 09:40:06</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU800-8/KOMATSU800-8 4.jpg">
+      <publishTime>07/13/2015 09:40:06</publishTime>
+    </File>
+    <File Include="Content/FileManager/images/May xuc/KOMATSU800-8/KOMATSU800-8 5.jpg">
+      <publishTime>07/13/2015 09:40:06</publishTime>
+    </File>
     <File Include="Content/FileManager/images/Thang 4/11335704_915092545221503_1767874401_n.jpg">
       <publishTime>06/11/2015 09:28:45</publishTime>
     </File>
@@ -5671,8 +5821,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/themes/hoaan/images/8.jpg">
       <publishTime>06/09/2015 10:51:39</publishTime>
     </File>
+    <File Include="Content/themes/hoaan/images/banner.gif">
+      <publishTime>07/10/2015 10:02:43</publishTime>
+    </File>
+    <File Include="Content/themes/hoaan/images/banner.jpeg">
+      <publishTime>06/29/2015 09:33:27</publishTime>
+    </File>
     <File Include="Content/themes/hoaan/images/bg_icon_tag.gif">
       <publishTime>06/10/2015 08:47:07</publishTime>
+    </File>
+    <File Include="Content/themes/hoaan/images/bg_menu.png">
+      <publishTime>06/28/2015 14:12:08</publishTime>
+    </File>
+    <File Include="Content/themes/hoaan/images/border.png">
+      <publishTime>06/28/2015 14:13:19</publishTime>
     </File>
     <File Include="Content/themes/hoaan/images/building.jpg">
       <publishTime>06/09/2015 10:51:39</publishTime>
@@ -5762,7 +5924,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/09/2015 10:51:40</publishTime>
     </File>
     <File Include="Content/themes/hoaan/scripts/camera/css/camera.css">
-      <publishTime>06/09/2015 10:51:40</publishTime>
+      <publishTime>06/29/2015 08:32:29</publishTime>
     </File>
     <File Include="Content/themes/hoaan/scripts/camera/images/blank.gif">
       <publishTime>06/09/2015 10:51:40</publishTime>
@@ -8087,7 +8249,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/09/2015 10:51:42</publishTime>
     </File>
     <File Include="Content/themes/hoaan/styles/custom.css">
-      <publishTime>06/24/2015 10:27:21</publishTime>
+      <publishTime>07/02/2015 16:04:03</publishTime>
     </File>
     <File Include="Content/themes/hoaan/styles/dark_mosaic.png">
       <publishTime>06/09/2015 10:51:42</publishTime>
@@ -8347,14 +8509,38 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/Uploads/FeatureImage/01u11ghjhzmmay xuc 1.jpg">
       <publishTime>06/23/2015 10:59:24</publishTime>
     </File>
+    <File Include="Content/Uploads/FeatureImage/1rmeslcuz0aHITACHI 270-3 3.jpg">
+      <publishTime>07/13/2015 09:52:07</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/2aeeq51aoosDOOSAN SOLAR 200W-III 1.jpg">
+      <publishTime>07/13/2015 08:58:28</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/2hy5uquuec5KOMATSU200-3 1.jpg">
+      <publishTime>07/13/2015 09:23:28</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/3h3vdobdrnmKOMATSU800-8 1.png">
+      <publishTime>07/13/2015 09:41:15</publishTime>
+    </File>
     <File Include="Content/Uploads/FeatureImage/cpiz3evbeipxe tai 5 tan.png">
       <publishTime>06/23/2015 10:06:58</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/dahtz5vsfc3KOMATSU450-6 2.jpg">
+      <publishTime>07/13/2015 09:38:36</publishTime>
     </File>
     <File Include="Content/Uploads/FeatureImage/dromhdwjbtm123.png">
       <publishTime>06/05/2015 14:19:09</publishTime>
     </File>
+    <File Include="Content/Uploads/FeatureImage/fssgy4mh1xxHITACHI 400-5 3.jpg">
+      <publishTime>07/13/2015 09:58:22</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/fy5qedjrxojHITACHI 270-3 can dai 1.JPG">
+      <publishTime>07/13/2015 09:55:25</publishTime>
+    </File>
     <File Include="Content/Uploads/FeatureImage/g1sinycnshmcho-thue-may-xuc-banh-xich.jpg">
       <publishTime>06/23/2015 11:08:04</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/huzo1q0hb5qKOBELKO 200-3 can dai 1.jpg">
+      <publishTime>07/13/2015 10:04:17</publishTime>
     </File>
     <File Include="Content/Uploads/FeatureImage/iam2xxpqsvaxe tai 3 tan.png">
       <publishTime>06/23/2015 10:04:05</publishTime>
@@ -8365,14 +8551,29 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/Uploads/FeatureImage/jist5u4joyxtuyen dung.jpeg">
       <publishTime>06/19/2015 14:13:46</publishTime>
     </File>
+    <File Include="Content/Uploads/FeatureImage/kelpoulh1efDAEWOO SOLAR 50W-III 2.jpg">
+      <publishTime>07/13/2015 08:39:08</publishTime>
+    </File>
     <File Include="Content/Uploads/FeatureImage/kzsjm1kbkjrxang dau 3.jpg">
       <publishTime>06/17/2015 17:01:07</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/lwchfinmob0KOMATSU200-3 3.jpeg">
+      <publishTime>07/13/2015 09:14:04</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/ngxa41xcz0kKOMATSU200-6 Can dai 5.JPG">
+      <publishTime>07/13/2015 09:31:01</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/nivgvhkcbrnphu tung 1.jpg">
+      <publishTime>06/28/2015 11:34:54</publishTime>
     </File>
     <File Include="Content/Uploads/FeatureImage/nsai2dgtg0i123.png">
       <publishTime>06/04/2015 23:00:33</publishTime>
     </File>
     <File Include="Content/Uploads/FeatureImage/ocjkf50rgxixe tai 25 tan.png">
       <publishTime>06/23/2015 10:36:54</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/oizdo32vucsKOMATSU300-6 2.JPG">
+      <publishTime>07/13/2015 09:35:03</publishTime>
     </File>
     <File Include="Content/Uploads/FeatureImage/pczu1tmysdpxe tai 8 tan.png">
       <publishTime>06/23/2015 10:29:41</publishTime>
@@ -8382,6 +8583,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/Uploads/FeatureImage/s5ikhjddtuo123.png">
       <publishTime>06/04/2015 22:55:03</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/smpolmhvl0qKOMATSU200-6 2.jpg">
+      <publishTime>07/13/2015 09:27:15</publishTime>
     </File>
     <File Include="Content/Uploads/FeatureImage/txovudd4xhc491.jpg.png">
       <publishTime>06/18/2015 14:52:28</publishTime>
@@ -8404,8 +8608,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/Uploads/FeatureImage/wyq05c1pqyphoa an.png">
       <publishTime>06/18/2015 09:09:51</publishTime>
     </File>
+    <File Include="Content/Uploads/FeatureImage/xdsbnykx1beKOBELKO 200-3 1.jpg">
+      <publishTime>07/13/2015 10:01:12</publishTime>
+    </File>
     <File Include="Content/Uploads/FeatureImage/xfvrbegdjdc494.jpg.png">
       <publishTime>06/18/2015 14:59:25</publishTime>
+    </File>
+    <File Include="Content/Uploads/FeatureImage/yk2150hw54nHITACHI 150-5 can dai 1.jpg">
+      <publishTime>07/13/2015 09:47:06</publishTime>
     </File>
     <File Include="Content/Uploads/FeatureImage/zokwlntgdpsxe tai 10 tan.png">
       <publishTime>06/23/2015 10:31:13</publishTime>
@@ -8455,6 +8665,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/Uploads/Slide/aavktitipddslide 4.jpg">
       <publishTime>06/09/2015 14:34:48</publishTime>
     </File>
+    <File Include="Content/Uploads/Slide/ab0tnxfjdvlmay cong trinh 2.png">
+      <publishTime>06/30/2015 10:17:13</publishTime>
+    </File>
     <File Include="Content/Uploads/Slide/c2bcx0lu1i2Phu tung 2.jpg">
       <publishTime>06/17/2015 23:25:25</publishTime>
     </File>
@@ -8496,6 +8709,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/Uploads/Slide/ohuaq1ve35oxang dau 2.jpg">
       <publishTime>06/17/2015 23:19:02</publishTime>
+    </File>
+    <File Include="Content/Uploads/Slide/okglf5bsmkbMay cong trinh.jpg">
+      <publishTime>06/30/2015 10:04:05</publishTime>
     </File>
     <File Include="Content/Uploads/Slide/oucfgmoeep4slide4.jpg">
       <publishTime>06/10/2015 16:53:47</publishTime>
@@ -8615,7 +8831,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/12/2015 16:07:58</publishTime>
     </File>
     <File Include="Mvc.sitemap">
-      <publishTime>06/23/2015 16:44:30</publishTime>
+      <publishTime>07/02/2015 15:01:19</publishTime>
     </File>
     <File Include="MvcSiteMapSchema.xsd">
       <publishTime>04/23/2015 14:49:22</publishTime>
@@ -8723,31 +8939,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/23/2015 13:33:55</publishTime>
     </File>
     <File Include="Views/Article/GetNewsInCategory.cshtml">
-      <publishTime>06/23/2015 14:04:55</publishTime>
+      <publishTime>06/24/2015 10:26:34</publishTime>
     </File>
     <File Include="Views/Article/GetNewsInCategoryDisplayRight.cshtml">
-      <publishTime>06/23/2015 14:23:12</publishTime>
+      <publishTime>06/30/2015 08:44:39</publishTime>
     </File>
     <File Include="Views/Article/GetNewsInCategoryModern.cshtml">
-      <publishTime>06/23/2015 14:06:14</publishTime>
+      <publishTime>07/13/2015 10:47:10</publishTime>
     </File>
     <File Include="Views/Article/GetRelatedNews.cshtml">
-      <publishTime>06/23/2015 14:04:06</publishTime>
+      <publishTime>06/30/2015 08:42:57</publishTime>
     </File>
     <File Include="Views/Article/GetTags.cshtml">
       <publishTime>06/19/2015 10:51:54</publishTime>
     </File>
     <File Include="Views/Article/ListInCate.cshtml">
-      <publishTime>06/24/2015 10:09:58</publishTime>
+      <publishTime>06/28/2015 16:45:02</publishTime>
     </File>
     <File Include="Views/Article/ListInCateModern.cshtml">
       <publishTime>06/23/2015 09:45:59</publishTime>
     </File>
     <File Include="Views/Home/GetCarousel.cshtml">
-      <publishTime>06/23/2015 14:32:50</publishTime>
+      <publishTime>06/29/2015 09:58:36</publishTime>
     </File>
     <File Include="Views/Home/GetFooter.cshtml">
-      <publishTime>06/25/2015 09:32:56</publishTime>
+      <publishTime>07/08/2015 18:07:15</publishTime>
     </File>
     <File Include="Views/Home/GetNewsInCategory.cshtml">
       <publishTime>06/18/2015 14:56:47</publishTime>
@@ -8759,10 +8975,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2015 23:55:29</publishTime>
     </File>
     <File Include="Views/Home/GetTopMenu.cshtml">
-      <publishTime>06/24/2015 10:08:03</publishTime>
+      <publishTime>06/29/2015 08:11:10</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/24/2015 09:49:25</publishTime>
+      <publishTime>06/28/2015 11:29:06</publishTime>
+    </File>
+    <File Include="Views/Home/SearchPage.cshtml">
+      <publishTime>07/02/2015 15:56:39</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/Bootstrap3Pagination.cshtml">
       <publishTime>06/18/2015 16:30:24</publishTime>
@@ -8801,7 +9020,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/25/2015 08:25:54</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/28/2015 14:37:15</publishTime>
+      <publishTime>07/10/2015 08:23:03</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>06/12/2015 16:07:58</publishTime>

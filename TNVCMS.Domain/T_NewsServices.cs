@@ -26,9 +26,9 @@ namespace TNVCMS.Domain.Services
         {
             IEnumerable<T_News> ResultList;
             // Get all category child
-            if(cateId.HasValue)
+            if (cateId.HasValue)
             {
-                List<int> CateIDList = _dataContext.T_Tag.Where(y => y.ParentID == cateId).Select(m=>m.ID).ToList();
+                List<int> CateIDList = _dataContext.T_Tag.Where(y => y.ParentID == cateId).Select(m => m.ID).ToList();
                 CateIDList.Add((int)cateId);
 
 
@@ -42,7 +42,7 @@ namespace TNVCMS.Domain.Services
                 ResultList = GetAll();
             }
 
-            
+
             if (!string.IsNullOrEmpty(search))
             {
                 string SearchSlug = search.Replace(' ', '-');
@@ -56,12 +56,12 @@ namespace TNVCMS.Domain.Services
             CateIDList.Add(iCateID);
 
             var data = from n in _dataContext.T_News
-                    join m in _dataContext.T_News_Tag on n.ID equals m.NewsID
-                    join q in _dataContext.T_Tag on m.TagID equals q.ID
-                    where CateIDList.Contains(m.TagID)
-                    select n;
-            
-            return data.OrderByDescending(a=>a.ID);
+                       join m in _dataContext.T_News_Tag on n.ID equals m.NewsID
+                       join q in _dataContext.T_Tag on m.TagID equals q.ID
+                       where CateIDList.Contains(m.TagID)
+                       select n;
+
+            return data.OrderByDescending(a => a.ID);
         }
 
         public IEnumerable<T_News> GetByTaxonomy(int iCateID, int number)
@@ -184,10 +184,10 @@ namespace TNVCMS.Domain.Services
         public IEnumerable<T_News> GetNewsByTag(int tagId, int limit)
         {
             var q = (from m in _dataContext.T_News
-                    join n in _dataContext.T_News_Tag on m.ID equals n.NewsID
-                    where n.TagID == tagId
-                    select m).Distinct().OrderByDescending(s=>s.ID);
-            if(limit > 0)
+                     join n in _dataContext.T_News_Tag on m.ID equals n.NewsID
+                     where n.TagID == tagId
+                     select m).Distinct().OrderByDescending(s => s.ID);
+            if (limit > 0)
                 return q.Take(limit);
             else
                 return q;
@@ -196,9 +196,16 @@ namespace TNVCMS.Domain.Services
         public T_Tag GetCateByNewsID(int newsID)
         {
             return (from m in _dataContext.T_Tag
-                     join n in _dataContext.T_News_Tag on m.ID equals n.TagID
-                     where n.NewsID == newsID && m.Taxonomy == TNVCMS.Utilities.Constants.TAXONOMY_CATEGORY
-                     select m).FirstOrDefault();
+                    join n in _dataContext.T_News_Tag on m.ID equals n.TagID
+                    where n.NewsID == newsID && m.Taxonomy == TNVCMS.Utilities.Constants.TAXONOMY_CATEGORY
+                    select m).FirstOrDefault();
+        }
+
+        public IEnumerable<T_News> Search(string term)
+        {
+            return (from m in _dataContext.T_News
+                    where m.Title.Contains(term) || m.ContentNews.Contains(term)
+                    select m).Distinct().OrderByDescending(x => x.ID);
         }
     }
 }

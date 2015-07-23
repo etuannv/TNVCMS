@@ -6,6 +6,8 @@ using TNVCMS.Domain.Services;
 using TNVCMS.Web.Models;
 using System.Linq;
 using System.Text;
+using System;
+using MvcPaging;
 
 namespace TNVCMS.Web.Controllers
 {
@@ -50,10 +52,33 @@ namespace TNVCMS.Web.Controllers
             IEnumerable<T_Slide> slideImages = _slideServices.GetSlideByGroupID(id);
             return PartialView("GetSlideOne", slideImages.ToList());
         }
-        //public PartialViewResult GetTopMenu()
-        //{
-        //    return PartialView("GetTopMenu");
-        //}
+
+        public ViewResult SearchPage(string search, int? page)
+        {
+             int currentPageIndex = page.HasValue ? page.Value - 1 : 0;
+            int PageSizeClient;
+            Int32.TryParse(TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.PageSizeClient.ToString()), out PageSizeClient);
+            PageSizeClient = (PageSizeClient < 1) ? 20 : PageSizeClient;
+
+
+            ViewBag.term = search;
+            //Search for news
+            IEnumerable<T_News> NewsList = _newsServices.Search(search);
+            IPagedList<T_News> Model = MvcPaging.PagingExtensions.ToPagedList(NewsList, currentPageIndex, PageSizeClient, NewsList.Count());
+            if (Model != null)
+            {
+                if (Model.TotalItemCount < 1 && !string.IsNullOrEmpty(search))
+                {
+                    ViewBag.NoResult = "Không tìm thấy !";
+                }
+                else
+                {
+                    ViewBag.NoResult = "";
+                }
+            }
+            return View(Model);
+        }
+
         public string GetTopMenu()
         {
             T_MenuServices service = new T_MenuServices();

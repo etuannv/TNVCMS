@@ -30,5 +30,7 @@ namespace TNVCMS.Domain.Services
         T_Tag GetCateByNewsID(int newsID);
 
         //IEnumerable<T_News> GetByTaxonomyList(List<int> CateIdList, int Number);
+
+        IEnumerable<T_News> Search(string term);
     }
 }

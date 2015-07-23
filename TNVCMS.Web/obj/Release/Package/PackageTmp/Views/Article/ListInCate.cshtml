@@ -52,9 +52,9 @@
         <!--Edit Sidebar Content here-->
         <div class="span3">
             <h3 class="title-full">Thiết bị vận tải</h3>
-            @Html.Action("GetNewsInCategoryDisplayRight", "Article", new { CateId = @TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.VanChuyenThietBiCoGioiID.ToString()), @Number = 3 })
+            @Html.Action("GetNewsInCategoryDisplayRight", "Article", new { CateId = 111, @Number = 3 })
             <h3 class="title-full">Máy công trình</h3>
-            @Html.Action("GetNewsInCategoryDisplayRight", "Article", new { CateId = @TNVCMS.Web.GlobalConfig.Instance.GetValue(TNVCMS.Utilities.Config.ThietBiCongTrinhID.ToString()), @Number = 3 })
+            @Html.Action("GetNewsInCategoryDisplayRight", "Article", new { CateId = 117, @Number = 3 })
             <h3 class="title-full">Hình ảnh</h3>
             @Html.Action("GetSlideOne", "Home", new { id = 6, width = "251px", height = "180px" })
         </div>

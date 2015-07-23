@@ -45,6 +45,14 @@ namespace TNVCMS.Web
             Application.Lock();
             Application["OnlineVisitors"] = (int)Application["OnlineVisitors"] - 1;
             Application.UnLock();
-        }  
+        }
+
+        protected void Application_BeginRequest()
+        {
+            if (Request.IsSecureConnection)
+            {
+                Response.Redirect(Request.Url.AbsoluteUri.Replace("https://", "http://"));
+            }
+        }
     }
 }

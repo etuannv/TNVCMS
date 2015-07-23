@@ -26,6 +26,6 @@
     <mvcSiteMapNode title="Danh sách Album" controller="AlbumClient" key="Album" action="List" description="Danh sách Album" >
       <mvcSiteMapNode title="Album Detail" controller="AlbumClient" action="Detail" dynamicNodeProvider="TNVCMS.Web.AlbumDynamicNodeProvider, TNVCMS.Web" />
     </mvcSiteMapNode>
-    
+    <mvcSiteMapNode title="Tìm kiếm" controller="Home" action="SearchPage" preservedRouteParameters="search" description="Tìm kiếm" />
   </mvcSiteMapNode>
 </mvcSiteMap>

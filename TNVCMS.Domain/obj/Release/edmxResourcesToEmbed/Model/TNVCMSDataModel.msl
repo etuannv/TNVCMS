@@ -104,5 +104,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="T_Menu">
+      <EntityTypeMapping TypeName="TNVCMSModel.T_Menu">
+        <MappingFragment StoreEntitySet="T_Menu">
+          <ScalarProperty Name="Enable" ColumnName="Enable" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="ParentPath" ColumnName="ParentPath" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

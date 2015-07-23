@@ -13,11 +13,11 @@
 
                 <p>
                     
-                    <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.VanChuyenThietBiCoGioiID.ToString())">Thuê thiết bị vận tải</a><br />
-                    <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.ThietBiCongTrinhID.ToString())">Thuê thiết bị công trình</a><br />
-                    <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.PhuTungMayCongTrinhID.ToString())">Phụ tùng máy công trình</a><br />
-                    <a href="/Article/ListInCate/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkCategory(TNVCMS.Utilities.Config.XangDauID.ToString())">Mua bán xăng dầu</a><br />
-                    <a href="/Article/Detail/@TNVCMS.Web.GlobalConfig.Instance.GetString4LinkArticle(TNVCMS.Utilities.Config.LienHeID.ToString())">Liên hệ</a> <br />
+                    <a href="/Article/ListInCate/111/thiet-bi-van-tai">Thuê thiết bị vận tải</a><br />
+                    <a href="/Article/ListInCate/117/thiet-bi-cong-trinh">Thuê thiết bị công trình</a><br />
+                    <a href="/Article/ListInCate/102/phu-tung-may-cong-trinh">Phụ tùng máy công trình</a><br />
+                    <a href="/Article/ListInCate/91/xang-dau">Mua bán xăng dầu</a><br />
+                    <a href="/Article/Detail/23/lien-he">Liên hệ</a> <br />
                     <a href="~/sitemap.xml" title="Sitemap">Sitemap</a>
                 </p>
 
@@ -68,11 +68,25 @@
             </div>
         </div>
 
+        <div class="row-fluid">
+            <div class="span9" id="footerArea2">
+                <h3>Tìm kiếm</h3>
+                <div class="dataTables_filter" id="example1_filter">
+                    @using (Html.BeginForm("SearchPage", "Home", FormMethod.Get))
+                    {
+                        <div class="span6">@Html.TextBox("search", ViewData["search"] as string, new { @class = "searchbox" })</div>
+                        <div class="span3"><button type="submit" class="btn btn-block btn-primary" style="width:120px">Tìm kiếm</button></div>
+                    }
+                </div>
+
+            </div>
+            
+        </div>
         <br /><br />
         <div class="row-fluid">
             <div class="span12">
                 <p class="copyright">
-                    Website đang chạy thử nghiệm. Bản quyền thuộc Công ty TNHH Thương mại và Xây dựng Vui Vĩnh Phúc.
+                    Website đang chạy thử nghiệm. Bản quyền thuộc Công ty TNHH Thương mại và Xây dựng Hòa An.
                 </p>
 
                 <p class="social_bookmarks">
@@ -80,7 +94,7 @@
                     <a href=""><i class="social foundicon-twitter"></i> Twitter</a>
                     <a href="#"><i class="social foundicon-pinterest"></i> Pinterest</a>
                     <a href="#"><i class="social foundicon-rss"></i> Rss</a>
-                <span style="text-align:right; float:right;">Thiết kế bởi: <a href="mailto:etuannv@gmail.com" style='text-transform: none; font-size: 12px !important; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;'>Nguyễn Văn Tuấn</a></span>
+                <span style="text-align:right; float:right;">Thiết kế bởi: <a href="http://tuvantinhoc.vn" style='text-transform: none; font-size: 12px !important; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;'>Tư vấn tin học</a></span>
                 </p>
                 
             </div>

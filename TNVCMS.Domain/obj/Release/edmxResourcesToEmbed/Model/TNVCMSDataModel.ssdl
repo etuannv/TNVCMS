@@ -34,6 +34,20 @@
     <Property Name="Key" Type="nvarchar" MaxLength="50" />
     <Property Name="Value" Type="nvarchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="T_Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Slug" Type="nvarchar" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="ParentID" Type="int" />
+    <Property Name="ParentPath" Type="varchar" MaxLength="500" />
+    <Property Name="Link" Type="nvarchar" MaxLength="500" />
+    <Property Name="Order" Type="int" />
+    <Property Name="Enable" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="T_News">
     <Key>
       <PropertyRef Name="ID" />
@@ -135,6 +149,7 @@
     <EntitySet Name="T_Adver" EntityType="Self.T_Adver" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_Album" EntityType="Self.T_Album" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_Config" EntityType="Self.T_Config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Menu" EntityType="Self.T_Menu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_News" EntityType="Self.T_News" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_News_Tag" EntityType="Self.T_News_Tag" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="T_Slide" EntityType="Self.T_Slide" Schema="dbo" store:Type="Tables" />

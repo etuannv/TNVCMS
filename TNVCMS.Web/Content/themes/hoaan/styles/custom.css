@@ -1,5 +1,7 @@
 /***** BASE CSS *****/
-
+.searchbox {
+        width: 95%;
+    }
 .albumContainer
 {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -205,25 +207,16 @@
 }
 .title-full
 {
-    background:#08c;
-    margin-bottom: 0px;
-    padding-left: 16px;
-    color:#fff;
-    /*background-image: linear-gradient(to bottom, #5bc0de, #2f96b4);
-    background-repeat: repeat-x;*/
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    margin-bottom:10px;
-
-background: #1976d2; /* Old browsers */
-background: -moz-linear-gradient(left,  #1976d2 0%, #b1d4ef 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, right top, color-stop(0%,#1976d2), color-stop(100%,#b1d4ef)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(left,  #1976d2 0%,#b1d4ef 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(left,  #1976d2 0%,#b1d4ef 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(left,  #1976d2 0%,#b1d4ef 100%); /* IE10+ */
-background: linear-gradient(to right,  #1976d2 0%,#b1d4ef 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1976d2', endColorstr='#b1d4ef',GradientType=1 ); /* IE6-9 */
-
+    background: #f3f3f3 none repeat scroll 0 0;
+    border-top: 1px solid #dddddd;
+    color: #2f96b4;
+    font-family: "Roboto Condensed",sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 38px;
+    margin-bottom: 10px;
+    padding: 6px;
+    text-transform: uppercase;
 
 }
 
@@ -703,6 +696,10 @@ h6,.page-content h6 a {font-weight: normal; font-style: normal; font-family: "He
 .dropdown-menu li:hover .sub-menu {visibility:visible;}
 
 .ddmenu.nav-pills li a {font-size: 16px; line-height: 17px; border-radius: 0px;}
+
+ddmenu > li > a:focus, ddmenu > li > a:hover {
+    color: #fff;
+}
 
 .ddmenu .dropdown-menu li a {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; line-height: 26px; font-size: 15px;}
 
