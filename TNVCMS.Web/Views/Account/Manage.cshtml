@@ -1,32 +1,31 @@
-﻿@model TNVCMS.Web.Models.LocalPasswordModel
+﻿@{
+    Layout = Request.IsAjaxRequest() ? null : "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@model TNVCMS.Web.Models.LocalPasswordModel
 @{
     ViewBag.Title = "Manage Account";
 }
-
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-</hgroup>
+@section header {
+    <h1>
+        @ViewBag.Title
+        <small>Đổi mật khẩu</small>
+    </h1>
+}
 
 <p class="message-success">@ViewBag.StatusMessage</p>
 
-<p>You're logged in as <strong>@User.Identity.Name</strong>.</p>
+<p>Bạn đang đăng nhập với tài khoản: <strong>@User.Identity.Name</strong>.</p>
 
 @if (ViewBag.HasLocalPassword)
 {
     @Html.Partial("_ChangePasswordPartial")
 }
 else
-{ 
+{
     @Html.Partial("_SetPasswordPartial")
 }
 
-<section id="externalLogins">
-    @Html.Action("RemoveExternalLogins")
 
-    <h3>Add an external login</h3>
-    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-</section>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
